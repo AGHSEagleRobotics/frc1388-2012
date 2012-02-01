@@ -6,15 +6,18 @@
 /**
  *
  *
- * @author ExampleAuthor
+ * @author David
  */
 class BallCollection: public Subsystem {
 private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
+	//Create variables for both Victors.
+	Victor *ballCollect2;
+	
+	
 public:
 	BallCollection();
 	void InitDefaultCommand();
+	void moveRollers(float speed);
 };
 
 #endif
