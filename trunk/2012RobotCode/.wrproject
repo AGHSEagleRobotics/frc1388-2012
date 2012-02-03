@@ -244,27 +244,16 @@
         </mapAttribute>
     </attributes>
     <buildtargets>
-        <buildtarget buildtool="Linker" name="CommandBasedRobotTemplate" passed="false" targetname="CommandBasedRobotTemplate">
+        <buildtarget buildtool="Linker" name="2012RobotCode" passed="false" targetname="2012RobotCode">
             <contents>
-                <buildtargetreference name="/CommandBasedRobotTemplate/CommandBassedRobotTemplate_partialImage"/>
+                <buildtargetreference name="/2012RobotCode/2012RobotCode_partialImage"/>
             </contents>
         </buildtarget>
-        <buildtarget buildtool="Partial Image Linker" name="CommandBassedRobotTemplate_partialImage" passed="true" targetname="CommandBassedRobotTemplate_partialImage">
+        <buildtarget buildtool="Partial Image Linker" name="2012RobotCode_partialImage" passed="true" targetname="2012RobotCode_partialImage">
             <contents>
-                <folder name="/CommandBasedRobotTemplate" recursive="true">
+                <folder name="/2012RobotCode" recursive="true">
                     <excludes>
                         <folder name=".svn"/>
-                        <file name="Subsystems/BallCollection.cpp"/>
-                        <file name="Subsystems/DriveTrain.cpp"/>
-                        <file name="Subsystems/Shooter.cpp"/>
-                        <file name="Subsystems/Turret.cpp"/>
-                        <file name="Commands/AxelSpeed.cpp"/>
-                        <file name="Commands/DriveWithJoystick.cpp"/>
-                        <file name="Commands/Fire.cpp"/>
-                        <file name="Commands/SetSpeed.cpp"/>
-                        <file name="Commands/TurretCommands.cpp"/>
-                        <file name="CommandBase.cpp"/>
-                        <folder name="Commands"/>
                     </excludes>
                 </folder>
             </contents>
