@@ -29,8 +29,8 @@ public:
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
 	void InitDefaultCommand();
-	void TurnRelative();
-	void TurnAbsolute();
+	void TurnRelative(double angle);
+	void TurnAbsolute(double angle);
 	
 	
 	

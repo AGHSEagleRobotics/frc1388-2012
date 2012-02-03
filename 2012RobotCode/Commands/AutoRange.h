@@ -1,5 +1,5 @@
-#ifndef AUTOAIM_H
-#define AUTOAIM_H
+#ifndef AUTORANGE_H
+#define AUTORANGE_H
 
 #include "../CommandBase.h"
 
@@ -8,9 +8,9 @@
  *
  * @author Jarrett
  */
-class AutoAim: public CommandBase {
+class AutoRange: public CommandBase {
 public:
-	AutoAim();
+	AutoRange();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

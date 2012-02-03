@@ -3,8 +3,7 @@
 
 BallCollection::BallCollection() : Subsystem("BallCollection")
 {
-	ballCollect2 = new Victor(BALL_COLLECTION_2);
-	
+//	ballCollect2 = new Victor(BALL_COLLECTION_2);
 }
     
 void BallCollection::InitDefaultCommand() {

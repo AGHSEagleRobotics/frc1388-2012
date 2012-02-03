@@ -45,7 +45,7 @@ void Turret::TurnRelative(double angle){
 	double currentAngle;
 	
 	currentAngle = turretGyro->GetAngle();
-	SetSetpoint((currentAngle + angle)%360.0);
+//	SetSetpoint((currentAngle + angle)%360.0);
 }
 void Turret::TurnAbsolute(double angle){
 	SetSetpoint(angle);

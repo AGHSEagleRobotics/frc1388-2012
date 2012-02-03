@@ -10,6 +10,9 @@
  * floating around.
  */
 
+#define CAMERA_IP "10.13.88.11"
+#define LIGHT_RING_PORT 1
+
 // Define the CAN IDs
 #define FRONT_LEFT_CAN_ID 1
 #define BACK_LEFT_CAN_ID 1
@@ -44,5 +47,8 @@
 #define BALL_DETECT 1
 #define CONVEYOR_BELT_VICTOR 1
 #define BALL_PASSED 1
+
+// define the ball colletor
+#define BALL_COLLECTION_2
 
 #endif
