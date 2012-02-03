@@ -82,6 +82,5 @@ bool Shooter::IsBallPrimed()
 
 bool Shooter::Passed()
 {
-	if(passed)
-		return true;
+	return passed;
 }
