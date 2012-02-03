@@ -29,4 +29,20 @@
 #define TURRET_ENCODER_A 1
 #define TURRET_ENCODER_B 1
 
+// define the bridge control
+#define BRIDGE_CONTROL_MOTOR 1
+
+//define the shooter
+#define TOP_AXEL_VICTOR 1	
+#define BOTTOM_AXEL_VICTOR 1
+#define TOP_AXEL_ENCODER_A 1
+#define TOP_AXEL_ENCODER_B 1
+#define BOTTOM_AXEL_ENCODER_A 1
+#define BOTTOM_AXEL_ENCODER_B 1
+#define TOP_AXEL_PID 1
+#define BOTTOM_AXEL_PID 1
+#define BALL_DETECT 1
+#define CONVEYOR_BELT_VICTOR 1
+#define BALL_PASSED 1
+
 #endif
