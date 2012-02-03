@@ -1,19 +1,15 @@
 #include "WPILib.h"
-//#include "Commands/AxelSpeed.h"
-//#include "Commands/DriveWithJoystick.h"
-//#include "Commands/Fire.h"
-//#include "Commands/SetSpeed.h"
-//#include "CommandBase.h"
-
-#include "Subsystems/Vision.h"
+#include "Commands/DriveWithJoystick.h"
+#include "CommandBase.h"
 
 class RobotMain : public IterativeRobot {
 private:
 	
-	Vision vision;
+	Command *driveWithJoystick;
 	
 	virtual void RobotInit() {
-//		CommandBase::init();
+		CommandBase::init();
+		driveWithJoystick = new DriveWithJoystick();
 	}
 	
 	virtual void AutonomousInit() {
@@ -24,16 +20,11 @@ private:
 	}
 	
 	virtual void TeleopInit() {
-		
+		driveWithJoystick->Start();
 	}
 	
 	virtual void TeleopPeriodic() {
-//		Scheduler::GetInstance()->Run();
-		int numMatches = -1;
-		vision.findRectangles(numMatches);
-		printf("numMatches:%d\n", numMatches);
-//		printf("error:%d\n", imaqGetLastError());
-//		printf("numTargets:%d\n",vision.findRectangles()->size());
+		Scheduler::GetInstance()->Run();
 	}
 };
 

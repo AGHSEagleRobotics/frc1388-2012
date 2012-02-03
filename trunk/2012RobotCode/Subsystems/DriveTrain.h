@@ -19,12 +19,21 @@ private:
 	// Create a variable for the main robot drive
 	RobotDrive *drive;
 	
-	// Create a variable for le Gyro
+	// Create a variable for the Gyro
 	Gyro *gyro;
 	
 	// Declare a function for getting the gyro angle in case we decide
 	// go add compensation for drift
 	float getGyroAngle();
+	
+	// Creat some variables for gyro trim.
+	bool *prevOpButtons;
+	float gyroTrim;
+	
+	static const int FINE_LEFT_BUTTON = 3; //CHANGE TO CORRECT NUMBERS.
+	static const int FINE_RIGHT_BUTTON = 4;
+	static const int COARSE_LEFT_BUTTON = 5;
+	static const int COARSE_RIGHT_BUTTON = 6;
 	
 public:
 	DriveTrain();
