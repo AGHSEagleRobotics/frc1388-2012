@@ -23,7 +23,7 @@ public:
 	// Create a single static instance of all of your subsystems
 	static BallCollection *ballCollection;
 	static DriveTrain *driveTrain;
-//	static Shooter *shooter;
+	static Shooter *shooter;
 	static Turret *turret;
 	static Vision *vision;
 	static OI *oi;

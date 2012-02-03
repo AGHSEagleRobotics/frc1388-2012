@@ -1,5 +1,5 @@
-#ifndef AUTOAIM_H
-#define AUTOAIM_H
+#ifndef VISIONCOMMAND_H
+#define VISIONCOMMAND_H
 
 #include "../CommandBase.h"
 
@@ -8,9 +8,9 @@
  *
  * @author Jarrett
  */
-class AutoAim: public CommandBase {
+class VisionCommand: public CommandBase {
 public:
-	AutoAim();
+	VisionCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
