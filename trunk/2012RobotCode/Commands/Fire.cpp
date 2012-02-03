@@ -8,48 +8,48 @@ Fire::Fire()
 // Called just before this Command runs the first time
 void Fire::Initialize()
 {
-	Joystick *opsStick = oi->GetOpsStick();
-	DigitalInput openedStop = new Victor(1, OPENED_LIMIT_SWITCH);
-	DigitalInput closedStop = new Victor(1, CLOSED_LIMIT_SWITCH);
-	DigitalInput passed = new Victor(1, PASSED_LIMIT_SWITCH);
-	Victor ballStop = new Victor(1, BALL_STOP_MOTOR);
-
+	
+}
 // Called repeatedly when this Command is scheduled to run
 void Fire::Execute()
 {
-	bool trigger = opsStick->GetButton(Joystick::kTriggerButton);
-	bool opened = shooter->openedStop;
-	bool closed = shooter->closedStop;
-	if(trigger)
-	{
-		if(closed)
-		{
-			ballStop = -0.5;
-		}
-		
-		if(open)
-		{
-			ballStop = 0;
-		}
+	// design has decided not to use a pice of metal to stop the ball before it
+	// enters the shooter so the code below in comments is obsolete and the 
+	// conveyer will turn off and on to control the balls that go into the shooter.
 	
-		if(passed)
-		{
-			ballStop = 0.5;
-		}
-		
-	}
-
-
-	}
+//	bool trigger = oi->getOpsStick()->GetButton(Joystick::kTriggerButton);
+//	bool opened = shooter->openedStop.Get();
+//	bool closed = shooter->closedStop.Get();
+//	float ballStop = shooter->ballStop.Get();
+//	bool passed = shooter->passed.Get();
+//	if(trigger)
+//	{
+//		if(closed)
+//		{
+//			ballStop = -0.75;
+//		}
+//		
+//		if(opened)
+//		{
+//			ballStop = 0;
+//		}
+//	
+//		if(passed)
+//		{
+//			ballStop = 0.75;
+//		}
+//		
+//	}
+	
+	shooter->MoveConveyor();
 	
 	
-			
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Fire::IsFinished(passed)
+bool Fire::IsFinished()
 {
-	return true;
+	return (shooter->Passed());
 }
 
 // Called once after isFinished returns true
