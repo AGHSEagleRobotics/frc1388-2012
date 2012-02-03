@@ -20,6 +20,9 @@ Vision::Vision() : Subsystem("Vision") {
 	particles = NULL;
 	
 	lightRing = new Relay(DEFAULT_DIGITAL_MODULE, LIGHT_RING_PORT, Relay::kForwardOnly);
+	lightRing->Set(Relay::kOn);
+	
+	hasTargets = false;
 }
     
 void Vision::InitDefaultCommand() {
@@ -27,7 +30,7 @@ void Vision::InitDefaultCommand() {
 	//SetDefaultCommand(new MySpecialCommand());
 }
 
-vector<ParticleAnalysisReport> *Vision::particleAnalysis()
+int Vision::particleAnalysis()
 {
 	// Get an instance of the Axis Camera
 	AxisCamera &camera = AxisCamera::GetInstance(CAMERA_IP);
@@ -42,9 +45,8 @@ vector<ParticleAnalysisReport> *Vision::particleAnalysis()
 //		printf("binImage is %s\n", binImage ? "not null" : "null");
 		
 		if(!colorImage || !binImage)
-			return NULL;
+			return -1;
 		
-<<<<<<< .mine
 		printDebug("Getting Particle Analysis Report.");
 		if (particles)
 		{
@@ -54,10 +56,11 @@ vector<ParticleAnalysisReport> *Vision::particleAnalysis()
 		if(!particles)
 		{
 			printDebug("NULL PARTICLES");
-			return NULL;
+			return -1;
 		}
 		if(!particles->empty())
 		{
+			hasTargets = true;
 			printDebug("Stepping through particle report to remove particles with area too small.");
 			// Step through the particles and elimate any that are too small
 			for (int i = 0; i<(int)particles->size(); i++) 
@@ -74,22 +77,13 @@ vector<ParticleAnalysisReport> *Vision::particleAnalysis()
 			}
 		}else 
 		{
+			hasTargets = false;
 			targetParticle.center_mass_x_normalized = 0;
 		}
-=======
-		int numCurrentMatches;
-		RectangleMatch *temp;
-		temp = imaqDetectRectangles(imaqImage,
-									 rectangleDescriptor,
-									 NULL,	// Default curve options as per manual
-									 NULL,	// Default shape detection options
-									 NULL,	// (ROI) Whole image should be searched
-									 &numCurrentMatches);
->>>>>>> .r14
 		
 		if (colorImage)
 		{
-			printDebug("Deleting coloImages.");
+			printDebug("Deleting colorImages.");
 			delete colorImage;
 		}
 		if (binImage)
@@ -106,7 +100,7 @@ vector<ParticleAnalysisReport> *Vision::particleAnalysis()
 	if (particles && particles->size())
 		targetParticle = particles->at(0);
 	
-	return particles;
+	return particles->size();
 }
 
 void Vision::setTargetParticle(int index)
@@ -119,7 +113,23 @@ double Vision::getNormalizedXPosition()
 	return targetParticle.center_mass_x_normalized;
 }
 
+int Vision::getXPosition()
+{
+	return targetParticle.center_mass_x;
+}
+
 double Vision::getNormalizedYPosition()
 {
 	return targetParticle.center_mass_x_normalized;
+}
+
+int Vision::getYPosition()
+{
+	return targetParticle.center_mass_y;
+}
+
+float Vision::getDistance()
+{
+	// This relationship was determined using LoggerPro
+	return 7327.0/(float)targetParticle.boundingRect.height;
 }

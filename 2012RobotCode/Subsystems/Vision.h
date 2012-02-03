@@ -31,14 +31,15 @@ private:
 	// Varialbe to store the rectangle mathces
 	vector<ParticleAnalysisReport> *particles;
 	ParticleAnalysisReport targetParticle;
+	bool hasTargets;
 public:
 	Vision();
 	void InitDefaultCommand();
 	
 	/*
-	 * Analyze the image and return a vector containing all the matches
+	 * Analyze the image and the number of targets found
 	 */
-	vector<ParticleAnalysisReport> *particleAnalysis();
+	int particleAnalysis();
 	
 	/**
 	 * Set which particle in the vector to use as the target
@@ -53,15 +54,24 @@ public:
 	double getNormalizedXPosition();
 	
 	/**
+	 * Gets the x coordinate of particle
+	 */
+	int getXPosition();
+	
+	/**
 	 * Gets a normalized y distance from the center of the screen
 	 * 
 	 * @return A number between -1.0 and 1.0 representing the distance from the center
 	 */
 	double getNormalizedYPosition();
 	
+	/**
+	 * Gets the y coordinate of particle
+	 */
+	int getYPosition();
+	
 	/*
-	 * Use the pixel count of the rectangle to determine distance
-	 * Returns -1 if there are no targets  
+	 * Use the pixel count of the rectangle to determine distance in inches
 	 */
 	float getDistance();
 };
