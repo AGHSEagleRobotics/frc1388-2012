@@ -42,10 +42,11 @@ void Turret::InitDefaultCommand()
 void Turret::TurnRelative(double angle){
 	// TurnRelative is a function for specifying a turn by number of 
 	// degrees, i.e. "turn turret -5 degrees."
-	double currentAngle;
+	double currentAngle, offset;
 	
 	currentAngle = turretGyro->GetAngle();
-	SetSetpoint((currentAngle + angle)%360.0);
+	offset = (int)(currentAngle + angle) % 360;
+	SetSetpoint(offset);
 }
 void Turret::TurnAbsolute(double angle){
 	SetSetpoint(angle);

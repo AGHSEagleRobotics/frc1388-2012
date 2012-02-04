@@ -10,14 +10,15 @@ AutoAim::AutoAim()
 // Called just before this Command runs the first time
 void AutoAim::Initialize()
 {
-	double angle;
+	
 }
 
 // Called repeatedly when this Command is scheduled to run
 void AutoAim::Execute()
 {
 	// the Axis Camera field of vierw is 47 degrees
-
+	double angle;
+	double xDistance;
 	int targets = vision->getNumberOfTargets();
 	
 	int maxHeight = 0, maxIndex = 0; 
