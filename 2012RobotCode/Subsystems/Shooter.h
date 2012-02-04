@@ -17,17 +17,17 @@ private:
 		
 public:
 	Shooter();
-	void InitDefaultCommand();
-	void SetRange(float distance);
-	void TopAxelPID();
-	void BottomAxelPID();
-	void SetTopAxel(float fShooterSpeed);
-	void SetBottomAxel(float fShooterSpeed);
-	void MoveConveyor();
-	bool IsBallPrimed();
-	bool Passed();
-	SendablePIDController *getTopAxelPID();
-	SendablePIDController *getBottomAxelPID();
+	virtual void InitDefaultCommand();
+	virtual void SetRange(float distance);
+	virtual void TopAxelPID();
+	virtual void BottomAxelPID();
+	virtual void SetTopAxel(float fShooterSpeed);
+	virtual void SetBottomAxel(float fShooterSpeed);
+	virtual void MoveConveyor();
+	virtual bool IsBallPrimed();
+	virtual bool Passed();
+	virtual SendablePIDController *getTopAxelPID();
+	virtual SendablePIDController *getBottomAxelPID();
 		
 };
 

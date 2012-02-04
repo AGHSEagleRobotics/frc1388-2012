@@ -2,11 +2,18 @@
 #define COMMAND_BASE_H
 
 #include "Commands/Command.h"
+
 #include "Subsystems/BallCollection.h"
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Shooter.h"
 #include "Subsystems/Turret.h"
 #include "Subsystems/Vision.h"
+
+#include "Subsystems/BallCollectionSim.h"
+#include "Subsystems/DriveTrainSim.h"
+#include "Subsystems/ShooterSim.h"
+#include "Subsystems/TurretSim.h"
+
 #include "OI.h"
 
 

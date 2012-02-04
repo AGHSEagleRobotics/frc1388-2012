@@ -145,3 +145,8 @@ void Vision::setLowRes()
 	AxisCamera &camera = AxisCamera::GetInstance(CAMERA_IP);
 	camera.WriteResolution(CAMERA_LOW_RESOLUTION);
 }
+
+int Vision::getNumberOfTargets()
+{
+	return particles->size();
+}

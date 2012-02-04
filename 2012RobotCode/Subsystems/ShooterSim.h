@@ -2,8 +2,9 @@
 #define SHOOTERSIM	_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
+#include "Shooter.h"
 
-class ShooterSim: public Subsystem {
+class ShooterSim: public Shooter {
 private:
 
 		

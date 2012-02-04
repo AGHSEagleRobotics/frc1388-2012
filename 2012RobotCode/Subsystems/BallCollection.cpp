@@ -1,17 +1,17 @@
-#include "BallCollectionSim.h"
+#include "BallCollection.h"
 #include "../Robotmap.h"
 
-BallCollectionSim::BallCollectionSim() : Subsystem("BallCollectionSim")
+BallCollection::BallCollection() : Subsystem("BallCollection")
 {
 
 }
     
-void BallCollectionSim::InitDefaultCommand()
+void BallCollection::InitDefaultCommand()
 {
 
 }
 
-void BallCollectionSim::moveRollers(float speed)
+void BallCollection::moveRollers(float speed)
 {
 
 }

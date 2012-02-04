@@ -1,21 +1,21 @@
-#ifndef BALL_COLLECTION_H
-#define BALL_COLLECTION_H
+#ifndef BALL_COLLECTIONSIM_H
+#define BALL_COLLECTIONSIM_H
 #include "Commands/Subsystem.h"
+#include "BallCollection.h"
 #include "WPILib.h"
 
 /**
  *
  *
- * @author David
+ * @author Jarrett
  */
-class BallCollection: public Subsystem {
+class BallCollectionSim: public BallCollection
+{
 private:
-	//Create variables for both Victors.
-	Victor *ballCollect2;
 	
 	
 public:
-	BallCollection();
+	BallCollectionSim();
 	void InitDefaultCommand();
 	void moveRollers(float speed);
 };

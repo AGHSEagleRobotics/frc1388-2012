@@ -1,7 +1,7 @@
 #include "DriveTrainSim.h"
 #include "../Robotmap.h"
 
-DriveTrainSim::DriveTrainSim() : Subsystem("DriveTrainSim")
+DriveTrainSim::DriveTrainSim()
 {
 	
 }
@@ -28,5 +28,5 @@ void DriveTrainSim::driveWithJoystick(Joystick *joystick)
 
 float DriveTrainSim::getGyroAngle()
 {
-
+	return 0;
 }
