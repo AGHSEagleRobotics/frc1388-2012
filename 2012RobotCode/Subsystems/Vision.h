@@ -16,7 +16,8 @@ private:
 	// Need to tweek this number based off distance
 	static const double MIN_PARTICLE_AREA = 100;
 	
-	static const AxisCamera::Resolution_t CAMERA_RESOLUTION = AxisCamera::kResolution_320x240;
+	static const AxisCamera::Resolution_t CAMERA_LOW_RESOLUTION = AxisCamera::kResolution_320x240;
+	static const AxisCamera::Resolution_t CAMERA_HIGH_RESOLUTION = AxisCamera::kResolution_640x480;
 	static const int CAMERA_COMPRESSION = 30;
 	static const int CAMERA_BRIGHTNESS = 25;
 	static const int CAMERA_FPS = 15;
@@ -75,11 +76,17 @@ public:
 	 */
 	float getDistance();
 	
-	int getNumberOfTargets();
+	/*
+	 * Sets the Camera to high Resolution for acquiring a good image so
+	 * we can be accurate when shooting
+	 */
+	void setHighRes();
 	
 	/*
-	 * Returns the number of targets in the field of view of the camera
+	 * Sets the camera to low resolution so that we can get a higher framerate
+	 * for the original acquisition of the target
 	 */
+	void setLowRes();
 };
 
 #endif
