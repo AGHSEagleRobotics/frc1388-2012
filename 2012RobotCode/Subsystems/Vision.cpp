@@ -133,3 +133,8 @@ float Vision::getDistance()
 	// This relationship was determined using LoggerPro
 	return 7327.0/(float)targetParticle.boundingRect.height;
 }
+
+int Vision::getNumberOfTargets()
+{
+	return particles->size();
+}

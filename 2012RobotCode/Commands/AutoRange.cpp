@@ -17,6 +17,7 @@ void AutoRange::Initialize()
 void AutoRange::Execute()
 {
 	float distance;
+	distance = vision->getDistance();
 	// the AutoRange command will set the motors controlling the top and bottom
 	// shooter axels to desired speed
 	shooter->SetRange(distance);

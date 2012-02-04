@@ -74,6 +74,12 @@ public:
 	 * Use the pixel count of the rectangle to determine distance in inches
 	 */
 	float getDistance();
+	
+	int getNumberOfTargets();
+	
+	/*
+	 * Returns the number of targets in the field of view of the camera
+	 */
 };
 
 #endif
