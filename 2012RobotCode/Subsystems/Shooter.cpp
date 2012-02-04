@@ -71,14 +71,7 @@ void Shooter::MoveConveyor()
 
 bool Shooter::IsBallPrimed()
 {
-	if(ballDetect->GetVoltage() < 0.04)
-	{
-		return true;
-	}
-	else
-	{	
-		return false;
-	}
+	return (ballDetect->GetVoltage() < 0.04);
 }
 
 bool Shooter::Passed()
