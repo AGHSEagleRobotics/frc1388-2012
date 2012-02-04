@@ -26,6 +26,7 @@ public:
 	static Shooter *shooter;
 	static Turret *turret;
 	static Vision *vision;
+	
 	static OI *oi;
 };
 

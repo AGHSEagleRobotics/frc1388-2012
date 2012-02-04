@@ -19,11 +19,25 @@ OI* CommandBase::oi = NULL;
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
-	ballCollection = new BallCollection();
+
+#ifdef SIMULATE 
+	driveTrain = new DriveTrainSim();
+	ballCollection = new BallCollectionSim();
+	shooter = new ShooterSim();
+	turret = new TurretSim();
+#else 
 	driveTrain = new DriveTrain();
+	ballCollection = new BallCollection();
 	shooter = new Shooter();
 	turret = new Turret();
+
+#endif
+
 	vision = new Vision();
 	
 	oi = new OI();
+	
+	// send the PID's to the SmartDashboard
+	SmartDashboard::GetInstance()->PutData("TopAxelPID", shooter->getTopAxelPID());
+	SmartDashboard::GetInstance()->PutData("BottomAxelPID", shooter->getBottomAxelPID());
 }
