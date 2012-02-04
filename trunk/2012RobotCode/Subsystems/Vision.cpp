@@ -8,7 +8,7 @@ Vision::Vision() : Subsystem("Vision") {
 	AxisCamera &camera = AxisCamera::GetInstance(CAMERA_IP);
 	
 	// Write some configuration to the camera
-	camera.WriteResolution(CAMERA_RESOLUTION);
+	camera.WriteResolution(CAMERA_LOW_RESOLUTION);
 	camera.WriteCompression(CAMERA_COMPRESSION);
 	camera.WriteBrightness(CAMERA_BRIGHTNESS);
 	camera.WriteMaxFPS(CAMERA_FPS);
@@ -134,7 +134,14 @@ float Vision::getDistance()
 	return 7327.0/(float)targetParticle.boundingRect.height;
 }
 
-int Vision::getNumberOfTargets()
+void Vision::setHighRes()
 {
-	return particles->size();
+	AxisCamera &camera = AxisCamera::GetInstance(CAMERA_IP);
+	camera.WriteResolution(CAMERA_HIGH_RESOLUTION);
+}
+
+void Vision::setLowRes()
+{
+	AxisCamera &camera = AxisCamera::GetInstance(CAMERA_IP);
+	camera.WriteResolution(CAMERA_LOW_RESOLUTION);
 }
