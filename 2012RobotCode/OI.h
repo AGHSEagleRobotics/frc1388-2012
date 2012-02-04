@@ -15,6 +15,8 @@ private:
 	Joystick *joystick;
 	Joystick *opsStick;
 	Joystick *ioStick;
+	JoystickButton *ToTheLeft;
+	JoystickButton *ToTheRight;
 
 public:
 	
