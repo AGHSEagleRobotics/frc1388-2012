@@ -26,11 +26,11 @@ private:
 	
 public:
 	Turret();
-	double ReturnPIDInput();
-	void UsePIDOutput(double output);
-	void InitDefaultCommand();
-	void TurnRelative(double angle);
-	void TurnAbsolute(double angle);
+	virtual double ReturnPIDInput();
+	virtual void UsePIDOutput(double output);
+	virtual void InitDefaultCommand();
+	virtual void TurnRelative(double angle);
+	virtual void TurnAbsolute(double angle);
 	
 	
 	

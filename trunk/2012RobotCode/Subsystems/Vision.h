@@ -87,6 +87,11 @@ public:
 	 * for the original acquisition of the target
 	 */
 	void setLowRes();
+	
+	int getNumberOfTargets();
+	/*
+	 * gets the number of targets in the camera's field of view
+	 */
 };
 
 #endif

@@ -1,9 +1,8 @@
-
 #include "ShooterSim.h"
 #include "../Robotmap.h"
 #include "../OI.h"
 
-ShooterSim::ShooterSim() : Subsystem("ShooterSim") 
+ShooterSim::ShooterSim()
 {
 
 }
@@ -45,10 +44,10 @@ void ShooterSim::MoveConveyor()
 
 bool ShooterSim::IsBallPrimed()
 {
-	
+	return true;
 }
 
 bool ShooterSim::Passed()
 {
-	
+	return true;
 }
