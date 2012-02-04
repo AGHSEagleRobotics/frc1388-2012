@@ -24,13 +24,14 @@ void Shooter::InitDefaultCommand()
 void Shooter::SetRange(float distance)
 {	
 	float speed, m = 0.6981, b = 16.5255;
+	// fps_to_rpm is a ratio of 1 rpm / 0.034907 fps
 	float fps_to_rpm = 0.034907, max_rpm = 2500.0;
 	
 	// use the distance (feet) to calculate the rpm of the top and bottom axel to
 	// achieve the proper velocity to make a basket
 	speed = ((m * distance) + b) / fps_to_rpm;
-	SetTopAxel(speed/max_rpm);
-	SetBottomAxel (speed/max_rpm);
+	shooter->SetTopAxel (speed/max_rpm);
+	shooter->SetBottomAxel (speed/max_rpm);
 }
 
 void Shooter::TopAxelPID()
@@ -65,7 +66,7 @@ void Shooter::SetBottomAxel(float fShooterSpeed)
 
 void Shooter::MoveConveyor()
 {
-		conveyorBelt->Set(0.5);
+	conveyorBelt->Set(0.5);
 }
 
 bool Shooter::IsBallPrimed()
