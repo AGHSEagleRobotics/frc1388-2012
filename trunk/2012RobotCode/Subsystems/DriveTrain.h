@@ -24,7 +24,7 @@ private:
 	
 	// Declare a function for getting the gyro angle in case we decide
 	// go add compensation for drift
-	float getGyroAngle();
+	virtual float getGyroAngle();
 	
 	// Creat some variables for gyro trim.
 	bool *prevOpButtons;
@@ -37,10 +37,10 @@ private:
 	
 public:
 	DriveTrain();
-	void InitDefaultCommand();
-	void mecanumDrive_Polar(float direction, float power);
-	void mecanumDrive_Cartesian(float x, float y, float rotation);
-	void driveWithJoystick(Joystick *joystick);
+	virtual void InitDefaultCommand();
+	virtual void mecanumDrive_Polar(float direction, float power);
+	virtual void mecanumDrive_Cartesian(float x, float y, float rotation);
+	virtual void driveWithJoystick(Joystick *joystick);
 };
 
 #endif
