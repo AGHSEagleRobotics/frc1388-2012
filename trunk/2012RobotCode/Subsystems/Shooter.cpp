@@ -30,8 +30,8 @@ void Shooter::SetRange(float distance)
 	// use the distance (feet) to calculate the rpm of the top and bottom axel to
 	// achieve the proper velocity to make a basket
 	speed = ((m * distance) + b) / fps_to_rpm;
-	shooter->SetTopAxel (speed/max_rpm);
-	shooter->SetBottomAxel (speed/max_rpm);
+	SetTopAxel (speed/max_rpm);
+	SetBottomAxel (speed/max_rpm);
 }
 
 void Shooter::TopAxelPID()
