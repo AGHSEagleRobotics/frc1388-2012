@@ -1,22 +1,14 @@
-#ifndef SHOOTER_H
-#define SHOOTER_H
+#ifndef SHOOTERSIM_H
+#define SHOOTERSIM	_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 
-class Shooter: public Subsystem {
+class ShooterSim: public Subsystem {
 private:
-	Victor *topAxel;
-	Victor *bottomAxel;
-	Encoder *topAxelEncoder;
-	Encoder *bottomAxelEncoder;
-	SendablePIDController *pidTopAxel;
-	SendablePIDController *pidBottomAxel;
-	AnalogChannel *ballDetect;
-	DigitalInput *passed;
-	Victor *conveyorBelt;
+
 		
 public:
-	Shooter();
+	ShooterSim();
 	void InitDefaultCommand();
 	void SetRange(float distance);
 	void TopAxelPID();

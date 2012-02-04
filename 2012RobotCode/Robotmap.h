@@ -1,6 +1,8 @@
 #ifndef ROBOTMAP_H
 #define ROBOTMAP_H
 
+#define SIMULATE
+
 #include "Debug.h"
 
 /**
