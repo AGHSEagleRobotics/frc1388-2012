@@ -11,7 +11,7 @@ void DriveWithJoystick::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoystick::Execute() {
-	driveTrain->driveWithJoystick(oi->getJoystick());
+	driveTrain->driveWithJoystick(oi->getDriveStick());
 }
 
 // Is always being used. Never return true
