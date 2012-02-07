@@ -254,6 +254,7 @@
                 <folder name="/2012RobotCode" recursive="true">
                     <excludes>
                         <folder name=".svn"/>
+                        <folder name="Commands/Obsolete"/>
                     </excludes>
                 </folder>
             </contents>
