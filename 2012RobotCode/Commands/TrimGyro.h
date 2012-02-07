@@ -1,16 +1,16 @@
-#ifndef COLLECT_H
-#define COLLECT_H
+#ifndef TRIMGYRO_H
+#define TRIMGYRO_H
 
 #include "../CommandBase.h"
 
 /**
  *
  *
- * @author Davey
+ * @author ag291863
  */
-class Collect: public CommandBase {
+class TrimGyro: public CommandBase {
 public:
-	Collect();
+	TrimGyro();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
