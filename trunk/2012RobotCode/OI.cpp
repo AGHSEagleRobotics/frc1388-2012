@@ -10,6 +10,8 @@
 #include "Commands/Collect.h"
 #include "Commands/NoBallColletion.h"
 #include "Commands/Eject.h"
+#include "Commands/RotateLeft.h"
+#include "Commands/RotateRight.h"
 
 OI::OI() {
 	driveStick = new Joystick(DRIVESTICK_PORT);
@@ -44,6 +46,9 @@ OI::OI() {
 	ballSweepIn = new JoystickButton (buttonStick, 5);
 	ballSweepOff = new JoystickButton (buttonStick, 6);
 	ballSweepOut = new JoystickButton (buttonStick, 7);
+// Simulation buttons
+	toTheLeft = new JoystickButton (driveStick, 1);
+	toTheRight = new JoystickButton (driveStick, 2);
 
 //Tell the buttons what to do when pressed or held
 
@@ -73,6 +78,8 @@ OI::OI() {
 	ballSweepIn->WhenPressed(new Collect());
 	ballSweepOff->WhenPressed(new NoBallColletion());
 	ballSweepOut->WhileHeld(new Eject());
+	toTheLeft->WhenPressed(new RotateLeft());
+	toTheRight->WhenPressed(new RotateRight());
 
 }
 Joystick * OI::getDriveStick() {
