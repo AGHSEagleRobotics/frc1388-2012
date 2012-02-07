@@ -1,16 +1,16 @@
-#ifndef ELEVUP_H
-#define ELEVUP_H
+#ifndef BALLCOLLECT_H
+#define BALLCOLLECT_H
 
 #include "../CommandBase.h"
 
 /**
  *
  *
- * @author ag291863
+ * @author Davey
  */
-class ElevUp: public CommandBase {
+class BallCollect: public CommandBase {
 public:
-	ElevUp();
+	BallCollect();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

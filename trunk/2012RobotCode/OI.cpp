@@ -1,13 +1,33 @@
+/*
+ * Commands That Need To Be Created
+(already done with OI code for all these)
+(if you change the class names tell me, please)
+
+1.ManualAim - Needs to make it so when the switch is on ManualAim,
+ the operator can aim manually using the X-Axis of the 
+operator joystick.
+
+2.ManualRange - Needs to make it so when the switch is on ManualRange,
+the operator can set the range manually using a slider which is the
+Y-Axis of the button joystick.
+
+3.MoveElevator - Needs to prime the ball, move the elevator up, and
+move the elevator down. 
+
+4.MoveTipper- Needs to extend and retract the tipper.
+ */
+
+
 #include "OI.h"
-//#include "Commands/TrimGyro.h"
+#include "Commands/TrimGyro.h"
 #include "Commands/MoveTipper.h"
 #include "Commands/Fire.h"
 #include "Commands/MoveElevator.h"
 #include "Commands/AutoAim.h"
-#include "Commands/Aim.h"
+#include "Commands/ManualAim.h"
 #include "Commands/AutoRange.h"
 #include "Commands/ManualRange.h"
-#include "Commands/Collect.h"
+#include "Commands/BallCollect.h"
 #include "Commands/NoBallColletion.h"
 #include "Commands/Eject.h"
 #include "Commands/RotateLeft.h"
@@ -72,10 +92,10 @@ OI::OI() {
 //	prime4->WhenPressed(new MoveElevator(MoveElevator::prime);
 //buttonStick buttons	
 	autoAimOn->WhenPressed(new AutoAim());
-	autoAimOff->WhenPressed(new Aim()); 
+	autoAimOff->WhenPressed(new ManualAim()); 
 	autoRangeOn->WhenPressed(new AutoRange());
 	autoRangeOff->WhenPressed(new ManualRange());
-	ballSweepIn->WhenPressed(new Collect());
+	ballSweepIn->WhenPressed(new BallCollect());
 	ballSweepOff->WhenPressed(new NoBallColletion());
 	ballSweepOut->WhileHeld(new Eject());
 	toTheLeft->WhenPressed(new RotateLeft());
@@ -91,38 +111,3 @@ Joystick * OI::getOpStick() {
 Joystick * OI::getButtonStick() {
 	return buttonStick;
 }
-
-//#include "OI.h"
-//#include "Commands/RotateLeft.h"
-//#include "Commands/RotateRight.h"
-//
-//
-//OI::OI()
-//{
-//	joystick = new Joystick(DRIVER_STICK_PORT);
-//	opsStick = new Joystick(SHOOTER_STICK_PORT);
-//	ioStick = new Joystick(IO_STICK_PORT);
-//	
-//	ToTheLeft = new JoystickButton(joystick, 4);
-//	ToTheRight = new JoystickButton(joystick, 5);
-//	
-//	ToTheLeft->WhenPressed(new RotateLeft());
-//	ToTheRight->WhenPressed(new RotateRight());
-//}
-
-//Joystick *OI::getJoystick()
-//{
-//	return joystick;
-//}
-//
-//
-//Joystick *OI::getOpsStick()
-//{
-//	return opsStick;
-//}
-//
-//Joystick *OI::getIOStick()
-//{
-//	return ioStick;
-//}
-

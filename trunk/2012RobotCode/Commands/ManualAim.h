@@ -1,5 +1,5 @@
-#ifndef AIM_H
-#define AIM_H
+#ifndef MANUALAIM_H
+#define MANUALAIM_H
 
 #include "../CommandBase.h"
 
@@ -8,9 +8,9 @@
  *
  * @author ag291863
  */
-class Aim: public CommandBase {
+class ManualAim: public CommandBase {
 public:
-	Aim();
+	ManualAim();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

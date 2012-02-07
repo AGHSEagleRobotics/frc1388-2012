@@ -28,7 +28,7 @@ void CommandBase::init() {
 	turret = new TurretSim();
 #else 
 	driveTrain = new DriveTrain();
-	ballCollection = new BallCollection();
+	ballCollection = new BallCollect();
 	shooter = new Shooter();
 	turret = new Turret();
 
