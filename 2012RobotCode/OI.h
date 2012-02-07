@@ -37,6 +37,9 @@ private:
 	JoystickButton *ballSweepIn; //5
 	JoystickButton *ballSweepOff; //6
 	JoystickButton *ballSweepOut; //7
+// Simulation buttons
+	JoystickButton *toTheLeft; //1
+	JoystickButton *toTheRight; //2
 	
 public:
 	OI();
