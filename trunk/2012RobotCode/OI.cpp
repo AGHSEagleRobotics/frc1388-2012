@@ -6,7 +6,7 @@
 #include "Commands/AutoAim.h"
 #include "Commands/Aim.h"
 #include "Commands/AutoRange.h"
-#include "Commands/Range.h"
+#include "Commands/ManualRange.h"
 #include "Commands/Collect.h"
 #include "Commands/NoBallColletion.h"
 #include "Commands/Eject.h"
@@ -23,7 +23,7 @@ OI::OI() {
 	fineTrimRight = new JoystickButton (driveStick, 4);
 	coarseTrimLeft = new JoystickButton (driveStick, 5);
 	coarseTrimRight = new JoystickButton (driveStick, 6);
-	zeroGryo = new JoystickButton (driveStick, 7);
+	zeroGyro = new JoystickButton (driveStick, 7);
 	extendTipper1 = new JoystickButton (driveStick, 9);
 	extendTipper2 = new JoystickButton (driveStick, 10);
 	retractTipper1 = new JoystickButton (driveStick, 11);
@@ -69,10 +69,10 @@ OI::OI() {
 	autoAimOn->WhenPressed(new AutoAim());
 	autoAimOff->WhenPressed(new Aim()); 
 	autoRangeOn->WhenPressed(new AutoRange());
-	autoRangeOff->WhenPressed(new Range());
+	autoRangeOff->WhenPressed(new ManualRange());
 	ballSweepIn->WhenPressed(new Collect());
 	ballSweepOff->WhenPressed(new NoBallColletion());
-	ballSweepOut->WhenHeld(new Eject());
+	ballSweepOut->WhileHeld(new Eject());
 
 }
 Joystick * OI::getDriveStick() {

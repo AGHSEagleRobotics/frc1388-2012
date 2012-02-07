@@ -1,5 +1,5 @@
-#ifndef RANGE_H
-#define RANGE_H
+#ifndef MANUALRANGE_H
+#define MANUALRANGE_H
 
 #include "../CommandBase.h"
 
@@ -8,9 +8,9 @@
  *
  * @author ag291863
  */
-class Range: public CommandBase {
+class ManualRange: public CommandBase {
 public:
-	Range();
+	ManualRange();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
