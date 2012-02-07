@@ -37,6 +37,7 @@ private:
 	JoystickButton *ballSweepIn; //5
 	JoystickButton *ballSweepOff; //6
 	JoystickButton *ballSweepOut; //7
+	JoystickButton *autoLevel;//8
 // Simulation buttons
 	JoystickButton *toTheLeft; //1
 	JoystickButton *toTheRight; //2

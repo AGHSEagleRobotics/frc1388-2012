@@ -32,6 +32,7 @@ move the elevator down.
 #include "Commands/Eject.h"
 #include "Commands/RotateLeft.h"
 #include "Commands/RotateRight.h"
+#include "Commands/AutoLevel.h"
 
 OI::OI() {
 	driveStick = new Joystick(DRIVESTICK_PORT);
@@ -66,6 +67,7 @@ OI::OI() {
 	ballSweepIn = new JoystickButton (buttonStick, 5);
 	ballSweepOff = new JoystickButton (buttonStick, 6);
 	ballSweepOut = new JoystickButton (buttonStick, 7);
+	autoLevel= new JoystickButton (buttonStick, 8);
 // Simulation buttons
 	toTheLeft = new JoystickButton (driveStick, 1);
 	toTheRight = new JoystickButton (driveStick, 2);
@@ -100,6 +102,7 @@ OI::OI() {
 	ballSweepOut->WhileHeld(new Eject());
 	toTheLeft->WhenPressed(new RotateLeft());
 	toTheRight->WhenPressed(new RotateRight());
+	autoLevel->WhenPressed (new AutoLevel);
 
 }
 Joystick * OI::getDriveStick() {
