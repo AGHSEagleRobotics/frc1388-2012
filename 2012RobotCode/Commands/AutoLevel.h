@@ -6,7 +6,7 @@
 /**
  *
  *
- * @author ag291863
+ * @author Davey
  */
 class AutoLevel: public CommandBase {
 public:
