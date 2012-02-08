@@ -3,6 +3,7 @@
 AutoLevel::AutoLevel() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
+	Requires(driveTrain);
 }
 
 // Called just before this Command runs the first time
@@ -12,6 +13,7 @@ void AutoLevel::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoLevel::Execute() {
+	driveTrain->autoLevel(oi->autoLevel);
 	
 }
 

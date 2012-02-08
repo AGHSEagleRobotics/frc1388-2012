@@ -42,6 +42,7 @@ OI::OI() {
 //Set button names equal to their button on the joystick
 
 //driveStick buttons	
+	autoLevel = new JoystickButton (driveStick, 2);
 	fineTrimLeft = new JoystickButton (driveStick, 3);
 	fineTrimRight = new JoystickButton (driveStick, 4);
 	coarseTrimLeft = new JoystickButton (driveStick, 5);

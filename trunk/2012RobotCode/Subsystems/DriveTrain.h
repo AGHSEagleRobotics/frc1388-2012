@@ -1,9 +1,7 @@
 #ifndef DRIVETRAIN_H
 #define DRIVETRAIN_H
-#include "WPILib.h"
 #include "Commands/Subsystem.h"
-#include "../Robotmap.h"
-#include "GyroWithTrim.h"
+#include "WPILib.h"
 
 /**
  *
@@ -22,32 +20,32 @@ private:
 	RobotDrive *drive;
 	
 	// Create a variable for the Gyro
-	GyroWithTrim *gyro;
+	Gyro *gyro;
 	
-	float desiredHeading;
+	// Create variables for autoLevel PID control
+	SendablePIDController *pidAutoLevel;
 	
 	// Declare a function for getting the gyro angle in case we decide
 	// go add compensation for drift
 	virtual float getGyroAngle();
 	
-	virtual float headingHold();
+	// Creat some variables for gyro trim.
+	bool *prevOpButtons;
+	float gyroTrim;
 	
-	// Stuff for the PID
-	SendablePIDController *gyroHeadingPID;
-	Preferences *prefs;
-	manualPIDOutput *pidOut;
+	static const int FINE_LEFT_BUTTON = 3; //CHANGE TO CORRECT NUMBERS.
+	static const int FINE_RIGHT_BUTTON = 4;
+	static const int COARSE_LEFT_BUTTON = 5;
+	static const int COARSE_RIGHT_BUTTON = 6;
 	
 public:
 	DriveTrain();
 	virtual void InitDefaultCommand();
 	virtual void mecanumDrive_Polar(float direction, float power);
 	virtual void mecanumDrive_Cartesian(float x, float y, float rotation);
-	
-	virtual void fineTrimLeft();
-	virtual void coarseTrimLeft();
-	virtual void fineTrimRight();
-	virtual void coarseTrimRight();
-	virtual void zeroGyro();
+	virtual void driveWithJoystick(Joystick *joystick);
+	virtual void AutoLevelPID();
+	virtual SendablePIDController *getAutoLevelPID();
 };
 
 #endif
