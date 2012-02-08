@@ -23,14 +23,12 @@ private:
 	Gyro *gyro;
 	
 	// Create variables for autoLevel PID control
-	virtual void *pidAutoLevel;
-	virtual SendablePIDController *getAutoLevelPID;
-	virtual void *pidPower;
+	SendablePIDController *pidAutoLevel;
 	
 	
 	// Declare a function for getting the gyro angle in case we decide
 	// go add compensation for drift
-	virtual float *getGyroAngle;
+	virtual float getGyroAngle();
 	
 	// Creat some variables for gyro trim.
 	bool *prevOpButtons;
@@ -47,6 +45,8 @@ public:
 	virtual void mecanumDrive_Polar(float direction, float power);
 	virtual void mecanumDrive_Cartesian(float x, float y, float rotation);
 	virtual void driveWithJoystick(Joystick *joystick);
+	virtual SendablePIDController *getAutoLevelPID();
+	virtual void *pidPower();
 };
 
 #endif
