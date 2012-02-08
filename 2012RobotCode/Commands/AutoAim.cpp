@@ -45,7 +45,6 @@ bool AutoAim::IsFinished()
 	// when the robot lose the target the AutoAim Command will terminate so
 	// the boolean that knows if the target is there will terminate the command
 	// when it turns false (the target is lost)
-	if (autoAimOff->WhenPressed)
 	return false;
 }
 
