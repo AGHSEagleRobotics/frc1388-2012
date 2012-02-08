@@ -63,7 +63,7 @@ void DriveTrain::driveWithJoystick(Joystick *joystick)
 	}
 }
 
-void DriveTrain::autoLevel(float pitch)
+void DriveTrain::autoLevel()
 {
 	// Get the angle from the gyro.
 	float angle = getGyroAngle();
