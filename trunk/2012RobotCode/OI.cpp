@@ -3,18 +3,10 @@
 (already done with OI code for all these)
 (if you change the class names tell me, please)
 
-1.ManualAim - Needs to make it so when the switch is on ManualAim,
- the operator can aim manually using the X-Axis of the 
-operator joystick.
-
-2.ManualRange - Needs to make it so when the switch is on ManualRange,
-the operator can set the range manually using a slider which is the
-Y-Axis of the button joystick.
-
-3.MoveElevator - Needs to prime the ball, move the elevator up, and
+1.MoveElevator - Needs to prime the ball, move the elevator up, and
 move the elevator down. 
 
-4.MoveTipper- Needs to extend and retract the tipper.
+2.MoveTipper- Needs to extend and retract the tipper.
  */
 
 

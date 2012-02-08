@@ -14,9 +14,9 @@ void ManualAim::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ManualAim::Execute() {
 	float xAxis = opStick.GetAxis(Joystick::kXAxis);
-	float mangle = xAxis*10.0; 
+	float power = (xAxis)/2; 
 //10 is an estimate for the number of degrees to move the turret
-	turret->TurnRelative(mangle);
+	turret->UsePIDOutput(power);
 }
 
 // Make this return true when this Command no longer needs to run execute()

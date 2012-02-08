@@ -16,6 +16,9 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+	virtual void PrimeBall();
+	virtual void MoveElvUp();
+	virtual void MoveElvDown();
 };
 
 #endif
