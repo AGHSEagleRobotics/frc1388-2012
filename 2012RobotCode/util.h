@@ -13,13 +13,13 @@
 float deadband(float input, float range, float scale=1.0, float max=1.0);
 
 
-class manualPIDOutput : PIDOutput
+class manualPIDOutput : public PIDOutput
 {
 private:
 	float value;
 	
 public:
-	void PIDWrite(float output);
+	virtual void PIDWrite(float output);
 	float getValue();
 };
 
