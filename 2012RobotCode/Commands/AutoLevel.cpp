@@ -13,7 +13,7 @@ void AutoLevel::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoLevel::Execute() {
-	driveTrain->autoLevel(oi->autoLevel);
+	driveTrain->autoLevel();
 	
 }
 
