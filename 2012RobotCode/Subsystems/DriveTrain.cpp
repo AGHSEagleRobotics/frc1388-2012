@@ -1,7 +1,7 @@
 #include "DriveTrain.h"
 #include "../Robotmap.h"
 
-DriveTrain::DriveTrain() : Subsystem("DriveTrain")
+DriveTrain::DriveTrain() : DriveTrainBase()
 {
 //	frontLeft = new CANJaguar(FRONT_LEFT_CAN_ID);
 //	backLeft = new CANJaguar(BACK_LEFT_CAN_ID);

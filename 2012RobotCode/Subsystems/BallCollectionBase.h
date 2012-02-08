@@ -1,21 +1,21 @@
-#ifndef TIPPER_H
-#define TIPPER_H
+#ifndef BALLCOLLECTIONBASE_H
+#define BALLCOLLECTIONBASE_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-#include "TipperBase.h"
 
 /**
  *
  *
- * @author Sheridan
+ * @author Jarrett
  */
-class Tipper: public TipperBase {
+class BallCollectionBase: public Subsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
-	Tipper();
+	BallCollectionBase();
 	void InitDefaultCommand();
+	void moveRollers(float speed);
 };
 
 #endif

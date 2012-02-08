@@ -1,7 +1,7 @@
 #include "Vision.h"
 #include "../Robotmap.h"
 
-Vision::Vision() : Subsystem("Vision") {
+Vision::Vision() : VisionBase() {
 	printDebug("Initializing Camera Settings.");
 	
 	// Get an instance of the camera

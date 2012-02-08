@@ -1,11 +1,11 @@
-#include "Tipper.h"
+#include "TipperBase.h"
 #include "../Robotmap.h"
 
-Tipper::Tipper() : TipperBase() {
+TipperBase::TipperBase() : Subsystem("TipperBase") {
 	
 }
     
-void Tipper::InitDefaultCommand() {
+void TipperBase::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 }

@@ -1,21 +1,22 @@
-#ifndef TIPPER_H
-#define TIPPER_H
+#ifndef FANSIM_H
+#define FANSIM_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-#include "TipperBase.h"
+#include "FanBase.h"
 
 /**
  *
  *
- * @author Sheridan
+ * @author Jarrett
  */
-class Tipper: public TipperBase {
+class FanSim: public FanBase {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
-	Tipper();
+	FanSim();
 	void InitDefaultCommand();
+	virtual int RunFan();
 };
 
 #endif

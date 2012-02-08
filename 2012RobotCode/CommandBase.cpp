@@ -10,12 +10,15 @@ CommandBase::CommandBase() : Command() {
 }
 
 // Initialize a single static instance of all of your subsystems to NULL
-BallCollection* CommandBase::ballCollection = NULL;
-DriveTrain* CommandBase::driveTrain = NULL;
-Shooter* CommandBase::shooter = NULL;
-Turret* CommandBase::turret = NULL;
-Vision* CommandBase::vision = NULL;
-OI* CommandBase::oi = NULL;
+BallCollectionBase* CommandBase::ballCollection = NULL;
+DriveTrainBase* CommandBase::driveTrain = NULL;
+ShooterBase* CommandBase::shooter = NULL;
+TurretBase* CommandBase::turret = NULL;
+VisionBase* CommandBase::vision = NULL;
+TipperBase* CommandBase::tipper = NULL;
+FanBase* CommandBase::fan = NULL;
+OI* CommandBase::oi	 = NULL;
+
 
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
@@ -26,12 +29,17 @@ void CommandBase::init() {
 	ballCollection = new BallCollectionSim();
 	shooter = new ShooterSim();
 	turret = new TurretSim();
+	tipper = new TipperSim();
+	fan = new FanSim();
+	
 #else 
 	driveTrain = new DriveTrain();
-	ballCollection = new BallCollect();
+	ballCollection = new BallCollection();
 	shooter = new Shooter();
 	turret = new Turret();
-
+	tipper = new Tipper();
+	fan = new Fan();
+	
 #endif
 
 	vision = new Vision();

@@ -3,14 +3,14 @@
 
 #include "Commands/PIDSubsystem.h"
 #include "WPILib.h"
-#include "Turret.h"
+#include "TurretBase.h"
 
 /**
  *
  *
  * @author Jarrett
  */
-class TurretSim: public Turret {
+class TurretSim: public TurretBase {
 private:
 	double angleSim;
 	Servo servoSim;

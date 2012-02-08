@@ -2,13 +2,14 @@
 #define DRIVETRAIN_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
+#include "DriveTrainBase.h"
 
 /**
  *
  *
  * @author Scott
  */
-class DriveTrain: public Subsystem {
+class DriveTrain: public DriveTrainBase {
 private:
 	// Create variables for each of the Jaguars
 	CANJaguar *frontLeft;

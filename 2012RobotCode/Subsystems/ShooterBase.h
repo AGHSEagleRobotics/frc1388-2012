@@ -1,16 +1,20 @@
-#ifndef SHOOTERSIM_H
-#define SHOOTERSIM	_H
+#ifndef SHOOTERBASE_H
+#define SHOOTERBASE_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-#include "ShooterBase.h"
 
-class ShooterSim: public ShooterBase {
+/**
+ *
+ *
+ * @author Jarrett
+ */
+class ShooterBase: public Subsystem {
 private:
-
-		
+	// It's desirable that everything possible under private except
+	// for methods that implement subsystem capabilities
 public:
-	ShooterSim();
-	virtual void InitDefaultCommand();
+	ShooterBase();
+	void InitDefaultCommand();
 	virtual void SetRange(float distance);
 	virtual void TopAxelPID();
 	virtual void BottomAxelPID();
@@ -21,7 +25,6 @@ public:
 	virtual bool Passed();
 	virtual SendablePIDController *getTopAxelPID();
 	virtual SendablePIDController *getBottomAxelPID();
-		
 };
 
 #endif

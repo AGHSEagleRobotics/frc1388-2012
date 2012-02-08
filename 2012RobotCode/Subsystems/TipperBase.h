@@ -1,21 +1,20 @@
-#ifndef TIPPER_H
-#define TIPPER_H
+#ifndef TIPPERBASE_H
+#define TIPPERBASE_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-#include "TipperBase.h"
 
 /**
  *
  *
- * @author Sheridan
+ * @author Jarrett
  */
-class Tipper: public TipperBase {
+class TipperBase: public Subsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
-	Tipper();
-	void InitDefaultCommand();
+	TipperBase();
+	virtual void InitDefaultCommand();
 };
 
 #endif

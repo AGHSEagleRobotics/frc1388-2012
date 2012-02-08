@@ -1,16 +1,15 @@
-#ifndef TURRET_H
-#define TURRET_H
+#ifndef TURRETBASE_H
+#define TURRETBASE_H
 
 #include "Commands/PIDSubsystem.h"
 #include "WPILib.h"
-#include "TurretBase.h"
 
 /**
  *
  *
- * @author JBraun
+ * @author Jarrett Corr
  */
-class Turret: public TurretBase {
+class TurretBase: public PIDSubsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
@@ -18,23 +17,13 @@ private:
 	static const double Kp = 0.0;
 	static const double Ki = 0.0;
 	static const double Kd = 0.0;
-	
-	//Initialize Victor, Gyro, and Encoder setup.
-	Victor *turretMtr;
-	Encoder *turretEncdr;
-	Gyro *turretGyro;
-	
-	
 public:
-	Turret();
+	TurretBase();
 	virtual double ReturnPIDInput();
 	virtual void UsePIDOutput(double output);
 	virtual void InitDefaultCommand();
 	virtual void TurnRelative(double angle);
 	virtual void TurnAbsolute(double angle);
-	
-	
-	
 };
 
 #endif

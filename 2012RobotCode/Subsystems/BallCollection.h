@@ -1,6 +1,6 @@
 #ifndef BALL_COLLECTION_H
 #define BALL_COLLECTION_H
-#include "Commands/Subsystem.h"
+#include "BallCollectionBase.h"
 #include "WPILib.h"
 
 /**
@@ -8,7 +8,7 @@
  *
  * @author David
  */
-class BallCollection: public Subsystem {
+class BallCollection: public BallCollectionBase {
 private:
 
 public:

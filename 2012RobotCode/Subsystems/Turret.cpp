@@ -2,7 +2,7 @@
 #include "../Robotmap.h"
 #include "SmartDashboard/SmartDashboard.h"
 
-Turret::Turret() : PIDSubsystem("Turret", Kp, Ki, Kd) 
+Turret::Turret() : TurretBase()
 {
 	// Use these to get going:
 	// SetSetpoint() -  Sets where the PID controller should move the system

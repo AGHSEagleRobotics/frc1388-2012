@@ -1,13 +1,18 @@
-#include "Tipper.h"
+#include "BallCollectionBase.h"
 #include "../Robotmap.h"
 
-Tipper::Tipper() : TipperBase() {
+BallCollectionBase::BallCollectionBase() : Subsystem("BallCollectionBase") {
 	
 }
     
-void Tipper::InitDefaultCommand() {
+void BallCollectionBase::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
+}
+
+void BallCollectionBase::moveRollers(float speed)
+{
+
 }
 
 

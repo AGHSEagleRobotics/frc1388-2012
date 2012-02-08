@@ -1,17 +1,16 @@
-#ifndef EJECT_H
-#define EJECT_H
+#ifndef RUNTHEFAN_H
+#define RUNTHEFAN_H
 
 #include "../CommandBase.h"
-
 
 /**
  *
  *
- * @author Davey
+ * @author Jarrett
  */
-class Eject: public CommandBase {
+class RunTheFan: public CommandBase {
 public:
-	Eject();
+	RunTheFan();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
