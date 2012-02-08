@@ -1,9 +1,9 @@
-#include "BallCollection.h"
+	#include "BallCollection.h"
 #include "../Robotmap.h"
 
-BallCollection::BallCollection() : Subsystem("BallCollection")
+BallCollection::BallCollection() : BallCollectionBase()
 {
-
+	
 }
     
 void BallCollection::InitDefaultCommand()
@@ -13,7 +13,7 @@ void BallCollection::InitDefaultCommand()
 
 void BallCollection::moveRollers(float speed)
 {
-
+	
 }
 
 

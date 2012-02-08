@@ -2,14 +2,14 @@
 #define DRIVETRAINSIM_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-#include "DriveTrain.h"
+#include "DriveTrainBase.h"
 
 /**
  *
  *
  * @author Jarrett
  */
-class DriveTrainSim: public DriveTrain {
+class DriveTrainSim: public DriveTrainBase {
 private:
 	
 	virtual float getGyroAngle();

@@ -2,13 +2,14 @@
 #define VISION_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
+#include "VisionBase.h"
 
 /**
  *
  *
  * @author eaglerobotics
  */
-class Vision: public Subsystem {
+class Vision: public VisionBase {
 private:
 	
 	Relay *lightRing;

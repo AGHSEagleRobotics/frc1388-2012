@@ -3,16 +3,28 @@
 
 #include "Commands/Command.h"
 
+#include "Subsystems/BallCollectionBase.h"
+#include "Subsystems/DriveTrainBase.h"
+#include "Subsystems/ShooterBase.h"
+#include "Subsystems/TurretBase.h"
+#include "Subsystems/VisionBase.h"
+#include "Subsystems/TipperBase.h"
+#include "Subsystems/FanBase.h"
+
 #include "Subsystems/BallCollection.h"
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Shooter.h"
 #include "Subsystems/Turret.h"
 #include "Subsystems/Vision.h"
+#include "Subsystems/Tipper.h"
+#include "Subsystems/Fan.h"
 
 #include "Subsystems/BallCollectionSim.h"
 #include "Subsystems/DriveTrainSim.h"
 #include "Subsystems/ShooterSim.h"
 #include "Subsystems/TurretSim.h"
+#include "Subsystems/TipperSim.h"
+#include "Subsystems/FanSim.h"
 
 #include "OI.h"
 
@@ -28,11 +40,13 @@ public:
 	CommandBase();
 	static void init();
 	// Create a single static instance of all of your subsystems
-	static BallCollection *ballCollection;
-	static DriveTrain *driveTrain;
-	static Shooter *shooter;
-	static Turret *turret;
-	static Vision *vision;
+	static BallCollectionBase *ballCollection;
+	static DriveTrainBase *driveTrain;
+	static ShooterBase *shooter;
+	static TurretBase *turret;
+	static VisionBase *vision;
+	static TipperBase *tipper;
+	static FanBase *fan;
 	
 	static OI *oi;
 };

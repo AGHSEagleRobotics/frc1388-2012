@@ -2,7 +2,7 @@
 #include "../Robotmap.h"
 #include "../OI.h"
 
-Shooter::Shooter() : Subsystem("Shooter") 
+Shooter::Shooter() : ShooterBase()
 {
 	topAxel = new Victor(TOP_AXEL_VICTOR);
 	bottomAxel = new Victor(BOTTOM_AXEL_VICTOR);

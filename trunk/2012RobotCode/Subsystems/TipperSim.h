@@ -1,5 +1,5 @@
-#ifndef TIPPER_H
-#define TIPPER_H
+#ifndef TIPPERSIM_H
+#define TIPPERSIM_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 #include "TipperBase.h"
@@ -7,14 +7,14 @@
 /**
  *
  *
- * @author Sheridan
+ * @author Jarrett
  */
-class Tipper: public TipperBase {
+class TipperSim: public TipperBase {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
-	Tipper();
+	TipperSim();
 	void InitDefaultCommand();
 };
 

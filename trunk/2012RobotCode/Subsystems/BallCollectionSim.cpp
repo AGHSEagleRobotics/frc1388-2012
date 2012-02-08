@@ -1,7 +1,7 @@
 #include "BallCollectionSim.h"
 #include "../Robotmap.h"
 
-BallCollectionSim::BallCollectionSim()
+BallCollectionSim::BallCollectionSim() : BallCollectionBase()
 {
 
 }
