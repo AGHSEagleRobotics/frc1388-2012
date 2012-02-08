@@ -1,5 +1,4 @@
 #include "DriveTrain.h"
-#include "../Robotmap.h"
 
 DriveTrain::DriveTrain() : Subsystem("DriveTrain")
 {
@@ -11,10 +10,22 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain")
 	// NOTE: This is modified from the original to fit the kitbot
 	drive = new RobotDrive(2, 1, 3, 4);
 	
-	gyro = new Gyro(DEFAULT_ANALOG_MODULE, DRIVETRAIN_GYRO_CHANNEL);
+	gyro = new GyroWithTrim(DEFAULT_ANALOG_MODULE, DRIVETRAIN_GYRO_CHANNEL);
 	
-	prevOpButtons = new bool[12];
-	gyroTrim = 0;
+	pidOut = new manualPIDOutput();
+	
+	prefs = Preferences::GetInstance();
+	double p = prefs->GetDouble("gyro_pid_p");
+	double i = prefs->GetDouble("gyro_pid_i");
+	double d = prefs->GetDouble("gyro_pid_d");
+	gyroHeadingPID = new SendablePIDController(p,i,d,gyro,pidOut);
+	gyroHeadingPID->SetSetpoint(0);
+	gyroHeadingPID->SetContinuous(true);
+	gyroHeadingPID->SetOutputRange(-1.0, 1.0);
+	gyroHeadingPID->Enable();
+	
+	// Initialize some variables that will be used later
+	desiredHeading = 0;
 }
     
 void DriveTrain::InitDefaultCommand()
@@ -31,40 +42,41 @@ void DriveTrain::mecanumDrive_Polar(float direction, float power)
 void DriveTrain::mecanumDrive_Cartesian(float x, float y, float rotation)
 {
 	// Get the angle from the Gyro
-	float angle = getGyroAngle();
-	
-	drive->MecanumDrive_Cartesian(x, y, rotation, angle);
-}
-
-void DriveTrain::driveWithJoystick(Joystick *joystick)
-{
-	// Get the Axes from the joystick
-	float xPower = joystick->GetAxis(Joystick::kXAxis);
-	float yPower = joystick->GetAxis(Joystick::kYAxis);
-	float twistPower = joystick->GetAxis(Joystick::kTwistAxis); 
-	
-	// edge detection on all 4 buttons
-	bool fineLeft = joystick->GetRawButton(FINE_LEFT_BUTTON)&&!prevOpButtons[FINE_LEFT_BUTTON-1];
-	bool fineRight = joystick->GetRawButton(FINE_RIGHT_BUTTON)&&!prevOpButtons[FINE_RIGHT_BUTTON-1];
-	bool coarseLeft = joystick->GetRawButton(COARSE_LEFT_BUTTON)&&!prevOpButtons[COARSE_LEFT_BUTTON-1];
-	bool coarseRight = joystick->GetRawButton(COARSE_RIGHT_BUTTON)&&!prevOpButtons[COARSE_RIGHT_BUTTON-1];
-	
-	// Adjust the gyroTrim variable
-	gyroTrim += fineLeft*-2 + fineRight*-2 + coarseLeft*-10 + coarseRight*-10;
-	
-	mecanumDrive_Cartesian(xPower, yPower, twistPower);
-	
-	// Store the current button states as the previous
-	// "for" thingy
-	for (int i = 0; i < 12; i++)
+	float angle = gyro->GetAngle();
+	if (rotation==0.0)
 	{
-		prevOpButtons[i] = joystick->GetRawButton(i-1);
+		rotation = headingHold();
 	}
+	drive->MecanumDrive_Cartesian(x,y,rotation,angle);
 }
 
-float DriveTrain::getGyroAngle()
+float DriveTrain::headingHold()
 {
-	// At the moment we will just straight get the angle
-	// However, we may add compensation for drift later
-	return gyro->GetAngle()+gyroTrim;
+	gyroHeadingPID->SetSetpoint(desiredHeading);
+	return pidOut->getValue();
+}
+
+void DriveTrain::fineTrimLeft()
+{
+	gyro->SetTrim(gyro->GetTrim()-2);
+}
+
+void DriveTrain::coarseTrimLeft()
+{
+	gyro->SetTrim(gyro->GetTrim()-10);
+}
+
+void DriveTrain::fineTrimRight()
+{
+	gyro->SetTrim(gyro->GetTrim()+2);
+}
+
+void DriveTrain::coarseTrimRight()
+{
+	gyro->SetTrim(gyro->GetTrim()+10);
+}
+
+void DriveTrain::zeroGyro()
+{
+	gyro->ZeroGyro();
 }
