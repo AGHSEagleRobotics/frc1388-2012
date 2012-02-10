@@ -1,20 +1,14 @@
-#include "BallCollectionBase.h"
+#include "ElevatorSim.h"
 #include "../Robotmap.h"
 
-BallCollectionBase::BallCollectionBase() : Subsystem("BallCollectionBase") {
+ElevatorSim::ElevatorSim() : ElevatorBase() {
 	
 }
     
-void BallCollectionBase::InitDefaultCommand() {
+void ElevatorSim::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 }
-
-void BallCollectionBase::moveRollers(float speed)
-{
-
-}
-
 
 
 // Put methods for controlling this subsystem
