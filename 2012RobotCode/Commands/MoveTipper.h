@@ -9,8 +9,12 @@
  * @author ag291863
  */
 class MoveTipper: public CommandBase {
+private:
+	Tipper::tipperMode mode;
+	
 public:
-	MoveTipper();
+	
+	MoveTipper(Tipper::tipperMode);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

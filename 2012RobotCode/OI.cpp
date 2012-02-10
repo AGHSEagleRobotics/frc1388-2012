@@ -73,10 +73,10 @@ OI::OI() {
 //	coarseTrimLeft->WhenPressed(new TrimGryo(TrimGyro::coarseLeft));
 //	coarseTrimRight->WhenPressed(new TrimGyro(TrimGyro::coarseRight));
 //	zeroGryo->WhenPressed(new TrimGyro(TrimGyro::zero));
-//	extendTipper1->WhenPressed(new MoveTipper(MoveTipper::extend));
-//	extendTipper2->WhenPressed(new MoveTipper(MoveTipper::extend));
-//	retractTipper1->WhenPressed(new MoveTipper(MoveTipper::retract));
-//	retractTipper2->WhenPressed(new MoveTipper(MoveTipper::retract));
+	extendTipper1->WhenPressed(new MoveTipper(Tipper::extend));
+	extendTipper2->WhenPressed(new MoveTipper(Tipper::extend));
+	retractTipper1->WhenPressed(new MoveTipper(Tipper::retract));
+	retractTipper2->WhenPressed(new MoveTipper(Tipper::retract));
 //opStick buttons
 	trigger->WhenPressed(new Fire());
 //	elevUp->WhenPressed(new MoveElevator(MoveElevator::up));

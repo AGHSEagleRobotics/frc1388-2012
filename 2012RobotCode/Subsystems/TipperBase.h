@@ -13,8 +13,14 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
+	typedef enum tipperMode {
+			extend,
+			retract
+		};
+	
 	TipperBase();
 	virtual void InitDefaultCommand();
+	virtual void TipperBase::MoveTipper(tipperMode mode);
 };
 
 #endif
