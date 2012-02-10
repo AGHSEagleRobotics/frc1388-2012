@@ -4,13 +4,13 @@ RunTheFan::RunTheFan()
 {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
-	Requires(Fan);
+	Requires(fan);
 }
 
 // Called just before this Command runs the first time
 void RunTheFan::Initialize()
 {
-	Fan->RunTheFan();
+	fan->RunFan();
 }
 
 // Called repeatedly when this Command is scheduled to run

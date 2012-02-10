@@ -6,7 +6,7 @@
 MoveElevator::MoveElevator() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
-	Requires();
+//	Requires();
 }
 
 // Called just before this Command runs the first time
@@ -17,18 +17,6 @@ void MoveElevator::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void MoveElevator::Execute() {
 	
-	void MoveElevator::PrimeBall() {
-		
-	}
-	
-	void MoveElevator::MoveElvUp() {
-		Run 
-		
-	}
-	
-	void MoveElevator::MoveElvDown() {
-		
-	}
 	
 }
 
