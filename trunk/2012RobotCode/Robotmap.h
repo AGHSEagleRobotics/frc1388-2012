@@ -16,10 +16,10 @@
 #define LIGHT_RING_PORT 1
 
 // Define the CAN IDs
-#define FRONT_LEFT_CAN_ID 1
-#define BACK_LEFT_CAN_ID 1
-#define FRONT_RIGHT_CAN_ID 1
-#define BACK_RIGHT_CAN_ID 1
+#define FRONT_LEFT_CAN_ID 5
+#define BACK_LEFT_CAN_ID 2
+#define FRONT_RIGHT_CAN_ID 4
+#define BACK_RIGHT_CAN_ID 3
 
 // Define the default Modules
 #define DEFAULT_ANALOG_MODULE 1
