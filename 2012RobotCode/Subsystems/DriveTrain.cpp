@@ -14,7 +14,7 @@ DriveTrain::DriveTrain() : DriveTrainBase()
 	gyro = new Gyro(DEFAULT_ANALOG_MODULE, DRIVETRAIN_GYRO_CHANNEL);
 	
 	prevOpButtons = new bool[12];
-	pidAutoLevel = new SendablePIDController(0.0, 0.0, 0.1, gyro, pidPower);
+//	pidAutoLevel = new SendablePIDController(0.0, 0.0, 0.1, gyro, pidPower);
 	gyroTrim = 0;
 }
     
@@ -66,7 +66,7 @@ void DriveTrain::driveWithJoystick(Joystick *joystick)
 void DriveTrain::autoLevel()
 {
 	// Get the angle from the gyro.
-	float angle = getGyroAngle();
+	//float angle = getGyroAngle();
 	// Set the PID info.
 	pidAutoLevel->SetPID(0.0, 0.0, 0.1);
 	pidAutoLevel->SetOutputRange(0, 1);

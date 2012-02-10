@@ -10,7 +10,7 @@ void FanSim::InitDefaultCommand() {
 	//SetDefaultCommand(new MySpecialCommand());
 }
 
-int Fan::RunFan()
+int FanSim::RunFan()
 {
 	return 0;
 }

@@ -11,7 +11,7 @@ public:
 	GyroWithTrim(UINT32 channel);
 	GyroWithTrim(UINT8 moduleNumber, UINT32 channel);
 	virtual float GetAngle();
-	virtual float ZeroGyro();
+	virtual void ZeroGyro();
 	virtual double PIDGet();
 	void SetTrim(float trim);
 	float GetTrim();

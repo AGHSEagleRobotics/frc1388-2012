@@ -15,6 +15,7 @@ void Fan::InitDefaultCommand()
 int Fan::RunFan()
 {
 	fan->Set(1);
+	return 1;
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
