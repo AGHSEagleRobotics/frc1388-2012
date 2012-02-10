@@ -16,6 +16,7 @@ void ManualRange::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ManualRange::Execute() 
 {
+	Joystick *buttonStick = oi->getButtonStick();
 	float yAxis = buttonStick->GetAxis(Joystick::kYAxis);
 	float upPower = (yAxis +1 )/2;
 	shooter->SetRange(upPower);

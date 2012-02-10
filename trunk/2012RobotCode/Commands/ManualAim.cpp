@@ -13,7 +13,8 @@ void ManualAim::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ManualAim::Execute() {
-	float xAxis = opStick.GetAxis(Joystick::kXAxis);
+	Joystick *opStick = oi->getOpStick();
+	float xAxis = opStick->GetAxis(Joystick::kXAxis);
 	float power = (xAxis)/2; 
 //10 is an estimate for the number of degrees to move the turret
 	turret->UsePIDOutput(power);
