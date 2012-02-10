@@ -51,6 +51,6 @@
 #define BALL_PASSED 1
 
 // define the ball colletor
-#define BALL_COLLECTION_2
+#define BALL_COLLECTION_2 1
 
 #endif
