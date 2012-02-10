@@ -8,13 +8,12 @@ ManualAim::ManualAim() {
 
 // Called just before this Command runs the first time
 void ManualAim::Initialize() {
-	
+
 }
 
 // Called repeatedly when this Command is scheduled to run
 void ManualAim::Execute() {
-	Joystick *opStick = oi->getOpStick();
-	float xAxis = opStick->GetAxis(Joystick::kXAxis);
+	float xAxis = oi->getOpStickXAxis();
 	float power = (xAxis)/2; 
 //10 is an estimate for the number of degrees to move the turret
 	turret->UsePIDOutput(power);

@@ -14,7 +14,7 @@ move the elevator down.
 #include "Commands/TrimGyro.h"
 #include "Commands/MoveTipper.h"
 #include "Commands/Fire.h"
-#include "Commands/MoveElevator.h"
+//#include "Commands/MoveElevator.h"
 #include "Commands/AutoAim.h"
 #include "Commands/ManualAim.h"
 #include "Commands/AutoRange.h"
@@ -106,4 +106,18 @@ Joystick * OI::getOpStick() {
 }
 Joystick * OI::getButtonStick() {
 	return buttonStick;
+}
+
+float OI::getOpStickXAxis()
+{
+	float xAxis;
+	xAxis = opStick->GetAxis(Joystick::kXAxis);
+	return xAxis;
+}
+
+float OI::getSliderPower()
+{
+	float yAxis;
+	yAxis = buttonStick->GetAxis(Joystick::kYAxis);
+	return yAxis;
 }

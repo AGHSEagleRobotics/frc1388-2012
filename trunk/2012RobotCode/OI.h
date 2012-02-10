@@ -22,6 +22,9 @@ private:
 	JoystickButton *extendTipper2; //10
 	JoystickButton *retractTipper1; //11
 	JoystickButton *retractTipper2; //12
+	JoystickButton *toTheLeft; //1
+	JoystickButton *toTheRight; //2
+	
 //Define opStick buttons
 	JoystickButton *trigger; //1
 	JoystickButton *elevUp; //6
@@ -38,16 +41,15 @@ private:
 	JoystickButton *ballSweepIn; //5
 	JoystickButton *ballSweepOff; //6
 	JoystickButton *ballSweepOut; //7
-//Simulation Buttons
-	JoystickButton *toTheLeft;
-	JoystickButton *toTheRight;
-	
+
 	
 public:
 	OI();
 	Joystick *getDriveStick();
 	Joystick *getOpStick();
 	Joystick *getButtonStick();
+	float getOpStickXAxis();
+	float getSliderPower();
 };
 #endif
 
