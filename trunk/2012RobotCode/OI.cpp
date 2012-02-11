@@ -60,7 +60,7 @@ OI::OI() {
 	ballSweepIn = new JoystickButton (buttonStick, 5);
 	ballSweepOff = new JoystickButton (buttonStick, 6);
 	ballSweepOut = new JoystickButton (buttonStick, 7);
-	autoLevel= new JoystickButton (buttonStick, 8);
+	autoLevel = new JoystickButton (buttonStick, 8);
 // Simulation buttons
 	toTheLeft = new JoystickButton (driveStick, 1);
 	toTheRight = new JoystickButton (driveStick, 2);
