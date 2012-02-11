@@ -20,18 +20,27 @@ void MoveElevator::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void MoveElevator::Execute() 
 {
-	elevator->moveElevator(mode);
+	if (!elevator->isBallSlot3())
+	{
+		if (elevator->isBallSweeperArea())
+		{
+			elevator->moveElevator(mode);
+			Wait(0.2);
+			do {} while (!elevator->isBallSlot1());
+			elevator->moveElevator(Elevator::stop);
+		}
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool MoveElevator::IsFinished() {
-	//when target sensor tripped 
-	return false;
+	//when sweeper not on
+	return !oi->getButtonStick()->GetRawButton(5);
 }
 
 // Called once after isFinished returns true
 void MoveElevator::End() {
-	
+	elevator->moveElevator(Elevator::stop);
 }
 
 // Called when another command which requires one or more of the same

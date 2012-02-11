@@ -24,9 +24,8 @@ void Elevator::moveElevator(Elevator::elevatorMode mode)
 	case moveDown:
 		elevatorMtr->Set(-1.0);
 		break;
-	case prime:
-		elevatorMtr->Set(1.0);
-		break;
+	case stop:
+		elevatorMtr->Set(0.0);
 	}
 }
 

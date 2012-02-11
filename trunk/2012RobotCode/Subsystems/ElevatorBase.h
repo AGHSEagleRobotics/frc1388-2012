@@ -16,7 +16,7 @@ public:
 	typedef enum elevatorMode {
 			moveUp,
 			moveDown,
-			prime
+			stop
 	};
 	
 	ElevatorBase();
