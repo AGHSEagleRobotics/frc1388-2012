@@ -2,16 +2,20 @@
 
 DriveTrain::DriveTrain() : DriveTrainBase()
 {
+#if defined(COMPETITION)
+	
 	frontLeft = new CANJaguar(FRONT_LEFT_CAN_ID);
 	backLeft = new CANJaguar(BACK_LEFT_CAN_ID);
 	frontRight = new CANJaguar(FRONT_RIGHT_CAN_ID);
 	backRight = new CANJaguar(BACK_RIGHT_CAN_ID);
 	
-//	drive = new RobotDrive(frontLeft,backLeft,frontRight,backRight);
-	
+	drive = new RobotDrive(frontLeft,backLeft,frontRight,backRight);
+
+#elif defined(KITBOT)	
 //	 NOTE: This is modified from the original to fit the kitbot
 	drive = new RobotDrive(2, 1, 3, 4);
-	
+#endif	
+
 	gyro = new GyroWithTrim(DEFAULT_ANALOG_MODULE, DRIVETRAIN_GYRO_CHANNEL);
 //	gyro = new Gyro(DEFAULT_ANALOG_MODULE, DRIVETRAIN_GYRO_CHANNEL);
 	
@@ -22,7 +26,7 @@ DriveTrain::DriveTrain() : DriveTrainBase()
 //	double p = prefs->GetDouble("gyro_pid_p");
 //	double i = prefs->GetDouble("gyro_pid_i");
 //	double d = prefs->GetDouble("gyro_pid_d");
-	gyroHeadingPID = new SendablePIDController(1,0,0,gyro,pidOut);
+	gyroHeadingPID = new SendablePIDController(0.005,0.0,0,gyro,pidOut);
 	SmartDashboard::GetInstance()->PutData("gyroHeadingPID", gyroHeadingPID);
 	gyroHeadingPID->SetSetpoint(0);
 	gyroHeadingPID->SetContinuous(true);
@@ -48,18 +52,28 @@ void DriveTrain::mecanumDrive_Cartesian(float x, float y, float rotation)
 {
 	// Get the angle from the Gyro
 	float angle = gyro->GetAngle();
-	printf("rotation:%f last:%f\n",rotation,prevRotation);
+//	printf("rotation:%f last:%f\n",rotation,prevRotation);
 	if (rotation==0.0&&prevRotation==0.0)
 	{
 		drive->MecanumDrive_Cartesian(x,y,headingHold(),angle);
 		prevRotation = rotation;
 		return;
 	}
-	
-	desiredHeading = gyro->GetAngle();
+	if (rotation!=0.0&&prevRotation==0.0)
+	{
+		timer.Start();
+	}
+	else if (timer.Get()<0.25)
+	{
+		desiredHeading = gyro->GetAngle();
+	} else if (timer.Get()>0.25)
+	{
+		timer.Stop();
+		timer.Reset();
+	}
 	drive->MecanumDrive_Cartesian(x,y,rotation,angle);
-	
 	prevRotation = rotation;
+	
 }
 
 float DriveTrain::headingHold()
@@ -68,32 +82,37 @@ float DriveTrain::headingHold()
 	{
 		gyroHeadingPID->SetSetpoint(desiredHeading);
 		printf("gyroAngle:%f pidOut:%f gyroTrim:%f\n",gyro->GetAngle(), pidOut->getValue(), gyro->GetTrim());
+		
+//		prefs->PutFloat("gyro_pid_p",gyroHeadingPID->GetP());
+//		prefs->PutFloat("gyro_pid_i",gyroHeadingPID->GetI());
+//		prefs->PutFloat("gyro_pid_d",gyroHeadingPID->GetD());
 		return pidOut->getValue();
 	}
 	return 0;
 }
 
-void DriveTrain::fineTrimLeft()
-{
+//void DriveTrain::fineTrimLeft()
+//{
 //	gyro->SetTrim(gyro->GetTrim()-2);
-}
-
-void DriveTrain::coarseTrimLeft()
-{
+//}
+//
+//void DriveTrain::coarseTrimLeft()
+//{
 //	gyro->SetTrim(gyro->GetTrim()-10);
-}
-
-void DriveTrain::fineTrimRight()
-{
+//}
+//
+//void DriveTrain::fineTrimRight()
+//{
 //	gyro->SetTrim(gyro->GetTrim()+2);
-}
-
-void DriveTrain::coarseTrimRight()
-{
+//}
+//
+//void DriveTrain::coarseTrimRight()
+//{
 //	gyro->SetTrim(gyro->GetTrim()+10);
-}
-
-void DriveTrain::zeroGyro()
-{
+//}
+//
+//void DriveTrain::zeroGyro()
+//{
 //	gyro->ZeroGyro();
-}
+//}
+
