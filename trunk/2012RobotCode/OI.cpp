@@ -25,6 +25,7 @@ move the elevator down.
 #include "Commands/RotateLeft.h"
 #include "Commands/RotateRight.h"
 #include "Commands/AutoLevel.h"
+#include "Commands/ManualMoveElevator.h"
 
 OI::OI() {
 	driveStick = new Joystick(DRIVESTICK_PORT);
@@ -83,8 +84,8 @@ OI::OI() {
 	retractTipper2->WhenPressed(new MoveTipper(Tipper::retract));
 //opStick buttons
 	trigger->WhenPressed(new Fire());
-//	elevUp->WhenPressed(new MoveElevator(MoveElevator::up));
-//	elevDown->WhenPressed(new MoveElevator(MoveElevator::down));
+	elevUp->WhileHeld(new ManualMoveElevator(Elevator::moveUp));
+	elevDown->WhileHeld(new ManualMoveElevator(Elevator::moveDown));
 //	prime1->WhenPressed(new MoveElevator(MoveElevator::prime));
 //	prime2->WhenPressed(new MoveElevator(MoveElevator::prime);
 //	prime3->WhenPressed(new MoveElevator(MoveElevator::prime);

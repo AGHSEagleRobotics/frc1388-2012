@@ -1,22 +1,20 @@
-#ifndef MOVEELEVATOR_H
-#define MOVEELEVATOR_H
+#ifndef MANUALMOVEELEVATOR_H
+#define MANUALMOVEELEVATOR_H
 
 #include "../CommandBase.h"
-#include "../Subsystems/Elevator.h"
 
 /**
  *
  *
- * @author ag291863
+ * @author Davey
  */
-class MoveElevator: public CommandBase {
+class ManualMoveElevator: public CommandBase {
 	
 private:
 	Elevator::elevatorMode mode;
 	
-	
 public:
-	MoveElevator(Elevator::elevatorMode);
+	ManualMoveElevator(Elevator::elevatorMode);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
