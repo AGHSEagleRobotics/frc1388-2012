@@ -87,9 +87,9 @@ OI::OI() {
 //	prime4->WhenPressed(new MoveElevator(MoveElevator::prime);
 //buttonStick buttons	
 	autoAimOn->WhileHeld(new AutoAim());
-	autoAimOff->WhileHeld(new ManualAim()); 
+	autoAimOn->WhenReleased(new ManualAim()); 
 	autoRangeOn->WhileHeld(new AutoRange());
-	autoRangeOff->WhileHeld(new ManualRange());
+	autoRangeOn->WhenReleased(new ManualRange());
 	ballSweepIn->WhenPressed(new BallCollect());
 	ballSweepOff->WhenPressed(new NoBallColletion());
 	ballSweepOut->WhileHeld(new Eject());
