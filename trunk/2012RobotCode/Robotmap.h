@@ -1,8 +1,8 @@
 #ifndef ROBOTMAP_H
 #define ROBOTMAP_H
 
-#define COMPETITION
-//#define SIMULATE
+//#define COMPETITION
+#define SIMULATE
 //#define KITBOT
 
 #include "Debug.h"
@@ -25,7 +25,7 @@
 
 // Define the default Modules
 #define DEFAULT_ANALOG_MODULE 1
-#define DEFAULT_DIGITAL_MODULE 2
+#define DEFAULT_DIGITAL_MODULE 1
 
 #define DRIVETRAIN_GYRO_CHANNEL 1
 
