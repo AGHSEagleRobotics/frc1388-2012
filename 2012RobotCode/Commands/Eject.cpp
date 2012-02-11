@@ -1,4 +1,5 @@
 #include "Eject.h"
+#include "../SubSystems/BallCollectionBase.h"
 
 Eject::Eject() {
 	// Use requires() here to declare subsystem dependencies

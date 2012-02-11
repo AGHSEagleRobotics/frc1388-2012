@@ -2,6 +2,7 @@
 #define MANUALMOVEELEVATOR_H
 
 #include "../CommandBase.h"
+#include "../SubSystems/Elevator.h"
 
 /**
  *

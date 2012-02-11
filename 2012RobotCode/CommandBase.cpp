@@ -2,6 +2,35 @@
 #include "RobotMap.h"
 #include "Subsystems/DriveTrain.h"
 //#include "Commands/Scheduler.h"
+#include "Commands/Command.h"
+
+#include "Subsystems/BallCollectionBase.h"
+#include "Subsystems/DriveTrainBase.h"
+#include "Subsystems/ShooterBase.h"
+#include "Subsystems/TurretBase.h"
+#include "Subsystems/VisionBase.h"
+#include "Subsystems/TipperBase.h"
+#include "Subsystems/FanBase.h"
+#include "Subsystems/ElevatorBase.h"
+
+#include "Subsystems/BallCollection.h"
+#include "Subsystems/DriveTrain.h"
+#include "Subsystems/Shooter.h"
+#include "Subsystems/Turret.h"
+#include "Subsystems/Vision.h"
+#include "Subsystems/Tipper.h"
+#include "Subsystems/Fan.h"
+#include "Subsystems/Elevator.h"
+
+#include "Subsystems/BallCollectionSim.h"
+#include "Subsystems/DriveTrainSim.h"
+#include "Subsystems/ShooterSim.h"
+#include "Subsystems/TurretSim.h"
+#include "Subsystems/TipperSim.h"
+#include "Subsystems/ElevatorSim.h"
+#include "Subsystems/FanSim.h"
+
+#include "Subsystems/DriveTrainKitbot.h"
 
 CommandBase::CommandBase(const char *name) : Command(name) {
 }

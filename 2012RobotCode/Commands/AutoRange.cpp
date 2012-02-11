@@ -1,4 +1,6 @@
 #include "AutoRange.h"
+#include "../SubSystems/ShooterBase.h"
+#include "../SubSystems/VisionBase.h"
 
 AutoRange::AutoRange()
 {

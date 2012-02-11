@@ -1,4 +1,6 @@
 #include "AutoAim.h"
+#include "../Subsystems/TurretBase.h"
+#include "../Subsystems/VisionBase.h"
 
 AutoAim::AutoAim()
 {

@@ -2,6 +2,7 @@
 #define MOVETIPPER_H
 
 #include "../CommandBase.h"
+#include "../SubSystems/Tipper.h"
 
 /**
  *

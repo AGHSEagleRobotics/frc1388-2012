@@ -1,4 +1,5 @@
 #include "ManualRange.h"
+#include "../SubSystems/ShooterBase.h"
 
 ManualRange::ManualRange() 
 {
