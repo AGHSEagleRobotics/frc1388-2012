@@ -29,6 +29,8 @@
 #include "Subsystems/ElevatorSim.h"
 #include "Subsystems/FanSim.h"
 
+#include "Subsystems/DriveTrainKitbot.h"
+
 #include "OI.h"
 
 

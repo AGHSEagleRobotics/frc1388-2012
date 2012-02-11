@@ -30,5 +30,10 @@ float DriveTrainBase::getGyroAngle()
 	return 0;
 }
 
+void DriveTrainBase::autoLevel()
+{
+	
+}
+
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
