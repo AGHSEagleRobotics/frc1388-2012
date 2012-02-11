@@ -21,6 +21,8 @@ public:
 	TipperBase();
 	virtual void InitDefaultCommand();
 	virtual void TipperBase::MoveTipper(tipperMode mode);
+	virtual bool isExtended();
+	virtual bool isRetracted();
 };
 
 #endif

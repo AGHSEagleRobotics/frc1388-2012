@@ -4,6 +4,8 @@
 Tipper::Tipper() : TipperBase() 
 {
 	tipperMtr = new Victor(DEFAULT_ANALOG_MODULE, BRIDGE_CONTROL_MOTOR);
+	limitSwitchExtended = new DigitalInput(BRIDGE_CONTROL_EXTENDED_SWITCH);
+	limitSwitchRetracted = new DigitalInput(BRIDGE_CONTROL_RETRACTED_SWITCH);
 }
     
 void Tipper::InitDefaultCommand()
@@ -28,3 +30,13 @@ void Tipper::MoveTipper(tipperMode mode)
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+
+bool Tipper::isExtended()
+{
+	return limitSwitchExtended->Get();
+}
+
+bool Tipper::isRetracted()
+{
+	return limitSwitchRetracted->Get();
+}

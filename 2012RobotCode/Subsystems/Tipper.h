@@ -14,6 +14,9 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 	Victor *tipperMtr;
+	DigitalInput *limitSwitchExtended;
+	DigitalInput *limitSwitchRetracted;
+
 public:
 	
 //	typedef enum tipperMode {
@@ -22,6 +25,8 @@ public:
 //	};
 	
 	Tipper();
+	bool isExtended();
+	bool isRetracted();
 	void InitDefaultCommand();
 	void Tipper::MoveTipper(tipperMode mode);
 };

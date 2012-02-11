@@ -36,6 +36,8 @@
 
 // define the bridge control
 #define BRIDGE_CONTROL_MOTOR 1
+#define BRIDGE_CONTROL_EXTENDED_SWITCH 1
+#define BRIDGE_CONTROL_RETRACTED_SWITCH 1
 
 //define the shooter
 #define TOP_AXEL_VICTOR 1	

@@ -12,6 +12,7 @@ class MoveTipper: public CommandBase {
 private:
 	Tipper::tipperMode mode;
 	
+	
 public:
 	
 	MoveTipper(Tipper::tipperMode);
