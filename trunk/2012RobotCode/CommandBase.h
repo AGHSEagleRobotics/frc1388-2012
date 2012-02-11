@@ -10,6 +10,7 @@
 #include "Subsystems/VisionBase.h"
 #include "Subsystems/TipperBase.h"
 #include "Subsystems/FanBase.h"
+#include "Subsystems/ElevatorBase.h"
 
 #include "Subsystems/BallCollection.h"
 #include "Subsystems/DriveTrain.h"
@@ -18,12 +19,14 @@
 #include "Subsystems/Vision.h"
 #include "Subsystems/Tipper.h"
 #include "Subsystems/Fan.h"
+#include "Subsystems/Elevator.h"
 
 #include "Subsystems/BallCollectionSim.h"
 #include "Subsystems/DriveTrainSim.h"
 #include "Subsystems/ShooterSim.h"
 #include "Subsystems/TurretSim.h"
 #include "Subsystems/TipperSim.h"
+#include "Subsystems/ElevatorSim.h"
 #include "Subsystems/FanSim.h"
 
 #include "OI.h"
@@ -46,6 +49,7 @@ public:
 	static TurretBase *turret;
 	static VisionBase *vision;
 	static TipperBase *tipper;
+	static ElevatorBase *elevator;
 	static FanBase *fan;
 	
 	static OI *oi;

@@ -13,11 +13,18 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
+	typedef enum elevatorMode {
+			moveUp,
+			moveDown,
+			prime
+	};
+	
 	ElevatorBase();
-	void InitDefaultCommand();
-	void upSlot();
-	void downSlot();
-	void prime();
+	virtual void InitDefaultCommand();
+	virtual void moveElevator(elevatorMode mode);
+	virtual bool isBallSlot1();
+	virtual bool isBallSlot2();
+	virtual bool isBallSlot3();
 };
 
 #endif
