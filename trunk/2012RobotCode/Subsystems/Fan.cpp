@@ -14,7 +14,7 @@ void Fan::InitDefaultCommand()
 
 int Fan::RunFan()
 {
-	fan->Set(1);
+	fan->Set(Relay::kOn);
 	return 1;
 }
 // Put methods for controlling this subsystem

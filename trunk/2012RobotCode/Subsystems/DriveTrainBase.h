@@ -6,7 +6,7 @@
 /**
  *
  *
- * @author ag271604
+ * @author Jarrett
  */
 class DriveTrainBase: public Subsystem {
 private:
@@ -19,7 +19,7 @@ public:
 	virtual void mecanumDrive_Cartesian(float x, float y, float rotation);
 	virtual void driveWithJoystick(Joystick *joystick);
 	virtual float getGyroAngle();
-	virtual void autoLevel() {}
+	virtual void autoLevel();
 };
 
 #endif

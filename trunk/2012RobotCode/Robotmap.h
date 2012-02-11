@@ -1,7 +1,9 @@
 #ifndef ROBOTMAP_H
 #define ROBOTMAP_H
 
-#define SIMULATE
+#define COMPETITION
+//#define SIMULATE
+//#define KITBOT
 
 #include "Debug.h"
 
@@ -58,5 +60,8 @@
 #define SLOT_2_LIGHT_SENSOR 1
 #define SLOT_3_LIGHT_SENSOR 1
 #define SWEEPER_LIGHT_SENSOR 1
+
+// define the fan
+#define FAN 8
 
 #endif

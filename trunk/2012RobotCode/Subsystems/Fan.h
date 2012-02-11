@@ -13,7 +13,7 @@ class Fan: public FanBase {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	Victor *fan;
+	Relay *fan;
 	
 public:
 	Fan();

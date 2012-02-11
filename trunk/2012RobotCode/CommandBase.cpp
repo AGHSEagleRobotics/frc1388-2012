@@ -24,13 +24,32 @@ void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
 
-#ifdef SIMULATE 
+#if defined(COMPETITION)
+	driveTrain = new DriveTrain();
+	ballCollection = new BallCollection();
+	shooter = new Shooter();
+	turret = new Turret();
+	tipper = new Tipper();
+	fan = new Fan();
+	vision = new Vision();
+	
+#elif defined(SIMULATE) 
 	driveTrain = new DriveTrainSim();
 	ballCollection = new BallCollectionSim();
 	shooter = new ShooterSim();
 	turret = new TurretSim();
 	tipper = new TipperSim();
 	fan = new FanSim();
+	vision = new Vision();
+
+#elif defined(KITBOT)
+	driveTrain = new DriveTrainKitbot();
+	ballCollection = new BallCollectionSim();
+	shooter = new ShooterSim();
+	turret = new TurretSim();
+	tipper = new TipperSim();
+	fan = new FanSim();
+	vision = new Vision();
 	
 #else 
 	driveTrain = new DriveTrain();
@@ -39,10 +58,9 @@ void CommandBase::init() {
 	turret = new Turret();
 	tipper = new Tipper();
 	fan = new Fan();
+	vision = new Vision();
 	
 #endif
-
-	vision = new Vision();
 	
 	oi = new OI();
 	
