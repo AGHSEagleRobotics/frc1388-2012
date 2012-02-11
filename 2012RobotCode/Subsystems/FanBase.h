@@ -15,7 +15,7 @@ private:
 public:
 	FanBase();
 	void InitDefaultCommand();
-	virtual int RunFan();
+	virtual int RunFan() { return 0; }
 };
 
 #endif
