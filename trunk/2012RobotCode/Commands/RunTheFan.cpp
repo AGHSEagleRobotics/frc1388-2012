@@ -10,13 +10,13 @@ RunTheFan::RunTheFan()
 // Called just before this Command runs the first time
 void RunTheFan::Initialize()
 {
-	fan->RunFan();
+//	fan->RunFan();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void RunTheFan::Execute()
 {
-	
+	fan->RunFan();
 }
 
 // Make this return true when this Command no longer needs to run execute()
