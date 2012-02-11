@@ -16,7 +16,6 @@ ShooterBase* CommandBase::shooter = NULL;
 TurretBase* CommandBase::turret = NULL;
 VisionBase* CommandBase::vision = NULL;
 TipperBase* CommandBase::tipper = NULL;
-ElevatorBase* CommandBase::elevator = NULL;
 FanBase* CommandBase::fan = NULL;
 OI* CommandBase::oi	 = NULL;
 
@@ -31,7 +30,6 @@ void CommandBase::init() {
 	shooter = new ShooterSim();
 	turret = new TurretSim();
 	tipper = new TipperSim();
-	elevator = new ElevatorSim();
 	fan = new FanSim();
 	
 #else 
@@ -40,7 +38,6 @@ void CommandBase::init() {
 	shooter = new Shooter();
 	turret = new Turret();
 	tipper = new Tipper();
-	elevator = new Elevator();
 	fan = new Fan();
 	
 #endif
@@ -50,6 +47,6 @@ void CommandBase::init() {
 	oi = new OI();
 	
 	// send the PID's to the SmartDashboard
-	SmartDashboard::GetInstance()->PutData("TopAxelPID", shooter->getTopAxelPID());
-	SmartDashboard::GetInstance()->PutData("BottomAxelPID", shooter->getBottomAxelPID());
+//	SmartDashboard::GetInstance()->PutData("TopAxelPID", shooter->getTopAxelPID());
+//	SmartDashboard::GetInstance()->PutData("BottomAxelPID", shooter->getBottomAxelPID());
 }
