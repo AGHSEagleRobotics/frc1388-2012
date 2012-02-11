@@ -10,19 +10,24 @@ void Elevator::InitDefaultCommand() {
 	//SetDefaultCommand(new MySpecialCommand());
 }
 
-void Elevator::upSlot()
+void Elevator::moveElevator(Elevator::elevatorMode mode)
 {
 	
 }
 
-void Elevator::downSlot()
+bool Elevator::isBallSlot1()
 {
-	
+	return false;
 }
 
-void Elevator::prime()
+bool Elevator::isBallSlot2()
 {
-	
+	return false;
+}
+
+bool Elevator::isBallSlot3()
+{
+	return false;
 }
 
 // Put methods for controlling this subsystem
