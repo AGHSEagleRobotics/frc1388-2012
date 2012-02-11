@@ -1,8 +1,10 @@
 #include "MoveTipper.h"
+#include "../Subsystems/Tipper.h"
 
 MoveTipper::MoveTipper(Tipper::tipperMode mode) {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
+	
 	this->mode = mode;
 	Requires(tipper);
 }
@@ -17,11 +19,21 @@ void MoveTipper::Initialize()
 void MoveTipper::Execute() 
 {
 	tipper->MoveTipper(mode);
+	
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool MoveTipper::IsFinished() 
 {
+	switch (mode)
+	{
+	case TipperBase::extend:
+		return tipper->isExtended();
+		break;
+	case TipperBase::retract:
+		return tipper->isRetracted();
+		break;
+	}
 	return false;
 }
 

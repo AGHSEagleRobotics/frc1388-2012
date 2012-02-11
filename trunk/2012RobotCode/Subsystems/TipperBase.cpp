@@ -17,3 +17,12 @@ void TipperBase::MoveTipper(tipperMode mode)
 {
 	
 }
+bool TipperBase::isExtended()
+{
+	return false;
+}
+
+bool TipperBase::isRetracted()
+{
+	return false;
+}
