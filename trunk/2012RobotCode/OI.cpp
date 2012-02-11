@@ -64,6 +64,10 @@ OI::OI() {
 // Simulation buttons
 	toTheLeft = new JoystickButton (driveStick, 1);
 	toTheRight = new JoystickButton (driveStick, 2);
+	manualAimOn = new JoystickButton (opStick, 8);
+	autoAimOnSim = new JoystickButton (opStick, 9);
+	autoAimOnSim = new JoystickButton (opStick, 10);
+	autoAimOnSim = new JoystickButton (opStick, 11);
 
 //Tell the buttons what to do when pressed or held
 
@@ -86,16 +90,18 @@ OI::OI() {
 //	prime3->WhenPressed(new MoveElevator(MoveElevator::prime);
 //	prime4->WhenPressed(new MoveElevator(MoveElevator::prime);
 //buttonStick buttons	
-	autoAimOn->WhileHeld(new AutoAim());
-	autoAimOn->WhenReleased(new ManualAim()); 
+//	autoAimOn->WhileHeld(new AutoAim());
+	autoAimOff->WhileHeld(new ManualAim()); 
 	autoRangeOn->WhileHeld(new AutoRange());
-	autoRangeOn->WhenReleased(new ManualRange());
+	autoRangeOff->WhileHeld(new ManualRange());
 	ballSweepIn->WhenPressed(new BallCollect());
 	ballSweepOff->WhenPressed(new NoBallColletion());
 	ballSweepOut->WhileHeld(new Eject());
 	toTheLeft->WhenPressed(new RotateLeft());
 	toTheRight->WhenPressed(new RotateRight());
 	autoLevel->WhenPressed (new AutoLevel);
+	manualAimOn->WhenPressed (new ManualAim());
+	autoAimOnSim->WhenPressed (new AutoAim());
 
 }
 Joystick * OI::getDriveStick() {
