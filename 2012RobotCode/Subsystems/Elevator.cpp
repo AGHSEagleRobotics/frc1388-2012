@@ -30,5 +30,10 @@ bool Elevator::isBallSlot3()
 	return false;
 }
 
+bool Elevator::isBallDetected()
+{
+	return false;
+}
+
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
