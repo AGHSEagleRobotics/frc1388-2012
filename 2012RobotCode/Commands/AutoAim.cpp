@@ -10,29 +10,30 @@ AutoAim::AutoAim()
 // Called just before this Command runs the first time
 void AutoAim::Initialize()
 {
-	
+	printf("AutoAim \n");
 }
 
 // Called repeatedly when this Command is scheduled to run
 void AutoAim::Execute()
 {
 	// the Axis Camera field of vierw is 47 degrees
+	printf("AutoAim \n");
 	double angle;
 	double xDistance;
-	int targets = vision->getNumberOfTargets();
+//	int targets = vision->getNumberOfTargets();
 	
-	int maxHeight = 0, maxIndex = 0; 
-	for (int i = 0; i<targets; i++)
-	{
-		vision->setTargetParticle(i);
-		if (vision->getYPosition()>maxHeight)
-		{
-			maxHeight = vision->getYPosition();
-			maxIndex = i;
-		}
-	}
+//	int maxHeight = 0, maxIndex = 0; 
+//	for (int i = 0; i<targets; i++)
+//	{
+//		vision->setTargetParticle(i);
+//		if (vision->getYPosition()>maxHeight)
+//		{
+//			maxHeight = vision->getYPosition();
+//			maxIndex = i;
+//		}
+//	}
 	
-	vision->setTargetParticle(maxIndex);
+//	vision->setTargetParticle(maxIndex);
 	
 	xDistance = vision->getNormalizedXPosition();
 	angle = (23.5 * xDistance);
