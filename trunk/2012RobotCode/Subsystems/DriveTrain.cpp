@@ -65,11 +65,11 @@ void DriveTrain::driveWithJoystick(Joystick *joystick)
 
 void DriveTrain::autoLevel()
 {
-	// Get the angle from the gyro.
-	//float angle = getGyroAngle();
-	// Set the PID info.
-	pidAutoLevel->SetPID(0.0, 0.0, 0.1);
-	pidAutoLevel->SetOutputRange(0, 1);
+//	// Get the angle from the gyro.
+//	//float angle = getGyroAngle();
+//	// Set the PID info.
+//	pidAutoLevel->SetPID(0.0, 0.0, 0.1);
+//	pidAutoLevel->SetOutputRange(0, 1);
 	
 }
 
@@ -80,3 +80,8 @@ float DriveTrain::getGyroAngle()
 	// However, we may add compensation for drift later
 	return gyro->GetAngle()+gyroTrim;
 }
+
+//void *DriveTrain::pidPower()
+//{
+//	return NULL;
+//}

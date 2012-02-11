@@ -23,8 +23,8 @@ private:
 	// Create a variable for the Gyro
 	Gyro *gyro;
 	
-	// Create variables for autoLevel PID control
-	SendablePIDController *pidAutoLevel;
+//	// Create variables for autoLevel PID control
+//	SendablePIDController *pidAutoLevel;
 	
 	
 	// Declare a function for getting the gyro angle in case we decide
@@ -47,8 +47,8 @@ public:
 	virtual void mecanumDrive_Cartesian(float x, float y, float rotation);
 	virtual void driveWithJoystick(Joystick *joystick);
 	virtual void autoLevel();
-	virtual SendablePIDController *getAutoLevelPID();
-	virtual void *pidPower();
+//	virtual SendablePIDController *getAutoLevelPID();
+//	virtual void *pidPower();
 };
 
 #endif
