@@ -26,6 +26,8 @@ move the elevator down.
 #include "Commands/RotateRight.h"
 #include "Commands/AutoLevel.h"
 #include "Commands/ManualMoveElevator.h"
+#include "Commands/AutoCollect.h"
+#include "Commands/PrimeShooter.h"
 
 OI::OI() {
 	driveStick = new Joystick(DRIVESTICK_PORT);
@@ -86,16 +88,16 @@ OI::OI() {
 	trigger->WhenPressed(new Fire());
 	elevUp->WhileHeld(new ManualMoveElevator(Elevator::moveUp));
 	elevDown->WhileHeld(new ManualMoveElevator(Elevator::moveDown));
-//	prime1->WhenPressed(new MoveElevator(MoveElevator::prime));
-//	prime2->WhenPressed(new MoveElevator(MoveElevator::prime);
-//	prime3->WhenPressed(new MoveElevator(MoveElevator::prime);
-//	prime4->WhenPressed(new MoveElevator(MoveElevator::prime);
+	prime1->WhenPressed(new PrimeShooter());
+	prime2->WhenPressed(new PrimeShooter());
+	prime3->WhenPressed(new PrimeShooter());
+	prime4->WhenPressed(new PrimeShooter());
 //buttonStick buttons	
 //	autoAimOn->WhileHeld(new AutoAim());
 	autoAimOff->WhileHeld(new ManualAim()); 
 	autoRangeOn->WhileHeld(new AutoRange());
 	autoRangeOff->WhileHeld(new ManualRange());
-	ballSweepIn->WhenPressed(new BallCollect());
+	ballSweepIn->WhenPressed(new AutoCollect());
 	ballSweepOff->WhenPressed(new NoBallColletion());
 	ballSweepOut->WhileHeld(new Eject());
 	toTheLeft->WhenPressed(new RotateLeft());
