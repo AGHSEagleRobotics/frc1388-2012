@@ -25,7 +25,7 @@ public:
 	virtual bool isBallSlot1();
 	virtual bool isBallSlot2();
 	virtual bool isBallSlot3();
-	virtual bool isBallDetected();
+	virtual bool isBallSweeperArea();
 };
 
 #endif

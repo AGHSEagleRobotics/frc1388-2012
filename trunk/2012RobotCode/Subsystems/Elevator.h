@@ -19,13 +19,14 @@ private:
 	DigitalInput *slot1;
 	DigitalInput *slot2;
 	DigitalInput *slot3;
+	DigitalInput *sweeperArea;
 	
 public:
 	Elevator();
 	bool isBallSlot1();
 	bool isBallSlot2();
 	bool isBallSlot3();
-	bool isBallDetected();
+	bool isBallSweeperArea();
 	void InitDefaultCommand();
 	void Elevator::moveElevator(elevatorMode mode);
 	

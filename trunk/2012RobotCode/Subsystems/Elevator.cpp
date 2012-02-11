@@ -2,7 +2,11 @@
 #include "../Robotmap.h"
 
 Elevator::Elevator() : ElevatorBase() {
-	
+	elevatorMtr = new Victor(DEFAULT_DIGITAL_MODULE, CONVEYOR_BELT_VICTOR);
+	slot1 = new DigitalInput(DEFAULT_DIGITAL_MODULE, SLOT_1_LIGHT_SENSOR);
+	slot2 = new DigitalInput(DEFAULT_DIGITAL_MODULE, SLOT_2_LIGHT_SENSOR);
+	slot3 = new DigitalInput(DEFAULT_DIGITAL_MODULE, SLOT_3_LIGHT_SENSOR);
+	sweeperArea = new DigitalInput(DEFAULT_DIGITAL_MODULE, SWEEPER_LIGHT_SENSOR);
 }
     
 void Elevator::InitDefaultCommand() {
@@ -12,27 +16,38 @@ void Elevator::InitDefaultCommand() {
 
 void Elevator::moveElevator(Elevator::elevatorMode mode)
 {
-	
+	switch (mode)
+	{
+	case moveUp:
+		elevatorMtr->Set(1.0);
+		break;
+	case moveDown:
+		elevatorMtr->Set(-1.0);
+		break;
+	case prime:
+		elevatorMtr->Set(1.0);
+		break;
+	}
 }
 
 bool Elevator::isBallSlot1()
 {
-	return false;
+	return slot1->Get();
 }
 
 bool Elevator::isBallSlot2()
 {
-	return false;
+	return slot2->Get();
 }
 
 bool Elevator::isBallSlot3()
 {
-	return false;
+	return slot3->Get();
 }
 
-bool Elevator::isBallDetected()
+bool Elevator::isBallSweeperArea()
 {
-	return false;
+	return sweeperArea->Get();
 }
 
 // Put methods for controlling this subsystem
