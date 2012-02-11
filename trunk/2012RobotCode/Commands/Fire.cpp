@@ -1,4 +1,5 @@
 #include "Fire.h"
+#include "../SubSystems/ShooterBase.h"
 
 Fire::Fire()
 {

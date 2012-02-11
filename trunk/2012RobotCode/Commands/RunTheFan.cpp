@@ -1,4 +1,5 @@
 #include "RunTheFan.h"
+#include "../SubSystems/FanBase.h"
 
 RunTheFan::RunTheFan()
 {

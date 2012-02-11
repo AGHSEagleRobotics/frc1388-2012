@@ -1,4 +1,6 @@
 #include "VisionCommand.h"
+#include "../SubSystems/VisionBase.h"
+
 
 VisionCommand::VisionCommand()
 {

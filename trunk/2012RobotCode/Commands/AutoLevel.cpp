@@ -1,4 +1,5 @@
 #include "AutoLevel.h"
+#include "../SubSystems/DriveTrainBase.h"
 
 AutoLevel::AutoLevel() {
 	// Use requires() here to declare subsystem dependencies

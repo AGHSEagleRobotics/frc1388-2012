@@ -1,4 +1,5 @@
 #include "DriveWithJoystick.h"
+#include "../SubSystems/DriveTrainBase.h"
 
 DriveWithJoystick::DriveWithJoystick() {
 	Requires(driveTrain);

@@ -1,4 +1,5 @@
 #include "NoBallColletion.h"
+#include "../SubSystems/BallCollectionBase.h"
 
 NoBallColletion::NoBallColletion() {
 	// Use requires() here to declare subsystem dependencies

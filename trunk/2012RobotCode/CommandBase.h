@@ -1,35 +1,64 @@
 #ifndef COMMAND_BASE_H
 #define COMMAND_BASE_H
 
-#include "Commands/Command.h"
+//#include "Commands/Command.h"
+//
+//#include "Subsystems/BallCollectionBase.h"
+//#include "Subsystems/DriveTrainBase.h"
+//#include "Subsystems/ShooterBase.h"
+//#include "Subsystems/TurretBase.h"
+//#include "Subsystems/VisionBase.h"
+//#include "Subsystems/TipperBase.h"
+//#include "Subsystems/FanBase.h"
+//#include "Subsystems/ElevatorBase.h"
+//
+//#include "Subsystems/BallCollection.h"
+//#include "Subsystems/DriveTrain.h"
+//#include "Subsystems/Shooter.h"
+//#include "Subsystems/Turret.h"
+//#include "Subsystems/Vision.h"
+//#include "Subsystems/Tipper.h"
+//#include "Subsystems/Fan.h"
+//#include "Subsystems/Elevator.h"
+//
+//#include "Subsystems/BallCollectionSim.h"
+//#include "Subsystems/DriveTrainSim.h"
+//#include "Subsystems/ShooterSim.h"
+//#include "Subsystems/TurretSim.h"
+//#include "Subsystems/TipperSim.h"
+//#include "Subsystems/ElevatorSim.h"
+//#include "Subsystems/FanSim.h"
+//
+//#include "Subsystems/DriveTrainKitbot.h"
 
-#include "Subsystems/BallCollectionBase.h"
-#include "Subsystems/DriveTrainBase.h"
-#include "Subsystems/ShooterBase.h"
-#include "Subsystems/TurretBase.h"
-#include "Subsystems/VisionBase.h"
-#include "Subsystems/TipperBase.h"
-#include "Subsystems/FanBase.h"
-#include "Subsystems/ElevatorBase.h"
 
-#include "Subsystems/BallCollection.h"
-#include "Subsystems/DriveTrain.h"
-#include "Subsystems/Shooter.h"
-#include "Subsystems/Turret.h"
-#include "Subsystems/Vision.h"
-#include "Subsystems/Tipper.h"
-#include "Subsystems/Fan.h"
-#include "Subsystems/Elevator.h"
+class BallCollectionBase;
+class DriveTrainBase;
+class ShooterBase;
+class TurretBase;
+class VisionBase;
+class TipperBase;
+class FanBase;
+class ElevatorBase;
 
-#include "Subsystems/BallCollectionSim.h"
-#include "Subsystems/DriveTrainSim.h"
-#include "Subsystems/ShooterSim.h"
-#include "Subsystems/TurretSim.h"
-#include "Subsystems/TipperSim.h"
-#include "Subsystems/ElevatorSim.h"
-#include "Subsystems/FanSim.h"
+class BallCollection;
+class DriveTrain;
+class Shooter;
+class Turret;
+class Vision;
+class Tipper;
+class Fan;
+class Elevator;
 
-#include "Subsystems/DriveTrainKitbot.h"
+class BallCollectionSim;
+class DriveTrainSim;
+class ShooterSim;
+class TurretSim;
+class TipperSim;
+class ElevatorSim;
+class FanSim;
+
+class DriveTrainKitbot;
 
 #include "OI.h"
 

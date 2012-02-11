@@ -1,4 +1,5 @@
 #include "ManualAim.h"
+#include "../SubSystems/TurretBase.h"
 
 ManualAim::ManualAim() {
 	// Use requires() here to declare subsystem dependencies
@@ -14,7 +15,7 @@ void ManualAim::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ManualAim::Execute() {
 	float xAxis = oi->getOpStickXAxis();
-	float power = (xAxis)/2; 
+//	float power = (xAxis)/2; 
 	float powerSim = (xAxis) * 1.5; 
 //10 is an estimate for the number of degrees to move the turret
 //	turret->UsePIDOutput(power);
