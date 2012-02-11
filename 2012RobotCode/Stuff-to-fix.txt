@@ -1,0 +1,7 @@
+This is a list of different problems that people see.
+Please use this and inform the associated person instead of just changing their code.
+-David
+
+Need to set motor speed to "0" in the "End" of a command:
+-MoveTipper -> does the motor need to stop?
+-DriveWithJoystick -> I don't know if this ends.. but you might want it just in case.
