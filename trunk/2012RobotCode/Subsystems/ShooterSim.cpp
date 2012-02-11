@@ -37,6 +37,16 @@ void ShooterSim::SetBottomAxel(float fShooterSpeed)
 	
 }
 
+//SendablePIDController *ShooterSim::getTopAxelPID()
+//{
+//	return NULL;
+//}
+//
+//SendablePIDController *ShooterSim::getBottomAxelPID()
+//{
+//	return NULL;
+//}
+
 void ShooterSim::MoveConveyor()
 {
 	

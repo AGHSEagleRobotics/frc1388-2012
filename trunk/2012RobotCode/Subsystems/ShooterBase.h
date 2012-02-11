@@ -23,8 +23,8 @@ public:
 	virtual void MoveConveyor();
 	virtual bool IsBallPrimed();
 	virtual bool Passed();
-	virtual SendablePIDController *getTopAxelPID();
-	virtual SendablePIDController *getBottomAxelPID();
+//	virtual SendablePIDController *getTopAxelPID();
+//	virtual SendablePIDController *getBottomAxelPID();
 };
 
 #endif
