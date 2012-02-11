@@ -13,22 +13,9 @@ class Tipper: public TipperBase {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	Victor *tipperMtr;
-	DigitalInput *limitSwitchExtended;
-	DigitalInput *limitSwitchRetracted;
-
 public:
-	
-//	typedef enum tipperMode {
-//		extend,
-//		retract
-//	};
-	
 	Tipper();
-	bool isExtended();
-	bool isRetracted();
 	void InitDefaultCommand();
-	void Tipper::MoveTipper(tipperMode mode);
 };
 
 #endif
