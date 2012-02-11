@@ -18,6 +18,7 @@ VisionBase* CommandBase::vision = NULL;
 TipperBase* CommandBase::tipper = NULL;
 FanBase* CommandBase::fan = NULL;
 OI* CommandBase::oi	 = NULL;
+ElevatorBase* CommandBase::elevator = NULL;
 
 
 void CommandBase::init() {
@@ -32,6 +33,7 @@ void CommandBase::init() {
 	tipper = new Tipper();
 	fan = new Fan();
 	vision = new Vision();
+	elevator = new Elevator();
 	
 #elif defined(SIMULATE) 
 	driveTrain = new DriveTrainSim();
@@ -41,7 +43,8 @@ void CommandBase::init() {
 	tipper = new TipperSim();
 	fan = new FanSim();
 	vision = new Vision();
-
+	elevator = new Elevator();
+	
 #elif defined(KITBOT)
 	driveTrain = new DriveTrainKitbot();
 	ballCollection = new BallCollectionSim();
@@ -50,6 +53,7 @@ void CommandBase::init() {
 	tipper = new TipperSim();
 	fan = new FanSim();
 	vision = new Vision();
+	elevator = new Elevator();
 	
 #else 
 	driveTrain = new DriveTrain();
@@ -59,6 +63,7 @@ void CommandBase::init() {
 	tipper = new Tipper();
 	fan = new Fan();
 	vision = new Vision();
+	elevator = new Elevator();
 	
 #endif
 	

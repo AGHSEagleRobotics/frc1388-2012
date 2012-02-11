@@ -28,7 +28,7 @@ public:
 	bool isBallSlot3();
 	bool isBallSweeperArea();
 	void InitDefaultCommand();
-	void Elevator::moveElevator(elevatorMode mode);
+	void moveElevator(elevatorMode mode);
 	
 };
 
