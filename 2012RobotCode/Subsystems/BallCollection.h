@@ -10,8 +10,6 @@
  */
 class BallCollection: public BallCollectionBase {
 private:
-	// Create variable for the BallCollection Victor
-	Victor *ballCollect2;
 
 public:
 	BallCollection();

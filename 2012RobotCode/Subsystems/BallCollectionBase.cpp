@@ -16,6 +16,5 @@ void BallCollectionBase::moveRollers(float speed)
 }
 
 
-
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
