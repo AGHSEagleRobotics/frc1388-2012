@@ -25,6 +25,7 @@ public:
 	bool isBallSlot1();
 	bool isBallSlot2();
 	bool isBallSlot3();
+	bool isBallDetected();
 	void InitDefaultCommand();
 	void Elevator::moveElevator(elevatorMode mode);
 	
