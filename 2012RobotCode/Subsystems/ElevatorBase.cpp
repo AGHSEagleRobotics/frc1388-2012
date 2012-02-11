@@ -30,7 +30,7 @@ bool ElevatorBase::isBallSlot3()
 	return false;
 }
 
-bool ElevatorBase::isBallDetected()
+bool ElevatorBase::isBallSweeperArea()
 {
 	return false;
 }

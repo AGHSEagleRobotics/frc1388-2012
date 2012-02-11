@@ -54,5 +54,9 @@
 
 // define the ball colletor
 #define BALL_COLLECTION_2 5
+#define SLOT_1_LIGHT_SENSOR 1
+#define SLOT_2_LIGHT_SENSOR 1
+#define SLOT_3_LIGHT_SENSOR 1
+#define SWEEPER_LIGHT_SENSOR 1
 
 #endif
