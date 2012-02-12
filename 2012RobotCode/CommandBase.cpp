@@ -29,6 +29,7 @@
 #include "Subsystems/TipperSim.h"
 #include "Subsystems/ElevatorSim.h"
 #include "Subsystems/FanSim.h"
+#include "Subsystems/VisionSim.h"
 
 #include "Subsystems/DriveTrainKitbot.h"
 
@@ -81,7 +82,7 @@ void CommandBase::init() {
 	turret = new TurretSim();
 	tipper = new TipperSim();
 	fan = new FanSim();
-	vision = new Vision();
+	vision = new VisionSim();
 	elevator = new Elevator();
 	
 #else 
