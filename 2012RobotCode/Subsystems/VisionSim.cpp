@@ -2,27 +2,7 @@
 #include "../Robotmap.h"
 
 VisionSim::VisionSim() : VisionBase() {
-	printDebug("Initializing Camera Settings.");
-	
-	// Get an instance of the camera
-	AxisCamera &camera = AxisCamera::GetInstance(CAMERA_IP);
-	
-	// Write some configuration to the camera
-	camera.WriteResolution(CAMERA_LOW_RESOLUTION);
-	camera.WriteCompression(CAMERA_COMPRESSION);
-	camera.WriteBrightness(CAMERA_BRIGHTNESS);
-	camera.WriteMaxFPS(CAMERA_FPS);
-	camera.WriteColorLevel(CAMERA_COLOR_LEVEL);
-	
-	
-	printDebug("Done Configuring Camera.");
-	
-	particles = NULL;
-	
-	lightRing = new Relay(DEFAULT_DIGITAL_MODULE, LIGHT_RING_PORT, Relay::kForwardOnly);
-	lightRing->Set(Relay::kOff);
-	
-	hasTargets = false;
+
 }
     
 void VisionSim::InitDefaultCommand() {

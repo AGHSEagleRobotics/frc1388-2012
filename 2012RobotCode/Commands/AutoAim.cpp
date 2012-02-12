@@ -7,7 +7,7 @@ AutoAim::AutoAim()
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
 	Requires(turret);
-	Requires(vision);
+//	Requires(vision);
 }
 
 // Called just before this Command runs the first time
@@ -21,7 +21,7 @@ void AutoAim::Execute()
 {
 	// the Axis Camera field of vierw is 47 degrees
 	
-//	double angle;
+	double angle;
 	double xDistance;
 //	int targets = vision->getNumberOfTargets();
 	
@@ -39,9 +39,9 @@ void AutoAim::Execute()
 	vision->setTargetParticle(0);
 	
 	xDistance = vision->getNormalizedXPosition();
-	printf("xDistance \n");
-//	angle = (23.5 * xDistance);
-//	turret->TurnRelative(angle);
+
+	angle = (23.5 * xDistance);
+	turret->TurnRelative(angle);
 }
 
 // Make this return true when this Command no longer needs to run execute()

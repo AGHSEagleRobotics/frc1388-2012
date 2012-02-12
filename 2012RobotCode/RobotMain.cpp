@@ -7,14 +7,14 @@
 class RobotMain : public IterativeRobot {
 private:
 	
-//	Command *driveWithJoystick;
-//	Command *runTheFan;
+	Command *driveWithJoystick;
+	Command *runTheFan;
 	Command *autoAim;
 	
 	virtual void RobotInit() {
 		CommandBase::init();
-//		driveWithJoystick = new DriveWithJoystick();
-//		runTheFan = new RunTheFan();
+		driveWithJoystick = new DriveWithJoystick();
+		runTheFan = new RunTheFan();
 		autoAim = new AutoAim();
 	}
 	
@@ -26,8 +26,8 @@ private:
 	}
 	
 	virtual void TeleopInit() {
-//		driveWithJoystick->Start();
-//		runTheFan->Start();
+		driveWithJoystick->Start();
+		runTheFan->Start();
 		autoAim->Start();
 	}
 	
