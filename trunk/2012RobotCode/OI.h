@@ -22,8 +22,6 @@ private:
 	JoystickButton *extendTipper2; //10
 	JoystickButton *retractTipper1; //11
 	JoystickButton *retractTipper2; //12
-	JoystickButton *toTheLeft; //1 Simulation
-	JoystickButton *toTheRight; //2 Simulation
 	
 //Define opStick buttons
 	JoystickButton *trigger; //1
@@ -34,7 +32,6 @@ private:
 	JoystickButton *prime3; //4
 	JoystickButton *prime4; //5
 	JoystickButton *manualAimOn; // 8 Simulation
-	JoystickButton *autoAimOnSim; // 9 Simulation
 //Define buttonStick buttons
  	JoystickButton *autoAimOn; //1
 	JoystickButton *autoAimOff; //2
@@ -73,8 +70,6 @@ public:
 //	Joystick *joystick;
 //	Joystick *opsStick;
 //	Joystick *ioStick;
-//	JoystickButton *ToTheLeft;
-//	JoystickButton *ToTheRight;
 //
 //public:
 //	

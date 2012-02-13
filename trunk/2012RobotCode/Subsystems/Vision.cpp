@@ -105,7 +105,8 @@ int Vision::particleAnalysis()
 
 void Vision::setTargetParticle(int index)
 {
-	targetParticle = particles->at(index);
+	if(index < (int)particles->size())
+		targetParticle = particles->at(index);
 }
 
 double Vision::getNormalizedXPosition()

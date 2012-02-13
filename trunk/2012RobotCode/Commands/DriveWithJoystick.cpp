@@ -13,7 +13,6 @@ void DriveWithJoystick::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoystick::Execute() {
 	driveTrain->driveWithJoystick(oi->getDriveStick());
-//	printf("I'm Driving! \n");
 }
 
 // Is always being used. Never return true
