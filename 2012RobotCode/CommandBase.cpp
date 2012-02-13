@@ -69,21 +69,21 @@ void CommandBase::init() {
 	driveTrain = new DriveTrainSim();
 	ballCollection = new BallCollectionSim();
 	shooter = new ShooterSim();
-	turret = new TurretSim();
+	turret = new TurretSim(0.1,0.01,0);
 	tipper = new TipperSim();
 	fan = new FanSim();
 	vision = new Vision();
-	elevator = new Elevator();
+	elevator = new ElevatorSim();
 	
 #elif defined(KITBOT)
-	driveTrain = new DriveTrainKitbot();
+	driveTrain = new DriveTrain();
 	ballCollection = new BallCollectionSim();
 	shooter = new ShooterSim();
-	turret = new TurretSim();
+	turret = new TurretBase();
 	tipper = new TipperSim();
 	fan = new FanSim();
 	vision = new VisionSim();
-	elevator = new Elevator();
+	elevator = new ElevatorSim();
 	
 #else 
 	driveTrain = new DriveTrain();

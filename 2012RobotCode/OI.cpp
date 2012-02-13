@@ -55,6 +55,7 @@ OI::OI() {
 	prime2 = new JoystickButton (opStick, 3);
 	prime3 = new JoystickButton (opStick, 4);
 	prime4 = new JoystickButton (opStick, 5);
+	manualAimOn = new JoystickButton (opStick, 8);
 //buttonStick buttons
 	autoAimOn = new JoystickButton (buttonStick, 1);
 	autoAimOff = new JoystickButton (buttonStick, 2);
@@ -64,13 +65,6 @@ OI::OI() {
 	ballSweepOff = new JoystickButton (buttonStick, 6);
 	ballSweepOut = new JoystickButton (buttonStick, 7);
 	autoLevel = new JoystickButton (buttonStick, 8);
-// Simulation buttons
-	toTheLeft = new JoystickButton (driveStick, 1);
-	toTheRight = new JoystickButton (driveStick, 2);
-	manualAimOn = new JoystickButton (opStick, 8);
-	autoAimOnSim = new JoystickButton (opStick, 9);
-	autoAimOnSim = new JoystickButton (opStick, 10);
-	autoAimOnSim = new JoystickButton (opStick, 11);
 
 //Tell the buttons what to do when pressed or held
 
@@ -93,18 +87,15 @@ OI::OI() {
 	prime3->WhenPressed(new PrimeShooter());
 	prime4->WhenPressed(new PrimeShooter());
 //buttonStick buttons	
-//	autoAimOn->WhileHeld(new AutoAim());
+	autoAimOn->WhileHeld(new AutoAim());
 	autoAimOff->WhileHeld(new ManualAim()); 
 	autoRangeOn->WhileHeld(new AutoRange());
 	autoRangeOff->WhileHeld(new ManualRange());
 	ballSweepIn->WhenPressed(new AutoCollect());
 	ballSweepOff->WhenPressed(new NoBallColletion());
 	ballSweepOut->WhileHeld(new Eject());
-	toTheLeft->WhenPressed(new RotateLeft());
-	toTheRight->WhenPressed(new RotateRight());
 	autoLevel->WhenPressed (new AutoLevel);
 	manualAimOn->WhenPressed (new ManualAim());
-	autoAimOnSim->WhenPressed (new AutoAim());
 
 }
 Joystick * OI::getDriveStick() {

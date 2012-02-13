@@ -2,35 +2,40 @@
 #include "../Robotmap.h"
 #include "SmartDashboard/SmartDashboard.h"
 
-TurretSim::TurretSim() 
-	: servoSim(1, 1)
+TurretSim::TurretSim(double Kp, double Ki, double Kd)
+	: TurretBase(Kp, Ki, Kd)
+	, servoSim(1, 10)
 {
-	angleSim = 0;
-}
-
-double TurretSim::ReturnPIDInput() 
-{
-	return angleSim;
+//	angleSim = 90;
+	angleSimBase = 90;
+	SetSetpoint(0);
+//	Enable();
 }
 
 void TurretSim::UsePIDOutput(double output) 
 {
-	
+	output *= 90;
+	printf("Angle = %.1lf\n", angleSimBase + output);
+	servoSim.SetAngle(angleSimBase + output);
 }
 
-void TurretSim::InitDefaultCommand() 
-{
-	
-}
-void TurretSim::TurnRelative(double angle)
-{
-	angleSim += angle;
-	SetSetpoint(angleSim);
-	servoSim.SetAngle(angleSim);
-}
-void TurretSim::TurnAbsolute(double angle)
-{
-	angleSim = angle;
-	SetSetpoint(angleSim);
-	servoSim.SetAngle(angleSim);
-}
+//void TurretSim::InitDefaultCommand() 
+//{
+//	
+//}
+
+//void TurretSim::TurnRelative(double angle)
+//{
+////	angleSim += angle;
+////	SetSetpoint(angleSim);
+////	printf("Angle = %.1lf \n", angleSim);
+////	servoSim.SetAngle(angleSim);
+//}
+//
+//void TurretSim::TurnAbsolute(double angle)
+//{
+////	angleSim = angle;
+////	SetSetpoint(angleSim);
+////	printf("Angle = %.1lf \n", angleSim);
+////	servoSim.SetAngle(angleSim);
+//}

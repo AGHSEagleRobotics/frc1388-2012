@@ -20,9 +20,9 @@ private:
 	CANJaguar *backLeft;
 	CANJaguar *frontRight;
 	CANJaguar *backRight;
-
 #endif
-//	// Create a variable for the main robot drive
+
+	// Create a variable for the main robot drive
 	RobotDrive *drive;
 	
 	// Create a variable for the Gyro
@@ -31,15 +31,14 @@ private:
 	
 	float desiredHeading;
 	float prevRotation;
-	
-	
+
 	virtual float headingHold();
 	
 	Timer timer;
 	
 	// Stuff for the PID
 	SendablePIDController *gyroHeadingPID;
-	Preferences *prefs;
+//	Preferences *prefs;
 	manualPIDOutput *pidOut;
 	
 public:
@@ -48,11 +47,11 @@ public:
 	virtual void mecanumDrive_Polar(float direction, float power);
 	virtual void mecanumDrive_Cartesian(float x, float y, float rotation);
 	
-//	virtual void fineTrimLeft();
-//	virtual void coarseTrimLeft();
-//	virtual void fineTrimRight();
-//	virtual void coarseTrimRight();
-//	virtual void zeroGyro();
+	virtual void fineTrimLeft();
+	virtual void coarseTrimLeft();
+	virtual void fineTrimRight();
+	virtual void coarseTrimRight();
+	virtual void zeroGyro();
 };
 
 #endif

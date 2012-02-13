@@ -12,17 +12,16 @@
  */
 class TurretSim: public TurretBase {
 private:
-	double angleSim;
+	double angleSimBase;
+//	double angleSim;
 	Servo servoSim;
 	
 public:
-	TurretSim();
-	double ReturnPIDInput();
+	TurretSim(double Kp = 0.1, double Ki = 0, double Kd = 0);
 	void UsePIDOutput(double output);
-	void InitDefaultCommand();
-	void TurnRelative(double angle);
-	void TurnAbsolute(double angle);
-	
+//	void InitDefaultCommand();
+//	void TurnRelative(double angle);
+//	void TurnAbsolute(double angle);
 	
 	
 };

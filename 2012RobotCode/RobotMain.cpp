@@ -14,8 +14,8 @@ private:
 	virtual void RobotInit() {
 		CommandBase::init();
 		driveWithJoystick = new DriveWithJoystick();
-		runTheFan = new RunTheFan();
-		autoAim = new AutoAim();
+//		runTheFan = new RunTheFan();
+//		autoAim = new AutoAim();
 	}
 	
 	virtual void AutonomousInit() {
@@ -27,8 +27,8 @@ private:
 	
 	virtual void TeleopInit() {
 		driveWithJoystick->Start();
-		runTheFan->Start();
-		autoAim->Start();
+//		runTheFan->Start();
+//		autoAim->Start();
 	}
 	
 	virtual void TeleopPeriodic() {

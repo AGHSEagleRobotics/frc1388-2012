@@ -21,7 +21,7 @@ DriveTrain::DriveTrain() : DriveTrainBase()
 	
 	pidOut = new manualPIDOutput();
 	
-	prefs = Preferences::GetInstance();
+//	prefs = Preferences::GetInstance();
 //	prefs->Save();
 //	double p = prefs->GetDouble("gyro_pid_p");
 //	double i = prefs->GetDouble("gyro_pid_i");
@@ -71,6 +71,7 @@ void DriveTrain::mecanumDrive_Cartesian(float x, float y, float rotation)
 		timer.Stop();
 		timer.Reset();
 	}
+	
 	drive->MecanumDrive_Cartesian(x,y,rotation,angle);
 	prevRotation = rotation;
 	
@@ -91,28 +92,28 @@ float DriveTrain::headingHold()
 	return 0;
 }
 
-//void DriveTrain::fineTrimLeft()
-//{
-//	gyro->SetTrim(gyro->GetTrim()-2);
-//}
-//
-//void DriveTrain::coarseTrimLeft()
-//{
-//	gyro->SetTrim(gyro->GetTrim()-10);
-//}
-//
-//void DriveTrain::fineTrimRight()
-//{
-//	gyro->SetTrim(gyro->GetTrim()+2);
-//}
-//
-//void DriveTrain::coarseTrimRight()
-//{
-//	gyro->SetTrim(gyro->GetTrim()+10);
-//}
-//
-//void DriveTrain::zeroGyro()
-//{
-//	gyro->ZeroGyro();
-//}
+void DriveTrain::fineTrimLeft()
+{
+	gyro->SetTrim(gyro->GetTrim()-2);
+}
+
+void DriveTrain::coarseTrimLeft()
+{
+	gyro->SetTrim(gyro->GetTrim()-10);
+}
+
+void DriveTrain::fineTrimRight()
+{
+	gyro->SetTrim(gyro->GetTrim()+2);
+}
+
+void DriveTrain::coarseTrimRight()
+{
+	gyro->SetTrim(gyro->GetTrim()+10);
+}
+
+void DriveTrain::zeroGyro()
+{
+	gyro->ZeroGyro();
+}
 
