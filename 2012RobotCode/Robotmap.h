@@ -35,6 +35,7 @@
 #define TURRET_GYRO_ID   1
 #define TURRET_ENCODER_A 1
 #define TURRET_ENCODER_B 2
+#define SERVO_SIM 10
 
 // define the bridge control
 #define BRIDGE_CONTROL_MOTOR 2
