@@ -34,6 +34,10 @@ private:
 	virtual void TeleopPeriodic() {
 		Scheduler::GetInstance()->Run();
 	}
+	
+	virtual void DisabledInit() {
+		Preferences::GetInstance()->Save();
+	}
 };
 
 START_ROBOT_CLASS(RobotMain);

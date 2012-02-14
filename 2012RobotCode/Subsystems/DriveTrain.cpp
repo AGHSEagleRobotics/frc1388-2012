@@ -22,11 +22,10 @@ DriveTrain::DriveTrain() : DriveTrainBase()
 	pidOut = new manualPIDOutput();
 	
 //	prefs = Preferences::GetInstance();
-//	prefs->Save();
-//	double p = prefs->GetDouble("gyro_pid_p");
-//	double i = prefs->GetDouble("gyro_pid_i");
-//	double d = prefs->GetDouble("gyro_pid_d");
-	gyroHeadingPID = new SendablePIDController(0.005,0.0,0,gyro,pidOut);
+//	float p = prefs->GetFloat("gyro_pid_p",0.005);
+//	float i = prefs->GetFloat("gyro_pid_i");
+//	float d = prefs->GetFloat("gyro_pid_d");
+//	gyroHeadingPID = new SendablePIDController(p,i,d,gyro,pidOut);
 	SmartDashboard::GetInstance()->PutData("gyroHeadingPID", gyroHeadingPID);
 	gyroHeadingPID->SetSetpoint(0);
 	gyroHeadingPID->SetContinuous(true);
@@ -34,7 +33,7 @@ DriveTrain::DriveTrain() : DriveTrainBase()
 	gyroHeadingPID->Enable();
 	
 	// Initialize some variables that will be used later
-	desiredHeading = 0;
+	desiredHeading = gyro->GetAngle();
 }
     
 void DriveTrain::InitDefaultCommand()
@@ -63,10 +62,10 @@ void DriveTrain::mecanumDrive_Cartesian(float x, float y, float rotation)
 	{
 		timer.Start();
 	}
-	else if (timer.Get()<0.25)
+	else if (timer.Get()<timeout)
 	{
 		desiredHeading = gyro->GetAngle();
-	} else if (timer.Get()>0.25)
+	} else if (timer.Get()>timeout)
 	{
 		timer.Stop();
 		timer.Reset();
@@ -115,5 +114,6 @@ void DriveTrain::coarseTrimRight()
 void DriveTrain::zeroGyro()
 {
 	gyro->ZeroGyro();
+	desiredHeading = gyro->GetAngle();
 }
 

@@ -35,6 +35,7 @@ private:
 	virtual float headingHold();
 	
 	Timer timer;
+	static const float timeout = 0.5;
 	
 	// Stuff for the PID
 	SendablePIDController *gyroHeadingPID;

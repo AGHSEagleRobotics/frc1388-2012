@@ -69,11 +69,11 @@ OI::OI() {
 //Tell the buttons what to do when pressed or held
 
 //driverStick buttons
-//	fineTrimLeft->WhenPressed(new TrimGyro(TrimGyro::fineLeft));
-//	fineTrimRight->WhenPressed(new TrimGyro(TrimGyro::fineRight));
-//	coarseTrimLeft->WhenPressed(new TrimGryo(TrimGyro::coarseLeft));
-//	coarseTrimRight->WhenPressed(new TrimGyro(TrimGyro::coarseRight));
-//	zeroGryo->WhenPressed(new TrimGyro(TrimGyro::zero));
+	fineTrimLeft->WhenPressed(new TrimGyro(TrimGyro::fineLeft));
+	fineTrimRight->WhenPressed(new TrimGyro(TrimGyro::fineRight));
+	coarseTrimLeft->WhenPressed(new TrimGyro(TrimGyro::coarseLeft));
+	coarseTrimRight->WhenPressed(new TrimGyro(TrimGyro::coarseRight));
+	zeroGyro->WhenPressed(new TrimGyro(TrimGyro::zero));
 	extendTipper1->WhenPressed(new MoveTipper(Tipper::extend));
 	extendTipper2->WhenPressed(new MoveTipper(Tipper::extend));
 	retractTipper1->WhenPressed(new MoveTipper(Tipper::retract));
