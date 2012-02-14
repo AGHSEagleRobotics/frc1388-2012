@@ -4,7 +4,7 @@
 
 TurretSim::TurretSim(double Kp, double Ki, double Kd)
 	: TurretBase(Kp, Ki, Kd)
-	, servoSim(1, 10)
+	, servoSim(1, SERVO_SIM)
 {
 //	angleSim = 90;
 	angleSimBase = 90;

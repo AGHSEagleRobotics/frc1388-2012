@@ -12,9 +12,10 @@
  */
 class TurretSim: public TurretBase {
 private:
+	Servo servoSim;
 	double angleSimBase;
 //	double angleSim;
-	Servo servoSim;
+	
 	
 public:
 	TurretSim(double Kp = 0.1, double Ki = 0, double Kd = 0);
