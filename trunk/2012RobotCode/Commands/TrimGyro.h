@@ -6,11 +6,19 @@
 /**
  *
  *
- * @author ag291863
+ * @author Scott
  */
 class TrimGyro: public CommandBase {
 public:
-	TrimGyro();
+	typedef enum trimMode {fineLeft, fineRight, coarseLeft, coarseRight, zero};
+	
+private:
+	bool finished;
+	trimMode mode;
+	
+public:
+	
+	TrimGyro(trimMode mode);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
