@@ -53,28 +53,20 @@ void DriveTrain::mecanumDrive_Cartesian(float x, float y, float rotation)
 	// Get the angle from the Gyro
 	float angle = gyro->GetAngle();
 //	printf("rotation:%f last:%f\n",rotation,prevRotation);
-	if (rotation==0.0&&prevRotation==0.0)
+	if (rotation!=0)
 	{
-		drive->MecanumDrive_Cartesian(x,y,headingHold(),angle);
-		prevRotation = rotation;
+		drive->MecanumDrive_Cartesian(x,y,rotation,angle);
 		return;
 	}
-	// Review: Change timeout handling
-	if (rotation!=0.0&&prevRotation==0.0)
+	else if (rotation==0&&timer.Get()<timeout)
 	{
-		timer.Start();
+		return;
 	}
-	else if (timer.Get()<timeout)
+	else if (rotation==0&&timer.Get()>timeout)
 	{
-		desiredHeading = gyro->GetAngle();
-	} else if (timer.Get()>timeout)
-	{
-		timer.Stop();
-		timer.Reset();
+		drive->MecanumDrive_Cartesian(x,y,headingHold(),angle);
+		return;
 	}
-	
-	drive->MecanumDrive_Cartesian(x,y,rotation,angle);
-	prevRotation = rotation;
 	
 }
 

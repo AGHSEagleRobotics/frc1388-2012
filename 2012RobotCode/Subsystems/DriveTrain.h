@@ -30,7 +30,6 @@ private:
 //	Gyro *gyro;
 	
 	float desiredHeading;
-	float prevRotation;
 
 	virtual float headingHold();
 	
