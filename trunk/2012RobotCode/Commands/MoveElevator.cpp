@@ -25,8 +25,10 @@ void MoveElevator::Execute()
 		if (elevator->isBallSweeperArea())
 		{
 			elevator->moveElevator(mode);
+			// Review: use timer function.
 			Wait(0.2);
-			do {} while (!elevator->isBallSlot1());
+			// Review: Following code needs to be verified.
+			do {} while (!elevator->isBallSlot1() && !elevator->isBallSlot3());
 			elevator->moveElevator(Elevator::stop);
 		}
 	}

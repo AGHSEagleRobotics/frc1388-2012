@@ -21,8 +21,8 @@ private:
 	
 	//Initialize Victor, Gyro, and Encoder setup.
 	Victor *turretMtr;
-	Encoder *turretEncdr;
-	Gyro *turretGyro;
+//	Encoder *turretEncdr;
+//	Gyro *turretGyro;
 	
 	
 public:

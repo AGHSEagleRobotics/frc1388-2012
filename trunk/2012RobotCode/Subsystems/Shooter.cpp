@@ -9,10 +9,11 @@ Shooter::Shooter() : ShooterBase()
 	topAxelEncoder = new Encoder(TOP_AXEL_ENCODER_A,TOP_AXEL_ENCODER_B, false, Encoder::k4X);
 	bottomAxelEncoder = new Encoder(BOTTOM_AXEL_ENCODER_A,BOTTOM_AXEL_ENCODER_B, false, Encoder::k4X);
 	pidTopAxel = new SendablePIDController(0.0, 0.0, 0.0, topAxelEncoder, topAxel);
-	pidTopAxel = new SendablePIDController(0.0, 0.0, 0.0, bottomAxelEncoder, bottomAxel);
-	ballDetect = new AnalogChannel(BALL_DETECT);
-	conveyorBelt = new Victor(CONVEYOR_BELT_VICTOR);
-	passed = new DigitalInput(BALL_PASSED);
+	pidBottomAxel = new SendablePIDController(0.0, 0.0, 0.0, bottomAxelEncoder, bottomAxel);
+//	Review: Check if there is going to be a ballDetect on the robot
+//	ballDetect = new AnalogChannel(BALL_DETECT);
+//	conveyorBelt = new Victor(CONVEYOR_BELT_VICTOR);
+//	passed = new DigitalInput(BALL_PASSED);
 }
     
 void Shooter::InitDefaultCommand()
@@ -36,21 +37,23 @@ void Shooter::SetRange(float distance)
 
 void Shooter::TopAxelPID()
 {
-	// we need to figure out the PID values
+	// Review: we need to figure out the PID values
 	pidTopAxel->SetPID(0, 0, 0);
 
 	pidTopAxel->SetOutputRange(0 , 1);
 	
+//	Review: find out what dimetion the DistancePerPulse is
 	topAxelEncoder->SetDistancePerPulse(0.06981);
 }
 
 void Shooter::BottomAxelPID()
 {
-	// we need to figure out the PID values
+	// Review: we need to figure out the PID values
 	pidBottomAxel->SetPID(0, 0, 0);
 	
 	pidBottomAxel->SetOutputRange(0 , 1);
 	
+	//	Review: find out what dimetion the DistancePerPulse is
 	bottomAxelEncoder->SetDistancePerPulse(0.06981);	
 }
 
@@ -64,24 +67,24 @@ void Shooter::SetBottomAxel(float fShooterSpeed)
 	pidBottomAxel->SetSetpoint(fShooterSpeed);
 }
 
-void Shooter::MoveConveyor()
-{
-	conveyorBelt->Set(0.5);
-}
-
-bool Shooter::IsBallPrimed()
-{
-	if(ballDetect->GetVoltage() < 0.04)
-	{
-		return true;
-	}
-	else
-	{	
-		return false;
-	}
-}
-
-bool Shooter::Passed()
-{
-	return passed;
-}
+//void Shooter::MoveConveyor()
+//{
+//	conveyorBelt->Set(0.5);
+//}
+//
+//bool Shooter::IsBallPrimed()
+//{
+//	if(ballDetect->GetVoltage() < 0.04)
+//	{
+//		return true;
+//	}
+//	else
+//	{	
+//		return false;
+//	}
+//}
+//
+//bool Shooter::Passed()
+//{
+//	return passed;
+//}
