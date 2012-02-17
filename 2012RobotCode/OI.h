@@ -1,3 +1,4 @@
+//Author: Sheridan Rea
 #ifndef OI_H
 #define OI_H
 #include "WPILib.h"
@@ -25,8 +26,10 @@ private:
 	
 //Define opStick buttons
 	JoystickButton *trigger; //1
-	JoystickButton *elevUp; //6
-	JoystickButton *elevDown; //7
+	JoystickButton *manualElevUp; //6 fix button num
+	JoystickButton *manualElevDown; //7 fix button num
+	JoystickButton *elevUpSlot; //8 fix button num
+	JoystickButton *elevDownSlot; //9 fix button num
 	JoystickButton *prime1; //2
 	JoystickButton *prime2; //3
 	JoystickButton *prime3; //4
@@ -34,9 +37,9 @@ private:
 	JoystickButton *manualAimOn; // 8 Simulation
 //Define buttonStick buttons
  	JoystickButton *autoAimOn; //1
-	JoystickButton *autoAimOff; //2
+//	JoystickButton *autoAimOff; //2
 	JoystickButton *autoRangeOn; //3
-	JoystickButton *autoRangeOff; //4
+//	JoystickButton *autoRangeOff; //4
 	JoystickButton *ballSweepIn; //5
 	JoystickButton *ballSweepOff; //6
 	JoystickButton *ballSweepOut; //7

@@ -19,6 +19,8 @@ void ManualRange::Execute()
 {
 	float yAxis = oi->getSliderPower();
 	float upPower = (yAxis +1 )/2;
+	// shooter->SetRange is not set up to take the parameter "upPower" so the function
+	// will not work properly
 	shooter->SetRange(upPower);
 }
 
