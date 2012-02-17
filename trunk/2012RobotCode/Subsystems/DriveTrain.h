@@ -46,12 +46,14 @@ public:
 	virtual void InitDefaultCommand();
 	virtual void mecanumDrive_Polar(float direction, float power);
 	virtual void mecanumDrive_Cartesian(float x, float y, float rotation);
+	virtual void autoLevel();
 	
 	virtual void fineTrimLeft();
 	virtual void coarseTrimLeft();
 	virtual void fineTrimRight();
 	virtual void coarseTrimRight();
 	virtual void zeroGyro();
+	
 };
 
 #endif

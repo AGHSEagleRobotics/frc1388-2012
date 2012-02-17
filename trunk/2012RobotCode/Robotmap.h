@@ -1,9 +1,9 @@
 #ifndef ROBOTMAP_H
 #define ROBOTMAP_H
 
-//#define COMPETITION
+#define COMPETITION
 //#define SIMULATE
-#define KITBOT
+//#define KITBOT
 
 #include "Debug.h"
 

@@ -85,6 +85,11 @@ float DriveTrain::headingHold()
 	return 0;
 }
 
+void DriveTrain::autoLevel()
+{
+	
+}
+
 void DriveTrain::fineTrimLeft()
 {
 	gyro->SetTrim(gyro->GetTrim()-2);

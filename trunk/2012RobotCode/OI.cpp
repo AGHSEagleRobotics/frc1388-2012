@@ -1,20 +1,9 @@
-/*
- * Commands That Need To Be Created
-(already done with OI code for all these)
-(if you change the class names tell me, please)
-
-1.MoveElevator - Needs to prime the ball, move the elevator up, and
-move the elevator down. 
-
-2.MoveTipper- Needs to extend and retract the tipper.
- */
-
-
+//IF ANY COMMAND NAMES CHANGES TELL ME (SHERIDAN)!!!
 #include "OI.h"
 #include "Commands/TrimGyro.h"
 #include "Commands/MoveTipper.h"
 #include "Commands/Fire.h"
-//#include "Commands/MoveElevator.h"
+#include "Commands/MoveElevator.h"
 #include "Commands/AutoAim.h"
 #include "Commands/ManualAim.h"
 #include "Commands/AutoRange.h"
@@ -26,8 +15,9 @@ move the elevator down.
 #include "Commands/RotateRight.h"
 #include "Commands/AutoLevel.h"
 #include "Commands/ManualMoveElevator.h"
-#include "Commands/AutoCollect.h"
 #include "Commands/PrimeShooter.h"
+#include "Commands/MoveUp.h"
+#include "Commands/MoveDown.h"
 
 OI::OI() {
 	driveStick = new Joystick(DRIVESTICK_PORT);
@@ -49,22 +39,25 @@ OI::OI() {
 	retractTipper2 = new JoystickButton (driveStick, 12);
 //opStick buttons
 	trigger = new JoystickButton(opStick, 1); // 1 is equal to Joystick::kTriggerButton in this case
-	elevUp = new JoystickButton (opStick, 6);
-	elevDown = new JoystickButton (opStick, 7);
-	prime1 = new JoystickButton (opStick, 2);
 	prime2 = new JoystickButton (opStick, 3);
 	prime3 = new JoystickButton (opStick, 4);
 	prime4 = new JoystickButton (opStick, 5);
-	manualAimOn = new JoystickButton (opStick, 8);
+	manualElevUp = new JoystickButton (opStick, 6); //fix number
+	manualElevDown = new JoystickButton (opStick, 7); //fix number
+	elevUpSlot = new JoystickButton (opStick, 8); //fix number
+	elevDownSlot = new JoystickButton (opStick, 9); //fix number
 //buttonStick buttons
 	autoAimOn = new JoystickButton (buttonStick, 1);
-	autoAimOff = new JoystickButton (buttonStick, 2);
+//	autoAimOff = new JoystickButton (buttonStick, 2);
 	autoRangeOn = new JoystickButton (buttonStick, 3);
-	autoRangeOff = new JoystickButton (buttonStick, 4);
+//	autoRangeOff = new JoystickButton (buttonStick, 4);
 	ballSweepIn = new JoystickButton (buttonStick, 5);
 	ballSweepOff = new JoystickButton (buttonStick, 6);
 	ballSweepOut = new JoystickButton (buttonStick, 7);
-	autoLevel = new JoystickButton (buttonStick, 8);
+	autoLevel= new JoystickButton (buttonStick, 8);
+// Simulation buttons
+//	toTheLeft = new JoystickButton (driveStick, 1);
+//	toTheRight = new JoystickButton (driveStick, 2);
 
 //Tell the buttons what to do when pressed or held
 
@@ -80,22 +73,25 @@ OI::OI() {
 	retractTipper2->WhenPressed(new MoveTipper(Tipper::retract));
 //opStick buttons
 	trigger->WhenPressed(new Fire());
-	elevUp->WhileHeld(new ManualMoveElevator(Elevator::moveUp));
-	elevDown->WhileHeld(new ManualMoveElevator(Elevator::moveDown));
+	manualElevUp->WhileHeld(new ManualMoveElevator(Elevator::moveDown));
+	manualElevDown->WhileHeld(new ManualMoveElevator(Elevator::moveUp));
+	elevUpSlot->WhenPressed(new MoveUp());
+	elevDownSlot->WhenPressed(new MoveDown());
 	prime1->WhenPressed(new PrimeShooter());
 	prime2->WhenPressed(new PrimeShooter());
 	prime3->WhenPressed(new PrimeShooter());
 	prime4->WhenPressed(new PrimeShooter());
 //buttonStick buttons	
 	autoAimOn->WhileHeld(new AutoAim());
-	autoAimOff->WhileHeld(new ManualAim()); 
+	autoAimOn->WhenReleased(new ManualAim()); 
 	autoRangeOn->WhileHeld(new AutoRange());
-	autoRangeOff->WhileHeld(new ManualRange());
-	ballSweepIn->WhenPressed(new AutoCollect());
+	autoRangeOn->WhenReleased(new ManualRange());
+	ballSweepIn->WhenPressed(new BallCollect());
 	ballSweepOff->WhenPressed(new NoBallColletion());
 	ballSweepOut->WhileHeld(new Eject());
 	autoLevel->WhenPressed (new AutoLevel);
-	manualAimOn->WhenPressed (new ManualAim());
+//	toTheLeft->WhenPressed(new RotateLeft());
+//	toTheRight->WhenPressed(new RotateRight());
 
 }
 Joystick * OI::getDriveStick() {

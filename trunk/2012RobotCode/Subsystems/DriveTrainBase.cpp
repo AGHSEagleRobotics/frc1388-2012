@@ -7,5 +7,49 @@ DriveTrainBase::DriveTrainBase() : Subsystem("DriveTrainBase") {
     
 void DriveTrainBase::driveWithJoystick(Joystick *joystick)
 {
-	mecanumDrive_Cartesian(joystick->GetAxis(Joystick::kXAxis), joystick->GetAxis(Joystick::kYAxis), joystick->GetAxis(Joystick::kZAxis));
+	
+}
+void DriveTrainBase::mecanumDrive_Polar(float direction, float power)
+{
+	
+}
+
+void DriveTrainBase::mecanumDrive_Cartesian(float x, float y, float rotation)
+{
+	
+}
+
+float DriveTrainBase::headingHold()
+{
+	return 0;
+}
+
+void DriveTrainBase::autoLevel()
+{
+	
+}
+
+void DriveTrainBase::fineTrimLeft()
+{
+	
+}
+
+void DriveTrainBase::coarseTrimLeft()
+{
+	
+}
+
+void DriveTrainBase::fineTrimRight()
+{
+	
+}
+
+void DriveTrainBase::coarseTrimRight()
+{
+	
+}
+
+void DriveTrainBase::zeroGyro()
+{
+	
 }
