@@ -40,15 +40,5 @@ void ShooterBase::MoveConveyor()
 	
 }
 
-bool ShooterBase::IsBallPrimed()
-{
-	return false;
-}
-
-bool ShooterBase::Passed()
-{
-	return false;
-}
-
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
