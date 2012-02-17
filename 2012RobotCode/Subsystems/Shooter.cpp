@@ -10,8 +10,6 @@ Shooter::Shooter() : ShooterBase()
 	bottomAxelEncoder = new Encoder(BOTTOM_AXEL_ENCODER_A,BOTTOM_AXEL_ENCODER_B, false, Encoder::k4X);
 	pidTopAxel = new SendablePIDController(0.0, 0.0, 0.0, topAxelEncoder, topAxel);
 	pidBottomAxel = new SendablePIDController(0.0, 0.0, 0.0, bottomAxelEncoder, bottomAxel);
-//	Review: Check if there is going to be a ballDetect on the robot
-//	ballDetect = new AnalogChannel(BALL_DETECT);
 //	conveyorBelt = new Victor(CONVEYOR_BELT_VICTOR);
 //	passed = new DigitalInput(BALL_PASSED);
 }
@@ -42,7 +40,7 @@ void Shooter::TopAxelPID()
 
 	pidTopAxel->SetOutputRange(0 , 1);
 	
-//	Review: find out what dimetion the DistancePerPulse is
+//	DistancePerPulse is in inches
 	topAxelEncoder->SetDistancePerPulse(0.06981);
 }
 
@@ -53,7 +51,7 @@ void Shooter::BottomAxelPID()
 	
 	pidBottomAxel->SetOutputRange(0 , 1);
 	
-	//	Review: find out what dimetion the DistancePerPulse is
+	//	DistancePerPulse is inches
 	bottomAxelEncoder->SetDistancePerPulse(0.06981);	
 }
 
@@ -70,21 +68,4 @@ void Shooter::SetBottomAxel(float fShooterSpeed)
 //void Shooter::MoveConveyor()
 //{
 //	conveyorBelt->Set(0.5);
-//}
-//
-//bool Shooter::IsBallPrimed()
-//{
-//	if(ballDetect->GetVoltage() < 0.04)
-//	{
-//		return true;
-//	}
-//	else
-//	{	
-//		return false;
-//	}
-//}
-//
-//bool Shooter::Passed()
-//{
-//	return passed;
 //}

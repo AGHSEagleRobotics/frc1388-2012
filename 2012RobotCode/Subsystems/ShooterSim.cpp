@@ -51,13 +51,3 @@ void ShooterSim::MoveConveyor()
 {
 	
 }
-
-bool ShooterSim::IsBallPrimed()
-{
-	return true;
-}
-
-bool ShooterSim::Passed()
-{
-	return true;
-}

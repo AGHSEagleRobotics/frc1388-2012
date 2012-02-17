@@ -17,8 +17,6 @@ public:
 	virtual void SetTopAxel(float fShooterSpeed);
 	virtual void SetBottomAxel(float fShooterSpeed);
 	virtual void MoveConveyor();
-	virtual bool IsBallPrimed();
-	virtual bool Passed();
 //	virtual SendablePIDController *getTopAxelPID();
 //	virtual SendablePIDController *getBottomAxelPID();
 		
