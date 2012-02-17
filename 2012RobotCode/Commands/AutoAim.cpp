@@ -93,6 +93,7 @@ void AutoAim::End()
 // subsystems is scheduled to run
 void AutoAim::Interrupted()
 {
+//	Review: Research cancel function and possibly use it
 	printf("AutoAim interrupted\n");
 	turret->SetErrorTerm(0);
 	turret->Disable();

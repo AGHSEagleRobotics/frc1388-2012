@@ -26,6 +26,7 @@ DriveTrain::DriveTrain() : DriveTrainBase()
 //	float i = prefs->GetFloat("gyro_pid_i");
 //	float d = prefs->GetFloat("gyro_pid_d");
 //	gyroHeadingPID = new SendablePIDController(p,i,d,gyro,pidOut);
+	// Review: Verify lastest code
 	SmartDashboard::GetInstance()->PutData("gyroHeadingPID", gyroHeadingPID);
 	gyroHeadingPID->SetSetpoint(0);
 	gyroHeadingPID->SetContinuous(true);
@@ -58,6 +59,7 @@ void DriveTrain::mecanumDrive_Cartesian(float x, float y, float rotation)
 		prevRotation = rotation;
 		return;
 	}
+	// Review: Change timeout handling
 	if (rotation!=0.0&&prevRotation==0.0)
 	{
 		timer.Start();

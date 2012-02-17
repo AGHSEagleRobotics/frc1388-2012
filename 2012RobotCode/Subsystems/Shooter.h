@@ -11,9 +11,9 @@ private:
 	Encoder *bottomAxelEncoder;
 	SendablePIDController *pidTopAxel;
 	SendablePIDController *pidBottomAxel;
-	AnalogChannel *ballDetect;
-	DigitalInput *passed;
-	Victor *conveyorBelt;
+//	AnalogChannel *ballDetect;
+//	DigitalInput *passed;
+//	Victor *conveyorBelt;
 		
 public:
 	Shooter();
@@ -23,9 +23,10 @@ public:
 	virtual void BottomAxelPID();
 	virtual void SetTopAxel(float fShooterSpeed);
 	virtual void SetBottomAxel(float fShooterSpeed);
-	virtual void MoveConveyor();
-	virtual bool IsBallPrimed();
-	virtual bool Passed();
+//	virtual void MoveConveyor();
+//	virtual bool IsBallPrimed();
+//	virtual bool Passed();
+	// Review: See if the SendablePIDController can work
 //	virtual SendablePIDController *getTopAxelPID();
 //	virtual SendablePIDController *getBottomAxelPID();
 		

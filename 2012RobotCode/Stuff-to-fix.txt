@@ -5,3 +5,14 @@ Please use this and inform the associated person instead of just changing their 
 Need to set motor speed to "0" in the "End" of a command:
 -MoveTipper -> does the motor need to stop?
 -DriveWithJoystick -> I don't know if this ends.. but you might want it just in case.
+
+
+From Review Session:
+-AutoAim for Turret
+-Everything else for turret.
+-Fire needs to be updated.
+-Add moveup and movedown commands.
+-Add command "ManualTurretControl" manual control will override autoAim
+-Observe and implement how inturrupting functions work and how manual/auto
+ will exchange.
+-

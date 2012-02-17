@@ -22,9 +22,7 @@ Vision::Vision() : VisionBase() {
 	lightRing = new Relay(DEFAULT_DIGITAL_MODULE, LIGHT_RING_PORT, Relay::kForwardOnly);
 	lightRing->Set(Relay::kOn);
 	
-	hasTargets = false;
-}
-    
+}    
 void Vision::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
@@ -60,7 +58,6 @@ int Vision::particleAnalysis()
 		}
 		if(!particles->empty())
 		{
-			hasTargets = true;
 			printDebug("Stepping through particle report to remove particles with area too small.");
 			// Step through the particles and elimate any that are too small
 			for (int i = 0; i<(int)particles->size(); i++) 
@@ -77,7 +74,6 @@ int Vision::particleAnalysis()
 			}
 		}else 
 		{
-			hasTargets = false;
 			targetParticle.center_mass_x_normalized = 0;
 		}
 		

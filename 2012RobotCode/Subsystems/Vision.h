@@ -17,6 +17,7 @@ private:
 	// Need to tweek this number based off distance
 	static const double MIN_PARTICLE_AREA = 100;
 	
+	// Review: Check the constants for improved lighting
 	static const AxisCamera::Resolution_t CAMERA_LOW_RESOLUTION = AxisCamera::kResolution_320x240;
 	static const AxisCamera::Resolution_t CAMERA_HIGH_RESOLUTION = AxisCamera::kResolution_640x480;
 	static const int CAMERA_COMPRESSION = 30;
@@ -33,7 +34,6 @@ private:
 	// Varialbe to store the rectangle mathces
 	vector<ParticleAnalysisReport> *particles;
 	ParticleAnalysisReport targetParticle;
-	bool hasTargets;
 public:
 	Vision();
 	void InitDefaultCommand();
@@ -89,10 +89,11 @@ public:
 	 */
 	void setLowRes();
 	
-	int getNumberOfTargets();
 	/*
 	 * gets the number of targets in the camera's field of view
 	 */
+	int getNumberOfTargets();
+	
 };
 
 #endif

@@ -23,7 +23,7 @@ bool BallCollect::IsFinished() {
 
 // Called once after isFinished returns true
 void BallCollect::End() {
-	ballCollection->moveRollers(0.0);
+	// Review: Add the reverse and stoip in end.
 }
 
 // Called when another command which requires one or more of the same

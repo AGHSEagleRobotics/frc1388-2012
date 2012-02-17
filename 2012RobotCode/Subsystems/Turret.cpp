@@ -10,20 +10,19 @@ Turret::Turret() : TurretBase()
 	// Enable() - Enables the PID controller.
 	
 	turretMtr = new Victor(DEFAULT_ANALOG_MODULE, TURRET_VICTOR_ID );
-	turretEncdr = new Encoder(TURRET_ENCODER_A, TURRET_ENCODER_B, true, Encoder::k4X);
-	turretGyro = new Gyro(DEFAULT_ANALOG_MODULE, TURRET_GYRO_ID);
+//	turretEncdr = new Encoder(TURRET_ENCODER_A, TURRET_ENCODER_B, true, Encoder::k4X);
+//	turretGyro = new Gyro(DEFAULT_ANALOG_MODULE, TURRET_GYRO_ID);
 	
 	SetSetpoint(0);
 	Enable();
 }
 
+
 double Turret::ReturnPIDInput() 
 {
-	return turretGyro->GetAngle();
-
+//	return turretGyro->GetAngle();
+	return 0;
 }
-
-
 
 void Turret::UsePIDOutput(double output) 
 {
@@ -44,7 +43,7 @@ void Turret::TurnRelative(double angle){
 	// degrees, i.e. "turn turret -5 degrees."
 	double currentAngle, offset;
 	
-	currentAngle = turretGyro->GetAngle();
+//	currentAngle = turretGyro->GetAngle();
 	offset = (int)(currentAngle + angle) % 360;
 	SetSetpoint(offset);
 }
