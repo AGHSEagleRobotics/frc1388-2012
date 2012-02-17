@@ -59,6 +59,9 @@ int Vision::particleAnalysis()
 		if(!particles->empty())
 		{
 			printDebug("Stepping through particle report to remove particles with area too small.");
+			
+			int maxHeight = 0, maxIndex = 0;
+			
 			// Step through the particles and elimate any that are too small
 			for (int i = 0; i<(int)particles->size(); i++) 
 			{
@@ -71,6 +74,12 @@ int Vision::particleAnalysis()
 					// after the current one, we need to bump <tt>i</tt> down one
 					i--;
 				}
+				
+				if (particles->at(i).center_mass_y>maxHeight) {
+					maxIndex = i;
+					maxHeight = particles->at(i).center_mass_y;
+				}
+				
 			}
 		}else 
 		{
@@ -92,9 +101,6 @@ int Vision::particleAnalysis()
 	}
 	
 	printDebug("Done processing image.");
-	
-	if (particles && particles->size())
-		targetParticle = particles->at(0);
 	
 	return particles->size();
 }
