@@ -39,6 +39,7 @@ OI::OI() {
 	retractTipper2 = new JoystickButton (driveStick, 12);
 //opStick buttons
 	trigger = new JoystickButton(opStick, 1); // 1 is equal to Joystick::kTriggerButton in this case
+	prime1 = new JoystickButton (opStick, 2);
 	prime2 = new JoystickButton (opStick, 3);
 	prime3 = new JoystickButton (opStick, 4);
 	prime4 = new JoystickButton (opStick, 5);
@@ -81,8 +82,8 @@ OI::OI() {
 	prime2->WhenPressed(new PrimeShooter());
 	prime3->WhenPressed(new PrimeShooter());
 	prime4->WhenPressed(new PrimeShooter());
-//buttonStick buttons	
-	autoAimOn->WhileHeld(new AutoAim());
+//buttonStick buttons
+//	autoAimOn->WhileHeld(new AutoAim());
 	autoAimOn->WhenReleased(new ManualAim()); 
 	autoRangeOn->WhileHeld(new AutoRange());
 	autoRangeOn->WhenReleased(new ManualRange());
@@ -92,7 +93,6 @@ OI::OI() {
 	autoLevel->WhenPressed (new AutoLevel);
 //	toTheLeft->WhenPressed(new RotateLeft());
 //	toTheRight->WhenPressed(new RotateRight());
-
 }
 Joystick * OI::getDriveStick() {
 	return driveStick;

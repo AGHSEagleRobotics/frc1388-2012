@@ -4,11 +4,7 @@
 DriveTrainBase::DriveTrainBase() : Subsystem("DriveTrainBase") {
 	
 }
-    
-void DriveTrainBase::driveWithJoystick(Joystick *joystick)
-{
-	
-}
+
 void DriveTrainBase::mecanumDrive_Polar(float direction, float power)
 {
 	

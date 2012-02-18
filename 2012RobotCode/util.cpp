@@ -9,7 +9,7 @@ float deadband(float input, float deadbandRange, float scale, float max)
 	
 	// Step 2: scale the input so that it is an even climb to max.
 	float returnVal = input;
-	returnVal -= deadbandRange;
+	returnVal -= deadbandRange*(fabs(input)/input);
 	returnVal *= 1/(max-deadbandRange);
 	
 	// Step 3: scale the output by whatever factor the user asked for
