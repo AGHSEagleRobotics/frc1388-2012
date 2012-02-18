@@ -15,12 +15,12 @@ void TurretLimitSwitches::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void TurretLimitSwitches::Execute() {
 	
-	if (turret->isLlimit() && turret->getMotor() < 0 ){
-			turret->setMotor(0);
-	}
-	else if (turret->isRlimit() && turret->getMotor() > 0 ){
-			turret->setMotor(0);
-	}
+//	if (turret->isLlimit() && turret->getMotor() < 0 ){
+//			turret->setMotor(0);
+//	}
+//	else if (turret->isRlimit() && turret->getMotor() > 0 ){
+//			turret->setMotor(0);
+//	}
 
 }
 // Make this return true when this Command no longer needs to run execute()
