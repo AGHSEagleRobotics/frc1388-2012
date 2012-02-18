@@ -1,31 +1,30 @@
-#include "TurretTurnAbs.h"
+#include "TurretTurnAuto.h"
+#include "../SubSystems/TurretBase.h"
+TurretTurnAuto::TurretTurnAuto() {
 
-TurretTurnAbs::TurretTurnAbs() {
-	// Use requires() here to declare subsystem dependencies
-	// eg. requires(chassis);
 }
 
 // Called just before this Command runs the first time
-void TurretTurnAbs::Initialize() {
+void TurretTurnAuto::Initialize() {
 	
 }
 
 // Called repeatedly when this Command is scheduled to run
-void TurretTurnAbs::Execute() {
+void TurretTurnAuto::Execute() {
 	
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool TurretTurnAbs::IsFinished() {
+bool TurretTurnAuto::IsFinished() {
 	return false;
 }
 
 // Called once after isFinished returns true
-void TurretTurnAbs::End() {
+void TurretTurnAuto::End() {
 	
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void TurretTurnAbs::Interrupted() {
+void TurretTurnAuto::Interrupted() {
 }

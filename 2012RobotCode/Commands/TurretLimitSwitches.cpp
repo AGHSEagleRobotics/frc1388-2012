@@ -1,40 +1,39 @@
-#include "RotateLeft.h"
+#include "TurretLimitSwitches.h"
 #include "../SubSystems/TurretBase.h"
 
-RotateLeft::RotateLeft()
-{
+TurretLimitSwitches::TurretLimitSwitches() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
-	Requires(turret);
+
 }
 
 // Called just before this Command runs the first time
-void RotateLeft::Initialize()
-{
+void TurretLimitSwitches::Initialize() {
 	
 }
 
 // Called repeatedly when this Command is scheduled to run
-void RotateLeft::Execute()
-{
-	turret->TurnRelative(-5);
-}
+void TurretLimitSwitches::Execute() {
+	
+	if (turret->isLlimit() && turret->getMotor() < 0 ){
+			turret->setMotor(0);
+	}
+	else if (turret->isRlimit() && turret->getMotor() > 0 ){
+			turret->setMotor(0);
+	}
 
+}
 // Make this return true when this Command no longer needs to run execute()
-bool RotateLeft::IsFinished()
-{
-	return true;
+bool TurretLimitSwitches::IsFinished() {
+	return false;
 }
 
 // Called once after isFinished returns true
-void RotateLeft::End()
-{
+void TurretLimitSwitches::End() {
 	
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void RotateLeft::Interrupted()
-{
-	
+void TurretLimitSwitches::Interrupted() {
 }

@@ -1,16 +1,16 @@
-#ifndef ROTATERIGHT_H
-#define ROTATERIGHT_H
+#ifndef TURRETLIMITSWITCHES_H
+#define TURRETLIMITSWITCHES_H
 
 #include "../CommandBase.h"
 
 /**
  *
  *
- * @author Jarrett
+ * @author AG132127
  */
-class RotateRight: public CommandBase {
+class TurretLimitSwitches: public CommandBase {
 public:
-	RotateRight();
+	TurretLimitSwitches();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
