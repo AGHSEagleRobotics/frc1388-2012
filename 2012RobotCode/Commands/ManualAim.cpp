@@ -14,7 +14,7 @@ void ManualAim::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ManualAim::Execute() {
-	float xAxis = oi->getOpStickXAxis();
+//	float xAxis = oi->getOpStickXAxis();
 //	float power = (xAxis)/2; 
 	
 //10 is an estimate for the number of degrees to move the turret
