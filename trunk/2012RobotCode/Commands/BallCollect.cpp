@@ -15,7 +15,7 @@ void BallCollect::Initialize() {
 void BallCollect::Execute() {
 	printf("BallCollect Execute\n");
 	// Negative values move motors forward.
-	ballCollection->moveRollers(-0.2);
+	ballCollection->moveRollers(-0.4);
 }
 
 // Make this return true when this Command no longer needs to run execute()

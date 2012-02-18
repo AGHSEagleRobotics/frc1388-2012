@@ -13,9 +13,12 @@ void MoveDown::Initialize() {
 		targetslot=2;
 	else if(elevator->isBallSlot2())
 		targetslot=1;
+	else if(elevator->isBallSlot1())
+		targetslot=0;
 	else targetslot=0;
 	
 	timer.Start();
+	//lets see of this works
 }
 
 // Called repeatedly when this Command is scheduled to run

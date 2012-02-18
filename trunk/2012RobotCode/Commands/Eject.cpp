@@ -9,7 +9,7 @@ Eject::Eject() {
 // Called just before this Command runs the first time
 void Eject::Initialize() {
 	// Positive values move rollers backwards.
-	ballCollection->moveRollers(0.2);
+	ballCollection->moveRollers(0.4);
 }
 
 // Called repeatedly when this Command is scheduled to run
