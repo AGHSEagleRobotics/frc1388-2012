@@ -12,7 +12,7 @@ void ElevatorBase::InitDefaultCommand() {
 
 void ElevatorBase::moveElevator(elevatorMode mode)
 {
-	
+//	printf("ElevatorBase moveElevator\n");
 }
 
 bool ElevatorBase::isBallSlot1()

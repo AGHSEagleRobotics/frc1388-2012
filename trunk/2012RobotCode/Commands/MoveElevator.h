@@ -1,5 +1,6 @@
 #ifndef MOVEELEVATOR_H
 #define MOVEELEVATOR_H
+#include "../Commands/MoveUp.h"
 
 #include "../CommandBase.h"
 #include "../Subsystems/Elevator.h"
@@ -13,6 +14,8 @@ class MoveElevator: public CommandBase {
 	
 private:
 	Elevator::elevatorMode mode;
+	Timer timer;
+	int targetslot;
 	
 	
 public:

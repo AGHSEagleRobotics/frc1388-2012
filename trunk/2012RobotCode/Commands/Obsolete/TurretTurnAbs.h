@@ -1,19 +1,16 @@
-#ifndef MOVEUP_H
-#define MOVEUP_H
+#ifndef TURRETTURNABS_H
+#define TURRETTURNABS_H
 
 #include "../CommandBase.h"
 
 /**
  *
  *
- * @author Davey
+ * @author AG132127
  */
-class MoveUp: public CommandBase {
-private:
-	Timer timer;
-	int targetslot;
+class TurretTurnAbs: public CommandBase {
 public:
-	MoveUp();
+	TurretTurnAbs();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

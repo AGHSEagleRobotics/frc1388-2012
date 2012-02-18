@@ -1,24 +1,24 @@
-#ifndef MOVEUP_H
-#define MOVEUP_H
+#ifndef AXEL_SPEED_H
+#define AXEL_SPEED_H
 
 #include "../CommandBase.h"
 
 /**
  *
  *
- * @author Davey
+ * @author Jarrett
  */
-class MoveUp: public CommandBase {
-private:
-	Timer timer;
-	int targetslot;
+class AxelSpeed: public CommandBase {
 public:
-	MoveUp();
+	AxelSpeed();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+
+private:
+	
 };
 
 #endif
