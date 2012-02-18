@@ -22,7 +22,8 @@ void ManualMoveElevator::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool ManualMoveElevator::IsFinished() {
-	return !oi->getOpStick()->GetRawButton(6) && !oi->getOpStick()->GetRawButton(7);
+//	return !oi->getOpStick()->GetRawButton(6) && !oi->getOpStick()->GetRawButton(7);
+	return false;
 }
 
 // Called once after isFinished returns true
