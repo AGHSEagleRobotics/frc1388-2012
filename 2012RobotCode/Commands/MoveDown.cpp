@@ -28,6 +28,7 @@ void MoveDown::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool MoveDown::IsFinished() {
+	printf("timer:%f slot1:%i slot2:%i slot3:%i\n",timer.Get(), elevator->isBallSlot1(),elevator->isBallSlot2(),elevator->isBallSlot3());
 	if(timer.Get()<.25)
 		return false;
 	if(targetslot==2)
