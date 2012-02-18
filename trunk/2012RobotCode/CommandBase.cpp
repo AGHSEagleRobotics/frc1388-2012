@@ -56,13 +56,21 @@ void CommandBase::init() {
 	// line should be repeated for each subsystem in the project.
 
 #if defined(COMPETITION)
+	printf("Init driveTrain\n");
 	driveTrain = new DriveTrain();
+	printf("Init ballcollection\n");
 	ballCollection = new BallCollection();
+	printf("Init shooter\n");
 	shooter = new Shooter();
+	printf("Init turret\n");
 	turret = new Turret();
+	printf("Init tipper\n");
 	tipper = new Tipper();
+	printf("Init fan\n");
 	fan = new Fan();
-	vision = new Vision();
+	printf("Init Vision\n");
+	vision = new VisionBase();
+	printf("Init Elevator\n");
 	elevator = new Elevator();
 	
 #elif defined(SIMULATE) 
@@ -97,6 +105,7 @@ void CommandBase::init() {
 	
 #endif
 	
+	printf("Init OI\n");
 	oi = new OI();
 	
 	// send the PID's to the SmartDashboard

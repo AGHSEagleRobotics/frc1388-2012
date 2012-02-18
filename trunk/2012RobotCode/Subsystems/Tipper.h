@@ -25,8 +25,6 @@ public:
 //	};
 	
 	Tipper();
-	bool isExtended();
-	bool isRetracted();
 	void InitDefaultCommand();
 	void Tipper::MoveTipper(tipperMode mode);
 };

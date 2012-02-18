@@ -18,7 +18,6 @@ public:
 	void InitDefaultCommand() {}
 	virtual void mecanumDrive_Polar(float direction, float power);
 	virtual void mecanumDrive_Cartesian(float x, float y, float rotation);
-	virtual void driveWithJoystick(Joystick *joystick);
 	virtual float getGyroAngle() { return 0; }
 	virtual void autoLevel();
 

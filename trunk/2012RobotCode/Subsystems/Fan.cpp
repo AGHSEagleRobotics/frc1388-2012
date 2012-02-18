@@ -3,7 +3,7 @@
 
 Fan::Fan() : FanBase()
 {
-	
+	fan = new Relay(DEFAULT_DIGITAL_MODULE,FAN);
 }
     
 void Fan::InitDefaultCommand()
@@ -14,7 +14,7 @@ void Fan::InitDefaultCommand()
 
 int Fan::RunFan()
 {
-	fan->Set(Relay::kOn);
+	fan->Set(Relay::kForward);
 	return 1;
 }
 // Put methods for controlling this subsystem

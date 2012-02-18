@@ -1,5 +1,6 @@
 #include "DriveWithJoystick.h"
 #include "../SubSystems/DriveTrainBase.h"
+#include "../util.h"
 
 DriveWithJoystick::DriveWithJoystick() {
 	Requires(driveTrain);
@@ -12,7 +13,13 @@ void DriveWithJoystick::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoystick::Execute() {
-	driveTrain->driveWithJoystick(oi->getDriveStick());
+	Joystick *driverStick = oi->getDriveStick();
+	float x = deadband(driverStick->GetAxis(Joystick::kXAxis), 0.1);
+	float y = deadband(driverStick->GetAxis(Joystick::kYAxis), 0.1);
+	float rotation = deadband(driverStick->GetAxis(Joystick::kZAxis), 0.2);
+	
+//	printf("x:%f y:%f rotation:%f\n",x,y,rotation);
+	driveTrain->mecanumDrive_Cartesian(x,y,rotation);
 }
 
 // Is always being used. Never return true

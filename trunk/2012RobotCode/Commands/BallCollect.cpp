@@ -18,6 +18,7 @@ void BallCollect::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool BallCollect::IsFinished() {
+	// Review: Is this really what we want?
 	return !oi->getButtonStick()->GetRawButton(5);
 }
 
