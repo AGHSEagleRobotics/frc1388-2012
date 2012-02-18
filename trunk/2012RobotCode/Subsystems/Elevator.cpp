@@ -19,10 +19,10 @@ void Elevator::moveElevator(Elevator::elevatorMode mode)
 	switch (mode)
 	{
 	case moveUp:
-		elevatorMtr->Set(-1.0);
+		elevatorMtr->Set(-0.75);
 		break;
 	case moveDown:
-		elevatorMtr->Set(1.0);
+		elevatorMtr->Set(0.75);
 		break;
 	case stop:
 		elevatorMtr->Set(0.0);
