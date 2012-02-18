@@ -52,10 +52,10 @@ OI::OI() {
 //	autoAimOff = new JoystickButton (buttonStick, 2);
 	autoRangeOn = new JoystickButton (buttonStick, 3);
 //	autoRangeOff = new JoystickButton (buttonStick, 4);
-	ballSweepIn = new JoystickButton (buttonStick, 5);
-	ballSweepOff = new JoystickButton (buttonStick, 6);
-	ballSweepOut = new JoystickButton (buttonStick, 7);
-	autoLevel= new JoystickButton (buttonStick, 8);
+	ballSweepIn = new JoystickButton (buttonStick, 7);
+//	ballSweepOff = new JoystickButton (buttonStick, 6);
+	ballSweepOut = new JoystickButton (buttonStick, 5);
+	autoLevel= new JoystickButton (buttonStick, 9);
 // Simulation buttons
 //	toTheLeft = new JoystickButton (driveStick, 1);
 //	toTheRight = new JoystickButton (driveStick, 2);
@@ -87,8 +87,8 @@ OI::OI() {
 	autoAimOn->WhenReleased(new ManualAim()); 
 	autoRangeOn->WhileHeld(new AutoRange());
 	autoRangeOn->WhenReleased(new ManualRange());
-	ballSweepIn->WhenPressed(new BallCollect());
-	ballSweepOff->WhenPressed(new NoBallColletion());
+	ballSweepIn->WhileHeld(new BallCollect());
+	ballSweepIn->WhenReleased(new NoBallColletion());
 	ballSweepOut->WhileHeld(new Eject());
 	autoLevel->WhenPressed (new AutoLevel);
 //	toTheLeft->WhenPressed(new RotateLeft());

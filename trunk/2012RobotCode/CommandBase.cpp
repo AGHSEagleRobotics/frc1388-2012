@@ -95,6 +95,7 @@ void CommandBase::init() {
 	
 #else 
 	driveTrain = new DriveTrain();
+	printf("Ball Collection else\n");
 	ballCollection = new BallCollection();
 	shooter = new Shooter();
 	turret = new Turret();

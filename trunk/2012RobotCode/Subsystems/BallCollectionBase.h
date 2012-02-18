@@ -14,8 +14,8 @@ private:
 	// for methods that implement subsystem capabilities
 public:
 	BallCollectionBase();
-	void InitDefaultCommand();
-	void moveRollers(float speed);
+	virtual void InitDefaultCommand();
+	virtual void moveRollers(float speed);
 };
 
 #endif

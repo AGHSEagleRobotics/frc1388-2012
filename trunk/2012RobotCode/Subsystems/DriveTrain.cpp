@@ -46,7 +46,7 @@ DriveTrain::DriveTrain() : DriveTrainBase()
 	
 	timer.Start();
 	
-	printf("done init\n");
+//	printf("done init\n");
 }
     
 void DriveTrain::InitDefaultCommand()
@@ -64,7 +64,7 @@ void DriveTrain::mecanumDrive_Cartesian(float x, float y, float rotation)
 {
 	// Get the angle from the Gyro
 	float angle = gyro->GetAngle();
-	printf("rotation:%f timer:%f\n",rotation, timer.Get());
+//	printf("rotation:%f timer:%f\n",rotation, timer.Get());
 	if (rotation!=0)
 	{
 		drive->MecanumDrive_Cartesian(x,y,rotation,angle);
@@ -94,7 +94,7 @@ void DriveTrain::mecanumDrive_Cartesian(float x, float y, float rotation)
 float DriveTrain::headingHold()
 {
 		gyroHeadingPID->SetSetpoint(desiredHeading);
-		printf("gyroAngle:%f pidOut:%f gyroTrim:%f\n",gyro->GetAngle(), pidOut->getValue(), gyro->GetTrim());
+//		printf("gyroAngle:%f pidOut:%f gyroTrim:%f\n",gyro->GetAngle(), pidOut->getValue(), gyro->GetTrim());
 		
 //		prefs->PutFloat("gyro_pid_p",gyroHeadingPID->GetP());
 //		prefs->PutFloat("gyro_pid_i",gyroHeadingPID->GetI());
