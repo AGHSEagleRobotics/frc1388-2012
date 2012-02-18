@@ -14,19 +14,8 @@ void ManualAim::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ManualAim::Execute() {
-	float xAxis = oi->getOpStickXAxis();
-//	float power = (xAxis)/2; 
-	
-//10 is an estimate for the number of degrees to move the turret
-	// the turret->UsePIDOutput (power) is for the competition robot
-#if defined(COMPETITION)
-	turret->UsePIDOutput(power);
-	
-#elif defined(SIMULATE)
-	float powerSim = (xAxis) * 1.5; 
-	turret->TurnRelative(powerSim);
 
-#endif
+	turret->setMotor(oi->getOpStickXAxis());
 }
 
 // Make this return true when this Command no longer needs to run execute()

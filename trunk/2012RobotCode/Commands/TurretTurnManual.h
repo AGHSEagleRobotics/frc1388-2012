@@ -1,5 +1,5 @@
-#ifndef TURRETTURNREL_H
-#define TURRETTURNREL_H
+#ifndef TURRETTURNMANUAL_H
+#define TURRETTURNMANUAL_H
 
 #include "../CommandBase.h"
 
@@ -8,9 +8,9 @@
  *
  * @author AG132127
  */
-class TurretTurnRel: public CommandBase {
+class TurretTurnManual: public CommandBase {
 public:
-	TurretTurnRel();
+	TurretTurnManual();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

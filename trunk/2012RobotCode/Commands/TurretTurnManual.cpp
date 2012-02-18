@@ -1,40 +1,35 @@
-#include "RotateRight.h"
+#include "TurretTurnManual.h"
 #include "../SubSystems/TurretBase.h"
 
-RotateRight::RotateRight()
-{
+TurretTurnManual::TurretTurnManual() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
 	Requires(turret);
+
 }
 
 // Called just before this Command runs the first time
-void RotateRight::Initialize()
-{
+void TurretTurnManual::Initialize() {
 	
 }
 
 // Called repeatedly when this Command is scheduled to run
-void RotateRight::Execute()
-{
-	turret->TurnRelative(5);
+void TurretTurnManual::Execute() {
+	
+	turret->setMotor(oi->getOpStickXAxis());
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool RotateRight::IsFinished()
-{
-	return true;
+bool TurretTurnManual::IsFinished() {
+	return false;
 }
 
 // Called once after isFinished returns true
-void RotateRight::End()
-{
+void TurretTurnManual::End() {
 	
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void RotateRight::Interrupted()
-{
-	
+void TurretTurnManual::Interrupted() {
 }
