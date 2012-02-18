@@ -1,19 +1,16 @@
-#ifndef MOVEUP_H
-#define MOVEUP_H
+#ifndef ROTATELEFT_H
+#define ROTATELEFT_H
 
 #include "../CommandBase.h"
 
 /**
  *
  *
- * @author Davey
+ * @author Jarrett	
  */
-class MoveUp: public CommandBase {
-private:
-	Timer timer;
-	int targetslot;
+class RotateLeft: public CommandBase {
 public:
-	MoveUp();
+	RotateLeft();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

@@ -26,11 +26,9 @@ public:
 	virtual double ReturnPIDInput();
 	virtual void UsePIDOutput(double output);
 	virtual void InitDefaultCommand();
+	virtual void TurnRelative(double angle);
+	virtual void TurnAbsolute(double angle);
 	virtual void SetErrorTerm(double error);
-	virtual void setMotor(float xAxis) {}
-	bool isLlimit () { return false;}
-	bool isRlimit (){return false;}
-	float getMotor (){return 0;}
 };
 
 #endif

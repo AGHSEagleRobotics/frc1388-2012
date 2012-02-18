@@ -24,12 +24,11 @@ void MoveElevator::Execute()
 	{
 		if (elevator->isBallSweeperArea())
 		{
-			elevator->moveElevator(mode);
-			// Review: use timer function.
-			Wait(0.2);
+//			elevator->moveElevator(mode);
+			new MoveUp();
 			// Review: Following code needs to be verified.
-			do {} while (!elevator->isBallSlot1() && !elevator->isBallSlot3());
-			elevator->moveElevator(Elevator::stop);
+//			do {} while (!elevator->isBallSlot1() && !elevator->isBallSlot3());
+//			elevator->moveElevator(Elevator::stop);
 		}
 	}
 }
@@ -48,4 +47,5 @@ void MoveElevator::End() {
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void MoveElevator::Interrupted() {
+	elevator->moveElevator(Elevator::stop);
 }

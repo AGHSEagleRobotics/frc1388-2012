@@ -11,11 +11,14 @@
 #include "Commands/BallCollect.h"
 #include "Commands/NoBallColletion.h"
 #include "Commands/Eject.h"
+#include "Commands/RotateLeft.h"
+#include "Commands/RotateRight.h"
 #include "Commands/AutoLevel.h"
 #include "Commands/ManualMoveElevator.h"
 #include "Commands/PrimeShooter.h"
 #include "Commands/MoveUp.h"
 #include "Commands/MoveDown.h"
+#include "Commands/AutoCollect.h"
 
 OI::OI() {
 	driveStick = new Joystick(DRIVESTICK_PORT);
@@ -72,14 +75,16 @@ OI::OI() {
 	retractTipper2->WhenPressed(new MoveTipper(Tipper::retract));
 //opStick buttons
 	trigger->WhenPressed(new Fire());
-	manualElevUp->WhileHeld(new ManualMoveElevator(Elevator::moveDown));
-	manualElevDown->WhileHeld(new ManualMoveElevator(Elevator::moveUp));
+	manualElevUp->WhileHeld(new ManualMoveElevator(Elevator::moveUp));
+	manualElevDown->WhileHeld(new ManualMoveElevator(Elevator::moveDown));
 	elevUpSlot->WhenPressed(new MoveUp());
 	elevDownSlot->WhenPressed(new MoveDown());
 	prime1->WhenPressed(new PrimeShooter());
-	prime2->WhenPressed(new PrimeShooter());
-	prime3->WhenPressed(new PrimeShooter());
-	prime4->WhenPressed(new PrimeShooter());
+	// Review: prime2 = button 3
+	prime2->WhenPressed(new AutoCollect());
+//	 Review: chenged to AutoCollect temporarily
+//	prime3->WhenPressed(new AutoCollect());
+//	prime4->WhenPressed(new PrimeShooter());
 //buttonStick buttons
 //	autoAimOn->WhileHeld(new AutoAim());
 	autoAimOn->WhenReleased(new ManualAim()); 

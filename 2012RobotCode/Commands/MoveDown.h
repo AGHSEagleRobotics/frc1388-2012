@@ -9,6 +9,9 @@
  * @author Davey
  */
 class MoveDown: public CommandBase {
+private:
+	Timer timer;
+	int targetslot;
 public:
 	MoveDown();
 	virtual void Initialize();

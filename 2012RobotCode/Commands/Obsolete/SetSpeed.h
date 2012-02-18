@@ -1,19 +1,16 @@
-#ifndef MOVEUP_H
-#define MOVEUP_H
+#ifndef Set_Speed_H
+#define Set_Speed_H
 
 #include "../CommandBase.h"
 
 /**
  *
  *
- * @author Davey
+ * @author ExampleAuthor
  */
-class MoveUp: public CommandBase {
-private:
-	Timer timer;
-	int targetslot;
+class SetSpeed: public CommandBase {
 public:
-	MoveUp();
+	SetSpeed();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
