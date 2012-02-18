@@ -33,4 +33,5 @@ void ManualMoveElevator::End() {
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void ManualMoveElevator::Interrupted() {
+	elevator->moveElevator(Elevator::stop);
 }

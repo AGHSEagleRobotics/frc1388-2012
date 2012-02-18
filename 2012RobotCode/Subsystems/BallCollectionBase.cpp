@@ -12,7 +12,7 @@ void BallCollectionBase::InitDefaultCommand() {
 
 void BallCollectionBase::moveRollers(float speed)
 {
-
+	printf("Base moveRollers\n");
 }
 
 

@@ -8,7 +8,8 @@ Eject::Eject() {
 
 // Called just before this Command runs the first time
 void Eject::Initialize() {
-	ballCollection->moveRollers(-0.5);
+	// Positive values move rollers backwards.
+	ballCollection->moveRollers(0.2);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -29,4 +30,5 @@ void Eject::End() {
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void Eject::Interrupted() {
+	ballCollection->moveRollers(0.0);
 }
