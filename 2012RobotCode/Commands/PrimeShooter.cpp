@@ -21,8 +21,8 @@ void PrimeShooter::Execute() {
 // Make this return true when this Command no longer needs to run execute()
 bool PrimeShooter::IsFinished() {
 	//when slot 3
-	bool x=elevator->isBallSlot3();
-	printf("isSlot3?:%i\n", x);
+//	bool x=elevator->isBallSlot3();
+//	printf("isSlot3?:%i\n", x);
 	return elevator->isBallSlot3();
 //	return false;
 }

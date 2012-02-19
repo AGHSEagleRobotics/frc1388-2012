@@ -14,7 +14,7 @@ void BallCollection::InitDefaultCommand()
 void BallCollection::moveRollers(float speed)
 {
 	// Runs the motors forward in order to collect balls
-	printf("speed:%f\n", speed);
+//	printf("speed:%f\n", speed);
 	ballCollect2->Set(speed);
 }
 
