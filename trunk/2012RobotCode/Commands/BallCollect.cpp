@@ -8,12 +8,12 @@ BallCollect::BallCollect() {
 
 // Called just before this Command runs the first time
 void BallCollect::Initialize() {
-	printf("BallCollect Initialized\n");
+//	printf("BallCollect Initialized\n");
 }
 
 // Called repeatedly when this Command is scheduled to run
 void BallCollect::Execute() {
-	printf("BallCollect Execute\n");
+//	printf("BallCollect Execute\n");
 	// Negative values move motors forward.
 	ballCollection->moveRollers(-0.4);
 }

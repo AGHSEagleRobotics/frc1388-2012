@@ -22,13 +22,14 @@ void MoveElevator::Execute()
 {
 	if (!elevator->isBallSlot3())
 	{
+		printf("Check Sweeper:%i\n", elevator->isBallSweeperArea());
 		if (elevator->isBallSweeperArea())
 		{
-//			elevator->moveElevator(mode);
-			new MoveUp();
+			elevator->moveElevator(mode);
 			// Review: Following code needs to be verified.
 //			do {} while (!elevator->isBallSlot1() && !elevator->isBallSlot3());
-//			elevator->moveElevator(Elevator::stop);
+		if (elevator->isBallSlot1())
+			elevator->moveElevator(Elevator::stop);
 		}
 	}
 }
@@ -36,7 +37,8 @@ void MoveElevator::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool MoveElevator::IsFinished() {
 	//when sweeper not on
-	return !oi->getButtonStick()->GetRawButton(5);
+	return false;
+//	return !oi->getButtonStick()->GetRawButton(5);
 }
 
 // Called once after isFinished returns true
