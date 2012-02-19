@@ -9,6 +9,8 @@
  * @author Davey
  */
 class PrimeShooter: public CommandBase {
+private:
+	bool hasBalls;
 public:
 	PrimeShooter();
 	virtual void Initialize();

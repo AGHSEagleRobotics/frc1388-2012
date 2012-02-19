@@ -40,5 +40,10 @@ void ShooterBase::MoveConveyor()
 	
 }
 
+void ShooterBase::SetPowerAll(float power)
+{
+	
+}
+
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

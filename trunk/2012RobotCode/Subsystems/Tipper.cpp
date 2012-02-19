@@ -4,6 +4,8 @@
 Tipper::Tipper() : TipperBase() 
 {
 	tipperMtr = new Victor(DEFAULT_ANALOG_MODULE, BRIDGE_CONTROL_MOTOR);
+	limitSwitchExtended = new DigitalInput(DEFAULT_DIGITAL_MODULE, TIPPER_EXTEND_LIMIT);
+	limitSwitchRetracted = new DigitalInput(DEFAULT_DIGITAL_MODULE, TIPPER_RETRACT_LIMIT);
 }
     
 void Tipper::InitDefaultCommand()
@@ -27,4 +29,14 @@ void Tipper::MoveTipper(tipperMode mode)
 		tipperMtr->Set(0);
 		break;
 	}
+}
+
+bool Tipper::IsExtended()
+{
+	return limitSwitchExtended->Get();
+}
+
+bool Tipper::IsRetracted()
+{
+	return limitSwitchRetracted->Get();
 }

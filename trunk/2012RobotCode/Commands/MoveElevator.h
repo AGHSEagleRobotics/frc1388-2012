@@ -16,7 +16,7 @@ private:
 	Elevator::elevatorMode mode;
 	Timer timer;
 	int targetslot;
-	
+	bool waitForClear;
 	
 public:
 	MoveElevator(Elevator::elevatorMode);

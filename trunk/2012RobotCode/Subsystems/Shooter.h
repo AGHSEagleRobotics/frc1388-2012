@@ -26,6 +26,7 @@ public:
 	// Review: See if the SendablePIDController can work
 //	virtual SendablePIDController *getTopAxelPID();
 //	virtual SendablePIDController *getBottomAxelPID();
+	virtual void SetPowerAll(float power);
 		
 };
 

@@ -5,11 +5,11 @@ PrimeShooter::PrimeShooter() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
 	Requires(elevator);
+	SetTimeout(5);
 }
 
 // Called just before this Command runs the first time
 void PrimeShooter::Initialize() {
-	
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -23,7 +23,7 @@ bool PrimeShooter::IsFinished() {
 	//when slot 3
 //	bool x=elevator->isBallSlot3();
 //	printf("isSlot3?:%i\n", x);
-	return elevator->isBallSlot3();
+	return elevator->isBallSlot3()||IsTimedOut();
 //	return false;
 }
 
