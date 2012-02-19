@@ -11,8 +11,6 @@
 #include "Commands/BallCollect.h"
 #include "Commands/NoBallColletion.h"
 #include "Commands/Eject.h"
-#include "Commands/RotateLeft.h"
-#include "Commands/RotateRight.h"
 #include "Commands/AutoLevel.h"
 #include "Commands/ManualMoveElevator.h"
 #include "Commands/PrimeShooter.h"
@@ -81,7 +79,7 @@ OI::OI() {
 	elevDownSlot->WhenPressed(new MoveDown());
 	prime1->WhenPressed(new PrimeShooter());
 	// Review: prime2 = button 3
-	prime2->WhenPressed(new AutoCollect());
+	prime2->WhileHeld(new AutoCollect());
 //	 Review: chenged to AutoCollect temporarily
 //	prime3->WhenPressed(new AutoCollect());
 //	prime4->WhenPressed(new PrimeShooter());

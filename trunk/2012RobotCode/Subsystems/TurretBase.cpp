@@ -30,15 +30,6 @@ void TurretBase::InitDefaultCommand()
 	
 }
 
-void TurretBase::TurnRelative(double angle)
-{
-	
-}
-
-void TurretBase::TurnAbsolute(double angle)
-{
-	
-}
 
 void TurretBase::SetErrorTerm(double error)
 {
