@@ -12,7 +12,7 @@ MoveTipper::MoveTipper(Tipper::tipperMode mode) {
 // Called just before this Command runs the first time
 void MoveTipper::Initialize() 
 {
-	SetTimeout(0.1);
+//	SetTimeout(0.1);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -25,7 +25,18 @@ void MoveTipper::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool MoveTipper::IsFinished() 
 {
-	return IsTimedOut();
+	SmartDashboard::GetInstance()->PutBoolean("Extended",tipper->IsExtended());
+	SmartDashboard::GetInstance()->PutBoolean("Retracted",tipper->IsRetracted());
+	switch (mode)
+	{
+	case Tipper::extend:
+		return tipper->IsExtended();
+	case Tipper::retract:
+		return tipper->IsRetracted();
+	case Tipper::stop:
+		return true;
+	}
+	return false;
 }
 
 // Called once after isFinished returns true
@@ -38,4 +49,5 @@ void MoveTipper::End()
 // subsystems is scheduled to run
 void MoveTipper::Interrupted() 
 {
+	tipper->MoveTipper(Tipper::stop);
 }

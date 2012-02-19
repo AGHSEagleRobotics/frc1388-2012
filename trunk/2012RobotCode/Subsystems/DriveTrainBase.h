@@ -26,6 +26,7 @@ public:
 	virtual void fineTrimRight();
 	virtual void coarseTrimRight();
 	virtual void zeroGyro();
+	virtual void ToggleTwistDisabled();
 };
 
 #endif

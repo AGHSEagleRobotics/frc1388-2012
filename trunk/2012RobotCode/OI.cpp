@@ -17,6 +17,7 @@
 #include "Commands/MoveUp.h"
 #include "Commands/MoveDown.h"
 #include "Commands/AutoCollect.h"
+#include "Commands/ToggleTwist.h"
 
 OI::OI() {
 	driveStick = new Joystick(DRIVESTICK_PORT);
@@ -32,6 +33,7 @@ OI::OI() {
 	coarseTrimLeft = new JoystickButton (driveStick, 5);
 	coarseTrimRight = new JoystickButton (driveStick, 6);
 	zeroGyro = new JoystickButton (driveStick, 7);
+	disableTwist = new JoystickButton (driveStick, 8);
 	extendTipper1 = new JoystickButton (driveStick, 9);
 	extendTipper2 = new JoystickButton (driveStick, 10);
 	retractTipper1 = new JoystickButton (driveStick, 11);
@@ -67,6 +69,7 @@ OI::OI() {
 	coarseTrimLeft->WhenPressed(new TrimGyro(TrimGyro::coarseLeft));
 	coarseTrimRight->WhenPressed(new TrimGyro(TrimGyro::coarseRight));
 	zeroGyro->WhenPressed(new TrimGyro(TrimGyro::zero));
+	disableTwist->WhenPressed(new ToggleTwist());
 	extendTipper1->WhenPressed(new MoveTipper(Tipper::extend));
 	extendTipper2->WhenPressed(new MoveTipper(Tipper::extend));
 	retractTipper1->WhenPressed(new MoveTipper(Tipper::retract));

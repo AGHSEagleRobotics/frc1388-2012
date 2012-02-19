@@ -49,3 +49,8 @@ void DriveTrainBase::zeroGyro()
 {
 	
 }
+
+void DriveTrainBase::ToggleTwistDisabled()
+{
+	
+}
