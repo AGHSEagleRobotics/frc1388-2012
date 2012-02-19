@@ -20,10 +20,10 @@ void Tipper::MoveTipper(tipperMode mode)
 	switch (mode)
 	{
 	case extend:
-		tipperMtr->Set(0.20);
+		tipperMtr->Set(0.10);
 		break;
 	case retract:
-		tipperMtr->Set(-0.20);
+		tipperMtr->Set(-0.10);
 		break;
 	case stop:
 		tipperMtr->Set(0);

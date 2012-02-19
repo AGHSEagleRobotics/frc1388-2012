@@ -19,6 +19,7 @@ private:
 	JoystickButton *coarseTrimLeft; //5
 	JoystickButton *coarseTrimRight; //6
 	JoystickButton *zeroGyro; //7
+	JoystickButton *disableTwist; //8
 	JoystickButton *extendTipper1; //9
 	JoystickButton *extendTipper2; //10
 	JoystickButton *retractTipper1; //11

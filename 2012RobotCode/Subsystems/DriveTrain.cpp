@@ -46,6 +46,8 @@ DriveTrain::DriveTrain() : DriveTrainBase()
 	
 	timer.Start();
 	
+	disableTwist = false;
+	
 //	printf("done init\n");
 }
     
@@ -62,6 +64,8 @@ void DriveTrain::mecanumDrive_Polar(float direction, float power)
 
 void DriveTrain::mecanumDrive_Cartesian(float x, float y, float rotation)
 {
+	rotation *= !disableTwist;
+	
 	// Get the angle from the Gyro
 	float angle = gyro->GetAngle();
 //	printf("rotation:%f timer:%f\n",rotation, timer.Get());
@@ -133,3 +137,7 @@ void DriveTrain::zeroGyro()
 	desiredHeading = gyro->GetAngle();
 }
 
+void DriveTrain::ToggleTwistDisabled()
+{
+	disableTwist = !disableTwist;
+}

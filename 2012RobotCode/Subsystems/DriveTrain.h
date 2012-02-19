@@ -41,6 +41,8 @@ private:
 //	Preferences *prefs;
 	manualPIDOutput *pidOut;
 	
+	bool disableTwist;
+	
 public:
 	DriveTrain();
 	virtual void InitDefaultCommand();
@@ -53,6 +55,7 @@ public:
 	virtual void fineTrimRight();
 	virtual void coarseTrimRight();
 	virtual void zeroGyro();
+	virtual void ToggleTwistDisabled();
 	
 };
 
