@@ -12,6 +12,7 @@ class MoveDown: public CommandBase {
 private:
 	Timer timer;
 	int targetslot;
+	bool waitForClear;
 public:
 	MoveDown();
 	virtual void Initialize();

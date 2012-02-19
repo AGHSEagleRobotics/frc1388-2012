@@ -11,17 +11,17 @@ ManualRange::ManualRange()
 // Called just before this Command runs the first time
 void ManualRange::Initialize() 
 {
-	
+	printf("ManualRange init\n");
 }
 
 // Called repeatedly when this Command is scheduled to run
 void ManualRange::Execute() 
 {
 	float yAxis = oi->getSliderPower();
-	float upPower = (yAxis +1 )/2;
+	float upPower = 1-((yAxis +1 )/2);
 	// shooter->SetRange is not set up to take the parameter "upPower" so the function
 	// will not work properly
-	shooter->SetRange(upPower);
+	shooter->SetRange(upPower*10);
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -76,11 +76,11 @@ void CommandBase::init() {
 #elif defined(SIMULATE) 
 	driveTrain = new DriveTrainSim();
 	ballCollection = new BallCollectionSim();
-	shooter = new ShooterSim();
+	shooter = new Shooter();
 	turret = new TurretSim(0.1,0.01,0);
 	tipper = new TipperSim();
 	fan = new FanSim();
-	vision = new Vision();
+	vision = new VisionSim();
 	elevator = new ElevatorSim();
 	
 #elif defined(KITBOT)

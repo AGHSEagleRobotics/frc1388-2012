@@ -10,10 +10,11 @@
  */
 class MoveUp: public CommandBase {
 private:
-	Timer timer;
 	int targetslot;
+	bool waitForClear;
+	bool safety;
 public:
-	MoveUp();
+	MoveUp(bool SafetyEnabled=true);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

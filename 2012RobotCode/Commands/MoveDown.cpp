@@ -10,14 +10,20 @@ MoveDown::MoveDown() {
 // Called just before this Command runs the first time
 void MoveDown::Initialize() {
 	if(elevator->isBallSlot3())
+	{
 		targetslot=2;
+		waitForClear = elevator->isBallSlot2();
+	}
 	else if(elevator->isBallSlot2())
+	{
 		targetslot=1;
+		waitForClear = elevator->isBallSlot1();
+	}
 	else if(elevator->isBallSlot1())
 		targetslot=0;
 	else targetslot=0;
 	
-	timer.Start();
+//	timer.Start();
 	//lets see of this works
 }
 
@@ -29,12 +35,30 @@ void MoveDown::Execute() {
 // Make this return true when this Command no longer needs to run execute()
 bool MoveDown::IsFinished() {
 	printf("timer:%f slot1:%i slot2:%i slot3:%i\n",timer.Get(), elevator->isBallSlot1(),elevator->isBallSlot2(),elevator->isBallSlot3());
-	if(timer.Get()<.25)
-		return false;
+//	if(timer.Get()<.15)
+//		return false;
 	if(targetslot==2)
-		return elevator->isBallSlot2();
+	{
+		if(waitForClear)
+		{
+			waitForClear = elevator->isBallSlot2();
+			return false;
+		}
+		else	
+			return elevator->isBallSlot2();
+		
+	}
 	else if(targetslot==1)
-		return elevator->isBallSlot1();
+	{
+		if(waitForClear)
+		{
+			waitForClear = elevator->isBallSlot1();
+			return false;
+		}
+		else	
+			return elevator->isBallSlot1();
+		
+	}
 	else if(targetslot==0)
 		return !elevator->isBallSlot1();
 	else return false;

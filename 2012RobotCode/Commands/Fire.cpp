@@ -1,38 +1,27 @@
 #include "Fire.h"
-#include "../SubSystems/ElevatorBase.h"
+#include "PrimeShooter.h"
+#include "MoveUp.h"
 
-Fire::Fire()
-{
-	Requires(elevator);
-}
+Fire::Fire() {
+        // Add Commands here:
+        // e.g. AddSequential(new Command1());
+        //      AddSequential(new Command2());
+        // these will run in order.
 
-// Called just before this Command runs the first time
-void Fire::Initialize()
-{
+        // To run multiple commands at the same time,
+        // use AddParallel()
+        // e.g. AddParallel(new Command1());
+        //      AddSequential(new Command2());
+        // Command1 and Command2 will run in parallel.
+
+        // A command group will require all of the subsystems that each member
+        // would require.
+        // e.g. if Command1 requires chassis, and Command2 requires arm,
+        // a CommandGroup containing them would require both the chassis and the
+        // arm
 	
-}
-// Called repeatedly when this Command is scheduled to run
-void Fire::Execute()
-{
-//	elevator->MoveUp();
-//	printf("FIRE \n");
-}
-
-// Make this return true when this Command no longer needs to run execute()
-bool Fire::IsFinished()
-{
-	return false;
-}
-
-// Called once after isFinished returns true
-void Fire::End()
-{
-	
-}
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void Fire::Interrupted()
-{
-	
+	// Two primes because it seems to work better this way(???????????)
+	AddSequential(new PrimeShooter());
+	AddSequential(new PrimeShooter());
+	AddSequential(new MoveUp(false));
 }

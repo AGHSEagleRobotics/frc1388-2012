@@ -1,24 +1,16 @@
 #ifndef FIRE_H
 #define FIRE_H
 
-#include "../CommandBase.h"
+#include "Commands/CommandGroup.h"
 
 /**
  *
  *
- * @author Jarrett
+ * @author Eagle Robotics
  */
-class Fire: public CommandBase {
-private:
-	Joystick *opsStick;
-	
-public:
+class Fire: public CommandGroup {
+public:	
 	Fire();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
 };
 
 #endif

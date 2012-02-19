@@ -26,12 +26,15 @@ void MoveElevator::Execute()
 		if (elevator->isBallSweeperArea())
 		{
 			elevator->moveElevator(mode);
-			// Review: Following code needs to be verified.
-//			do {} while (!elevator->isBallSlot1() && !elevator->isBallSlot3());
-		if (elevator->isBallSlot1())
-			elevator->moveElevator(Elevator::stop);
+			waitForClear = elevator->isBallSlot1();
 		}
+		if (elevator->isBallSlot1()&&!waitForClear)
+			elevator->moveElevator(Elevator::stop);
+		if (waitForClear&&!elevator->isBallSlot1())
+			waitForClear = false;
 	}
+	else
+		elevator->moveElevator(Elevator::stop);
 }
 
 // Make this return true when this Command no longer needs to run execute()

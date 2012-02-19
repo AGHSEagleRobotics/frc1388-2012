@@ -23,6 +23,7 @@ public:
 	virtual void MoveConveyor();
 //	virtual SendablePIDController *getTopAxelPID();
 //	virtual SendablePIDController *getBottomAxelPID();
+	virtual void SetPowerAll(float power);
 };
 
 #endif
