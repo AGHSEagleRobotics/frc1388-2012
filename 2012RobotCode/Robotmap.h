@@ -32,6 +32,8 @@
 //DEFINE THE TURRET
 
 #define TURRET_VICTOR_ID 1
+#define TURRET_LEFT_LIMIT 13
+#define TURRET_RIGHT_LIMIT 14
 
 // define the bridge control
 #define BRIDGE_CONTROL_MOTOR 2
