@@ -70,8 +70,8 @@ OI::OI() {
 	coarseTrimRight->WhenPressed(new TrimGyro(TrimGyro::coarseRight));
 	zeroGyro->WhenPressed(new TrimGyro(TrimGyro::zero));
 	disableTwist->WhenPressed(new ToggleTwist());
-	extendTipper1->WhenPressed(new MoveTipper(Tipper::extend));
-	extendTipper2->WhenPressed(new MoveTipper(Tipper::extend));
+	extendTipper1->WhileHeld(new MoveTipper(Tipper::extend));
+	extendTipper2->WhileHeld(new MoveTipper(Tipper::extend));
 	retractTipper1->WhenPressed(new MoveTipper(Tipper::retract));
 	retractTipper2->WhenPressed(new MoveTipper(Tipper::retract));
 //opStick buttons
