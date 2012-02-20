@@ -16,7 +16,8 @@ public:
 	typedef enum tipperMode {
 			extend,
 			retract,
-			stop
+			stop,
+			holdOut
 		};
 	
 	TipperBase();

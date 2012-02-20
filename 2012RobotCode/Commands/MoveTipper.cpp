@@ -20,6 +20,8 @@ void MoveTipper::Execute()
 {
 	tipper->MoveTipper(mode);
 	
+	if (mode == Tipper::extend && tipper->IsExtended())
+		tipper->MoveTipper(Tipper::stop);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -30,7 +32,7 @@ bool MoveTipper::IsFinished()
 	switch (mode)
 	{
 	case Tipper::extend:
-		return tipper->IsExtended();
+		return false;
 	case Tipper::retract:
 		return tipper->IsRetracted();
 	case Tipper::stop:
