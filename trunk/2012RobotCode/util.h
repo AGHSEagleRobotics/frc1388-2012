@@ -11,6 +11,12 @@
  * NOTE: scale and max are defaulted to 1
  */
 float deadband(float input, float range, float scale=1.0, float max=1.0);
+void TracePrint(unsigned long lTraceFlags, const char *szFormat, ...);
+extern unsigned long glTraceEnableFlags;
+
+#define TRACE_VISION	0x00000001
+#define TRACE_AUTOAIM	0x00000002
+#define TRACE_TURRET	0x00000004
 
 
 class manualPIDOutput : public PIDOutput

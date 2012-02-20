@@ -1,5 +1,6 @@
 #include "CommandBase.h"
 #include "RobotMap.h"
+#include "Util.h"
 #include "Subsystems/DriveTrain.h"
 //#include "Commands/Scheduler.h"
 #include "Commands/Command.h"
@@ -52,6 +53,8 @@ ElevatorBase* CommandBase::elevator = NULL;
 
 
 void CommandBase::init() {
+	glTraceEnableFlags = 0xffffffff;
+	
     // Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
 
@@ -77,10 +80,10 @@ void CommandBase::init() {
 	driveTrain = new DriveTrainSim();
 	ballCollection = new BallCollectionSim();
 	shooter = new Shooter();
-	turret = new TurretSim(0.1,0.01,0);
+	turret = new Turret();
 	tipper = new TipperSim();
 	fan = new FanSim();
-	vision = new VisionSim();
+	vision = new Vision();
 	elevator = new ElevatorSim();
 	
 #elif defined(KITBOT)

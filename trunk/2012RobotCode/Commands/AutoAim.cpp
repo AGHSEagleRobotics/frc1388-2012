@@ -6,8 +6,8 @@ AutoAim::AutoAim()
 {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
-//	Requires(turret);
-//	Requires(vision);
+	Requires(turret);
+//	Requires(vision)
 	lastPosition = -99;
 	nextRunTime = 0;
 }
@@ -22,13 +22,16 @@ void AutoAim::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void AutoAim::Execute()
 {
-	if(nextRunTime > Timer::GetFPGATimestamp())
-		return;
+	printf("AutoAim::Exec\n");
+	
+//	if(nextRunTime > Timer::GetFPGATimestamp())
+//		return;
 	
 	// the Axis Camera field of vierw is 47 degrees
 //	double angle = 0;
 	double xDistance = 0;
 	vision->particleAnalysis();
+	printf("Part ana complete\n");
 	int targets = vision->getNumberOfTargets();
 	printf("NumTargets=%d\n", targets);
 	if (targets != 0)
@@ -53,15 +56,15 @@ void AutoAim::Execute()
 //		angle = -angle;
 //		angle = max(-0.3, min(0.3, angle));
 //		turret->TurnRelative(angle);
-		if(lastPosition < -1 || fabs(lastPosition - xDistance) < 0.005)
+//		if(lastPosition < -1 || fabs(lastPosition - xDistance) < 0.005)
 		{
 			turret->Enable();
 			turret->SetErrorTerm(xDistance);
 //			nextRunTime = Timer::GetFPGATimestamp() + 0.05;
 		}
-		else
+//		else
 //			nextRunTime = Timer::GetFPGATimestamp() + 0.05;
-		
+//		
 		lastPosition = xDistance;
 	}
 	else

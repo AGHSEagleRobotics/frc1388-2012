@@ -28,9 +28,10 @@ public:
 	virtual void InitDefaultCommand();
 	virtual void SetErrorTerm(double error);
 	virtual void setMotor(float xAxis) {}
-	bool isLlimit () { return false;}
-	bool isRlimit (){return false;}
-	float getMotor (){return 0;}
+	virtual bool isLlimit () { return false;}
+	virtual bool isRlimit (){return false;}
+	virtual float getMotor (){return 0;}
+	virtual void DeltaPID(float dP, float dI, float dD) {}
 };
 
 #endif

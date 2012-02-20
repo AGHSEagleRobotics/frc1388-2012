@@ -10,5 +10,4 @@
 
 // Define a print command for debug messages
 #define printDebug(_message_) printf("%s",(DEBUG_MODE ? _message_ "\n" : ""))
-
 #endif

@@ -4,7 +4,7 @@
 #include "WPILib.h"
 
 class Shooter: public ShooterBase {
-private:
+public:
 	Victor *topAxel;
 	Victor *bottomAxel;
 	Encoder *topAxelEncoder;

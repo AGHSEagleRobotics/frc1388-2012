@@ -14,9 +14,23 @@ DriveTrain::DriveTrain() : DriveTrainBase()
 //	printf("init robotDrive\n");
 	drive = new RobotDrive(frontLeft,backLeft,frontRight,backRight);
 
+#elif defined(MURPHY)
+	
+//	printf("Init the CAN\n");
+	
+	frontLeft = new CANJaguar(5);
+	backLeft = new CANJaguar(6);
+	frontRight = new CANJaguar(4);
+	backRight = new CANJaguar(2);
+	
+//	printf("init robotDrive\n");
+	drive = new RobotDrive(frontLeft,backLeft,frontRight,backRight);
+	
 #elif defined(KITBOT)	
 //	 NOTE: This is modified from the original to fit the kitbot
 	drive = new RobotDrive(2, 1, 3, 4);
+	
+	
 #endif	
 
 	drive->SetSafetyEnabled(false);
@@ -32,7 +46,7 @@ DriveTrain::DriveTrain() : DriveTrainBase()
 //	float p = prefs->GetFloat("gyro_pid_p",0.005);
 //	float i = prefs->GetFloat("gyro_pid_i");
 //	float d = prefs->GetFloat("gyro_pid_d");
-	gyroHeadingPID = new SendablePIDController(0.01,0,0,gyro,pidOut);
+	gyroHeadingPID = new SendablePIDController(0.0075,0,0,gyro,pidOut);
 	// Review: Verify lastest code
 //	printf("smartdashboard stuffs\n");
 	SmartDashboard::GetInstance()->PutData("gyroHeadingPID", gyroHeadingPID);
@@ -69,6 +83,7 @@ void DriveTrain::mecanumDrive_Cartesian(float x, float y, float rotation)
 	// Get the angle from the Gyro
 	float angle = gyro->GetAngle();
 //	printf("rotation:%f timer:%f\n",rotation, timer.Get());
+	printf("x:%f y:%f rot:%f timer:%f\n",x,y,rotation,timer.Get());
 	if (rotation!=0)
 	{
 		drive->MecanumDrive_Cartesian(x,y,rotation,angle);

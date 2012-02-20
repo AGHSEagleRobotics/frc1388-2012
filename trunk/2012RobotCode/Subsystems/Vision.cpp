@@ -1,8 +1,12 @@
 #include "Vision.h"
+#include "../Util.h"
 #include "../Robotmap.h"
 
+#undef DEBUG_MODE
+#define DEBUG_MODE true
+
 Vision::Vision() : VisionBase() {
-	printDebug("Initializing Camera Settings.");
+	TracePrint(TRACE_VISION, "Initializing Camera Settings.");
 	
 	// Get an instance of the camera
 	AxisCamera &camera = AxisCamera::GetInstance(CAMERA_IP);
@@ -14,8 +18,7 @@ Vision::Vision() : VisionBase() {
 	camera.WriteMaxFPS(CAMERA_FPS);
 	camera.WriteColorLevel(CAMERA_COLOR_LEVEL);
 	
-	
-	printDebug("Done Configuring Camera.");
+	TracePrint(TRACE_VISION, "Done Configuring Camera.");
 	
 	particles = NULL;
 	
@@ -30,22 +33,25 @@ void Vision::InitDefaultCommand() {
 
 int Vision::particleAnalysis()
 {
+	printf("Vision::particleAnalysis\n");
 	// Get an instance of the Axis Camera
 	AxisCamera &camera = AxisCamera::GetInstance(CAMERA_IP);
 	
+	TracePrint(TRACE_VISION, "check fresh\n");
 	// check if there is a new image
 	if (camera.IsFreshImage())
 	{
+		TracePrint(TRACE_VISION, "get image\n");
 		// Get the Image
 		ColorImage *colorImage = camera.GetImage();
-//		printf("colorImage is %s\n", colorImage ? "not null" : "null");
+		TracePrint(TRACE_VISION, "colorImage is %s\n", colorImage ? "not null" : "null");
 		BinaryImage *binImage = colorImage->ThresholdRGB(COLOR_THRESHOLD);
-//		printf("binImage is %s\n", binImage ? "not null" : "null");
+		TracePrint(TRACE_VISION, "binImage is %s\n", binImage ? "not null" : "null");
 		
 		if(!colorImage || !binImage)
 			return -1;
 		
-		printDebug("Getting Particle Analysis Report.");
+		TracePrint(TRACE_VISION, "Getting Particle Analysis Report.");
 		if (particles)
 		{
 			delete particles;
@@ -53,35 +59,45 @@ int Vision::particleAnalysis()
 		particles = binImage->GetOrderedParticleAnalysisReports();
 		if(!particles)
 		{
-			printDebug("NULL PARTICLES");
+			TracePrint(TRACE_VISION, "NULL PARTICLES");
 			return -1;
 		}
 		if(!particles->empty())
 		{
-			printDebug("Stepping through particle report to remove particles with area too small.");
-			
+			TracePrint(TRACE_VISION, "Stepping through particle report to remove particles with area too small (total %d particles).\n", particles->size());
+
 			int maxHeight = 0, maxIndex = 0;
-			
+
 			// Step through the particles and elimate any that are too small
 			for (int i = 0; i<(int)particles->size(); i++) 
 			{
+				TracePrint(TRACE_VISION, "Particle %d:\n", i);
+				TracePrint(TRACE_VISION, "area %.4lf\n", particles->at(i).particleArea);
+				
 				if(particles->at(i).particleArea<MIN_PARTICLE_AREA)
 				{
+					TracePrint(TRACE_VISION, "Particle too small, erasing... ");
+					
 					// Erase the current particle from view
 					particles->erase(particles->begin()+i);
 					
 					// Because erasing an element actually adjusts all elements
 					// after the current one, we need to bump <tt>i</tt> down one
 					i--;
+					TracePrint(TRACE_VISION, "... erased.\n");
 				}
-				
-				if (particles->at(i).center_mass_y>maxHeight) {
-					maxIndex = i;
-					maxHeight = particles->at(i).center_mass_y;
+				else
+				{
+					TracePrint(TRACE_VISION, "Checking height...");
+					if (particles->at(i).center_mass_y>maxHeight) {
+						maxIndex = i;
+						maxHeight = particles->at(i).center_mass_y;
+					}
+					TracePrint(TRACE_VISION, "... checked\n");
 				}
-				
 			}
-		}else 
+		}
+		else 
 		{
 			targetParticle.center_mass_x_normalized = 0;
 		}
