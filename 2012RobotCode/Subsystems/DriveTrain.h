@@ -20,6 +20,11 @@ private:
 	CANJaguar *backLeft;
 	CANJaguar *frontRight;
 	CANJaguar *backRight;
+#elif defined(MURPHY)
+	CANJaguar *frontLeft;
+	CANJaguar *backLeft;
+	CANJaguar *frontRight;
+	CANJaguar *backRight;
 #endif
 
 	// Create a variable for the main robot drive

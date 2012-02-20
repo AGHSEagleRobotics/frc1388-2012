@@ -12,7 +12,46 @@ private:
 	Joystick *opStick;
 	Joystick *buttonStick;
 
-//Define driveStick buttons 
+	JoystickButton *driveButton1;
+	JoystickButton *driveButton2;
+	JoystickButton *driveButton3;
+	JoystickButton *driveButton4;
+	JoystickButton *driveButton5;
+	JoystickButton *driveButton6;
+	JoystickButton *driveButton7;
+	JoystickButton *driveButton8;
+	JoystickButton *driveButton9;
+	JoystickButton *driveButton10;
+	JoystickButton *driveButton11;
+	JoystickButton *driveButton12;
+	
+	JoystickButton *opButton1;
+	JoystickButton *opButton2;
+	JoystickButton *opButton3;
+	JoystickButton *opButton4;
+	JoystickButton *opButton5;
+	JoystickButton *opButton6;
+	JoystickButton *opButton7;
+	JoystickButton *opButton8;
+	JoystickButton *opButton9;
+	JoystickButton *opButton10;
+	JoystickButton *opButton11;
+	JoystickButton *opButton12;
+	
+	JoystickButton *buttonButton1;
+	JoystickButton *buttonButton2;
+	JoystickButton *buttonButton3;
+	JoystickButton *buttonButton4;
+	JoystickButton *buttonButton5;
+	JoystickButton *buttonButton6;
+	JoystickButton *buttonButton7;
+	JoystickButton *buttonButton8;
+	JoystickButton *buttonButton9;
+	JoystickButton *buttonButton10;
+	JoystickButton *buttonButton11;
+	JoystickButton *buttonButton12;
+/*
+	//Define driveStick buttons 
 	JoystickButton *autoLevel; //2
 	JoystickButton *fineTrimLeft; //3
 	JoystickButton *fineTrimRight; //4
@@ -44,7 +83,7 @@ private:
 	JoystickButton *ballSweepIn; //5
 	JoystickButton *ballSweepOff; //6
 	JoystickButton *ballSweepOut; //7
-
+*/
 	
 public:
 	OI();

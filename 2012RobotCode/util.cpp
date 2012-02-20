@@ -1,5 +1,8 @@
+#include <stdio.h>
 #include "util.h"
 #include "math.h"
+
+unsigned long glTraceEnableFlags = 0;
 
 float deadband(float input, float deadbandRange, float scale, float max)
 {
@@ -27,4 +30,15 @@ void manualPIDOutput::PIDWrite(float output)
 float manualPIDOutput::getValue()
 {
 	return value;
+}
+
+void TracePrint(unsigned long lTraceFlags, const char *szFormat, ...)
+{
+	if(lTraceFlags & glTraceEnableFlags)
+	{
+		va_list arg;
+		va_start(arg, szFormat);
+		vprintf(szFormat, arg);
+		va_end(arg);
+	}
 }

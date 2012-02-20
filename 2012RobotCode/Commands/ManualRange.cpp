@@ -18,10 +18,12 @@ void ManualRange::Initialize()
 void ManualRange::Execute() 
 {
 	float yAxis = oi->getSliderPower();
-	float upPower = 1-((yAxis +1 )/2);
+//	float upPower = 1-((yAxis +1 )/2);
+//	printf("upPower: %.2f\n", upPower);
 	// shooter->SetRange is not set up to take the parameter "upPower" so the function
 	// will not work properly
-	shooter->SetRange(upPower*10);
+	printf("range: %.2f\n", yAxis);
+	shooter->SetRange(yAxis*10);
 }
 
 // Make this return true when this Command no longer needs to run execute()

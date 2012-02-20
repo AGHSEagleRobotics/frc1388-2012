@@ -21,7 +21,7 @@ private:
 	static const AxisCamera::Resolution_t CAMERA_LOW_RESOLUTION = AxisCamera::kResolution_320x240;
 	static const AxisCamera::Resolution_t CAMERA_HIGH_RESOLUTION = AxisCamera::kResolution_640x480;
 	static const int CAMERA_COMPRESSION = 30;
-	static const int CAMERA_BRIGHTNESS = 25;
+	static const int CAMERA_BRIGHTNESS = 50;
 	static const int CAMERA_FPS = 15;
 	static const int CAMERA_COLOR_LEVEL = 75;
 	static const AxisCamera::WhiteBalance_t CAMERA_WHITE_BALANCE = AxisCamera::kWhiteBalance_FixedFlourescent1; 
@@ -29,7 +29,7 @@ private:
 	// Testing shows that Exposure level is persistant through power cycles.
 //	static const int CAMERA_EXPOSURE_LEVEL = 0; 
 	
-#define COLOR_THRESHOLD 0,0,50,255,0,0
+#define COLOR_THRESHOLD 0,200,200,255,0,255
 	
 	// Varialbe to store the rectangle mathces
 	vector<ParticleAnalysisReport> *particles;
