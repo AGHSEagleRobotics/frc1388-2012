@@ -76,8 +76,8 @@ OI::OI() {
 	driveButton6->WhenPressed(new TrimGyro(TrimGyro::coarseRight));
 	driveButton7->WhenPressed(new TrimGyro(TrimGyro::zero));
 	driveButton8->WhenPressed(new ToggleTwist());
-	driveButton9->WhenPressed(new MoveTipper(Tipper::extend));
-	driveButton10->WhenPressed(new MoveTipper(Tipper::extend));
+	driveButton9->WhileHeld(new MoveTipper(Tipper::extend));
+	driveButton10->WhileHeld(new MoveTipper(Tipper::extend));
 	driveButton11->WhenPressed(new MoveTipper(Tipper::retract));
 	driveButton12->WhenPressed(new MoveTipper(Tipper::retract));
 
@@ -119,7 +119,8 @@ OI::OI() {
 	buttonButton7->WhileHeld(new BallCollect());
 	buttonButton7->WhenReleased(new NoBallColletion());
 //	buttonButton8
-	buttonButton9->WhenPressed (new AutoLevel());
+	buttonButton9->WhileHeld(new AutoCollect());
+//	->WhenPressed (new AutoLevel());
 //	buttonButton10
 //	buttonButton11
 //	buttonButton12
@@ -222,7 +223,7 @@ float OI::getSliderPower()
 #if defined (SIMULATE)
 	yAxis = max(0 , -opStick->GetAxis(Joystick::kYAxis) * 5);
 #else
-	yAxis = buttonStick->GetAxis(Joystick::kYAxis);
+	yAxis = -buttonStick->GetAxis(Joystick::kYAxis)*4;
 #endif
 	return yAxis;
 }

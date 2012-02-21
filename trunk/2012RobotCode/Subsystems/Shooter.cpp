@@ -51,9 +51,22 @@ void Shooter::SetRange(float distance)
 	// use the distance (feet) to calculate the rpm of the top and bottom axel to
 	// achieve the proper velocity to make a basket
 	speed = ((m * distance) + b);// / fps_to_rpm;
-	printf("speed: %.2f\n", speed);
-	SetTopAxel (speed);
-	SetBottomAxel (-speed);
+	if(speed > 1)
+	{
+		printf("Shooter speed: %.2f\n", speed);
+		SetTopAxel (speed);
+		SetBottomAxel (-speed);
+		pidTopAxel->Enable();
+		pidBottomAxel->Enable();
+	}
+	else
+	{
+		printf("Shooter disabled\n");
+		pidTopAxel->Disable();
+		pidBottomAxel->Disable();
+		topAxel->Set(0);
+		bottomAxel->Set(0);
+	}
 }
 
 void Shooter::TopAxelPID()

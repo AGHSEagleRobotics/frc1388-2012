@@ -27,6 +27,7 @@ public:
 	virtual void coarseTrimRight();
 	virtual void zeroGyro();
 	virtual void ToggleTwistDisabled();
+	virtual float GetGyroAngle();
 };
 
 #endif
