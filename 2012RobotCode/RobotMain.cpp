@@ -28,10 +28,8 @@ private:
 	virtual void RobotInit() {
 		CommandBase::init();
 		driveWithJoystick = new DriveWithJoystick();
-//		runTheFan = new RunTheFan();
-//		autoBallCollect = new AutoCollect();
-//		Review: Confirm if the fan runs
-//		runTheFan->Start();
+		RunTheFan *runTheFan = new RunTheFan();
+		runTheFan->Start();
 	}
 	
 	virtual void AutonomousInit() {

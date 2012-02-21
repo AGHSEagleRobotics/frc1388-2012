@@ -54,3 +54,8 @@ void DriveTrainBase::ToggleTwistDisabled()
 {
 	
 }
+
+float DriveTrainBase::GetGyroAngle()
+{
+	return 0;
+}

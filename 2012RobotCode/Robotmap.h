@@ -1,8 +1,8 @@
 #ifndef ROBOTMAP_H
 #define ROBOTMAP_H
 
-//#define COMPETITION
-#define SIMULATE
+#define COMPETITION
+//#define SIMULATE
 //#define KITBOT
 //#define MURPHY
 

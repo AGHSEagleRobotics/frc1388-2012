@@ -13,6 +13,10 @@ DriveTrain::DriveTrain() : DriveTrainBase()
 	
 //	printf("init robotDrive\n");
 	drive = new RobotDrive(frontLeft,backLeft,frontRight,backRight);
+	drive->SetInvertedMotor(RobotDrive::kFrontLeftMotor,true);
+	drive->SetInvertedMotor(RobotDrive::kFrontRightMotor,true);
+	drive->SetInvertedMotor(RobotDrive::kRearLeftMotor,true);
+	drive->SetInvertedMotor(RobotDrive::kRearRightMotor,true);
 
 #elif defined(MURPHY)
 	
@@ -79,11 +83,16 @@ void DriveTrain::mecanumDrive_Polar(float direction, float power)
 void DriveTrain::mecanumDrive_Cartesian(float x, float y, float rotation)
 {
 	rotation *= !disableTwist;
+#if defined(KITBOT)
+	x /= 3;
+	y /= 3;
+	rotation /= 3;
+#endif	
 	
 	// Get the angle from the Gyro
 	float angle = gyro->GetAngle();
 //	printf("rotation:%f timer:%f\n",rotation, timer.Get());
-	printf("x:%f y:%f rot:%f timer:%f\n",x,y,rotation,timer.Get());
+//	printf("x:%f y:%f rot:%f timer:%f\n",x,y,rotation,timer.Get());
 	if (rotation!=0)
 	{
 		drive->MecanumDrive_Cartesian(x,y,rotation,angle);
@@ -155,4 +164,9 @@ void DriveTrain::zeroGyro()
 void DriveTrain::ToggleTwistDisabled()
 {
 	disableTwist = !disableTwist;
+}
+
+float DriveTrain::GetGyroAngle()
+{
+	return gyro->GetAngle();
 }
