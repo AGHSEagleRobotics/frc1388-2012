@@ -1,6 +1,7 @@
 #include "AutoAim.h"
 #include "../Subsystems/TurretBase.h"
 #include "../Subsystems/VisionBase.h"
+#include "../util.h"
 #include <math.h>
 AutoAim::AutoAim()
 {
@@ -23,6 +24,14 @@ void AutoAim::Initialize()
 void AutoAim::Execute()
 {
 	printf("AutoAim::Exec\n");
+	
+	float xAxis = deadband(oi->getOpStickXAxis(),0.3);
+	if (xAxis)
+	{
+		turret->Disable();
+		turret->setMotor(xAxis);
+		return;
+	}
 	
 //	if(nextRunTime > Timer::GetFPGATimestamp())
 //		return;
@@ -47,7 +56,7 @@ void AutoAim::Execute()
 	//		}
 	//	}
 		
-		vision->setTargetParticle(0);
+//		vision->setTargetParticle(0);
 		
 		xDistance = vision->getNormalizedXPosition();
 		printf("xnorm = %.3lf\n", xDistance);
@@ -71,6 +80,7 @@ void AutoAim::Execute()
 	{
 		lastPosition = -99;
 		turret->SetErrorTerm(0);
+		turret->Disable();
 //		nextRunTime = Timer::GetFPGATimestamp() + 0.05;
 	}
 }

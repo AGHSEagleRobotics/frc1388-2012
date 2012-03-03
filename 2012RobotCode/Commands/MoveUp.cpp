@@ -5,7 +5,7 @@ MoveUp::MoveUp(bool SafetyEnabled) {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
 	Requires(elevator);
-	SetTimeout(3);
+	SetTimeout(1.5);
 	safety = SafetyEnabled;
 }
 

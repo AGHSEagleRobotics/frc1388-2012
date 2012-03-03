@@ -66,7 +66,7 @@ int Vision::particleAnalysis()
 		{
 			TracePrint(TRACE_VISION, "Stepping through particle report to remove particles with area too small (total %d particles).\n", particles->size());
 
-			int maxHeight = 0, maxIndex = 0;
+			int maxHeight = 0, maxIndex = -1;
 
 			// Step through the particles and elimate any that are too small
 			for (int i = 0; i<(int)particles->size(); i++) 
@@ -96,6 +96,8 @@ int Vision::particleAnalysis()
 					TracePrint(TRACE_VISION, "... checked\n");
 				}
 			}
+			if (maxIndex!=-1)
+				targetParticle = particles->at(maxIndex);
 		}
 		else 
 		{
@@ -150,7 +152,10 @@ int Vision::getYPosition()
 float Vision::getDistance()
 {
 	// This relationship was determined using LoggerPro
-	return 7327.0/(float)targetParticle.boundingRect.height;
+	if(!targetParticle.boundingRect.height)
+		return 7327.0/(float)targetParticle.boundingRect.height;
+	else 
+		return 0;
 }
 
 void Vision::setHighRes()
