@@ -13,6 +13,13 @@ From Review Session:
 -Fire needs to be updated.
 -Add moveup and movedown commands.
 -Add command "ManualTurretControl" manual control will override autoAim
--Observe and implement how inturrupting functions work and how manual/auto
+-Observe and implement how inturrupting commands work and how manual/auto
  will exchange.
--
+
+ 
+ 
+From Post-Build Review:
+-Check timeouts and Prime and MoveUp
+-Do we want fire to be just a move up and force operator to prime?
+-Review comment in autocollect regarding parallel commands
+-Verify Manual Turret control during auto aim

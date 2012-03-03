@@ -5,7 +5,7 @@ PrimeShooter::PrimeShooter() {
 	// Use requires() here to declare subsystem dependencies
 	// eg. requires(chassis);
 	Requires(elevator);
-	SetTimeout(5);
+	SetTimeout(2);
 }
 
 // Called just before this Command runs the first time
